@@ -1,0 +1,16 @@
+<!-- app.component.html -->
+<div>
+    <!-- <app-kundli-chart [planets]="planets1" [title]="'Kundli Chart 1'"></app-kundli-chart>
+    <app-kundli-chart [planets]="planets2" [title]="'Kundli Chart 2'"></app-kundli-chart> -->
+    <button (click)="openCustomModal()">Open Modal</button>
+    <!-- Conditionally render the modal using *ngIf -->
+    <app-date-picker *ngIf="isModalOpen" (closeDialog)="closeModal()">
+
+    </app-date-picker>
+
+    <p>Selected Date: {{ dateTime.getDate() }}</p>
+    <p>Selected Date: {{ dateTime.getMonth() }}</p>
+    <p>Selected Date: {{ dateTime.getYear() }}</p>
+    <p>Selected Date: {{ message }}</p>
+
+</div>

@@ -1,0 +1,24 @@
+<div>
+    <div style="border-radius: 5px;border-width: .5px;border-color: gainsboro;border-style: solid;padding: 10px;">
+        <h5 style="font-weight: 600;">मुंथा भाव : {{munthBhav}}</h5>
+        <p>{{ desc[munthBhav-1].desc }}</p>
+    </div>
+    <h6 style="font-weight: 600;margin-top: 20px;">वर्षफल भविष्यफल</h6>
+
+    <div *ngFor="let item of arrayList; let i = index">
+        <div
+            style=" padding: 10px;margin-bottom: 20px; border-radius: 5px;border-width: .5px;border-color: gainsboro;border-style: solid;">
+            <p style="width: 100%;padding: 0px; margin: 0%;font-weight: 600;">
+                {{planetNamesHindi[arrayList[i].planetNo]
+                }} महादशा
+                ({{arrayList[i].startTime}} - {{arrayList[i].endTime}})</p>
+            <p style="width: 100%;padding: 0% ;margin-top: 10px;">
+                {{plaPosDetail[arrayList[i].planetNo].replace("#",arrayList[i].planetRashiBhav.toString())}} </p>
+
+            <p style="width: 100%;padding: 0px  ;margin-top: 10px;">
+                {{predictionList[arrayList[i].planetNo][arrayList[i].planetRashiBhav-1]}} </p>
+
+        </div>
+
+    </div>
+</div>

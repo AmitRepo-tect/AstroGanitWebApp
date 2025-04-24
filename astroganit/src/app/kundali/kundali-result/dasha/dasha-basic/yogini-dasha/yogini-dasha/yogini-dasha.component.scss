@@ -1,0 +1,11 @@
+.vertical-line {
+    width: 1px;
+    background-color: gray;
+    align-self: stretch;
+}
+
+.selected-item {
+    background-color: #FFFDD0;
+    /* Light pink - or use any highlight color */
+    // border-radius: 6px;
+}

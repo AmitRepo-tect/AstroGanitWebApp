@@ -1,0 +1,389 @@
+<app-header></app-header>
+<div class="container-fluid" style="display: flex;flex-direction: column;">
+
+    <app-date-picker *ngIf="isModalOpen" (closeDialog)="closeDatePlaceDialog()">
+    </app-date-picker>
+    <div class="row" style="margin-top: 30px; margin-left: 70px;margin-right: 70px;">
+
+        <div class="col-9">
+
+            <h4>Today Panchang</h4>
+            <p>As the name suggests, today panchang is a part of the Hindu Panchang or calendar, which is used to find
+                out about the auspicious timings for Muhurat in a day. The daily Panchang is used to determine the best
+                time to begin a new or propitious task.</p>
+            <div class="container-fluid"
+                style=" border: 1px; border-radius: 5px;border-color: gainsboro;border-style: solid;padding-left: 0;padding-right: 0; ">
+                <div class="container-fluid" style="background-color: bisque;display: flex; justify-content: left;">
+                    <div (click)="openDatePlaceDialog()"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;width: 94%;">
+                        <img src="assets/images/ic_swasthik.png" alt="Icon"
+                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin-left: 5px;margin-top: 10px;margin-bottom: 10px; padding: 0;">
+                        <h5 style="margin: 0; margin-left: 10px;">{{selectedDate}}</h5>
+                    </div>
+                    <div
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_backword_arrow.png" alt="Icon" (click)="decrementDate()"
+                            style="width: 30px; height: 30px; background-color: bisque; border-radius: 5px; padding: 0;margin-right: 10px;">
+                        <img src="assets/images/ic_forword_arrow.png" alt="Icon" (click)="incrementDate()"
+                            style="width: 30px; height: 30px; background-color: bisque; border-radius: 5px; margin-right: 10px; padding: 0;">
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="container-fluid" style="background-color: bisque;display: flex; justify-content: left;">
+                    <div style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;"
+                        (click)="openDatePlaceDialog()">
+                        <img src="assets/images/ic_location.png" alt="Icon"
+                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin-left: 5px;margin-top: 10px;margin-bottom: 10px; padding: 0;">
+                        <h5 style="margin: 0; margin-left: 10px;">{{selectedPlace}}</h5>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Tithi</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.tithi[0] }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Nakshatra</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.nakshtra != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.nakshtra[0] }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Karana</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.karan != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel!.karan[0] }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Paksha</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.paksha != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel!.paksha }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Yoga</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.yog != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel!.yog[0] }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Day</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel!.vara }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div
+                    style="padding-left: 15px;padding-right: 15px;padding-top: 15px;padding-bottom: 15px; background-color: #d3d3d3;">
+                    <h6 style="padding-left: 0; margin: 0;">Sun & Moon Calculations</h6>
+                </div>
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Sun Rise</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.sunRiseTime != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel!.sunRiseTime }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Sun Set</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.sunSetTime != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel!.sunSetTime }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Moon Rise</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.moonRiseAndSetTime != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel!.moonRiseAndSetTime[0] }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Moon Set</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.moonRiseAndSetTime != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.moonRiseAndSetTime[1] }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Moon Sign</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.moonSign != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.moonSign }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Ritu</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.ritu != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData.sampurnPanchangModel.ritu }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div
+                    style="padding-left: 15px;padding-right: 15px;padding-top: 15px;padding-bottom: 15px; background-color: #d3d3d3;">
+                    <h6 style="padding-left: 0; margin: 0;">Hindu Month & Year</h6>
+                </div>
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Shaka Samvat</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.shakaSamvat != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.shakaSamvat }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Vikram Samvat</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vikramSamvat != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.vikramSamvat }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Month Amanta</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.amantMonth != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.amantMonth }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Month Purnimanta</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.purnimantMonth != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.purnimantMonth }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div
+                    style="padding-left: 15px;padding-right: 15px;padding-top: 15px;padding-bottom: 15px; background-color: #d3d3d3;">
+                    <h6 style="padding-left: 0; margin: 0;">Inauspicious Timings (Ashubha Muhurat)</h6>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Rahu Kaal</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.purnimantMonth != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.ashubhMuhuratList[0] }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Yamaganda</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.purnimantMonth != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.ashubhMuhuratList[1] }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Gulika Kaal</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.purnimantMonth != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.ashubhMuhuratList[2] }}
+                        </p>
+                    </div>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div
+                    style="padding-left: 15px;padding-right: 15px;padding-top: 15px;padding-bottom: 15px; background-color: #d3d3d3;">
+                    <h6 style="padding-left: 0; margin: 0;">Auspicious Timings (Shubha Muhurat)</h6>
+                </div>
+                <hr style="margin: 0; padding: 0;">
+                <div class="row" style="padding-left: 15px;padding-right: 15px;">
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p style="padding-left: 10px; margin: 0;">Abhijit</p>
+                    </div>
+                    <div class="col-6"
+                        style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.abhijitMuhurat != null"
+                            style="padding: 0; margin: 0;">
+                            {{ panchangData!.sampurnPanchangModel.abhijitMuhurat }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3 ">
+            <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                style="width: 100%; height: 250px; object-fit: cover; margin-left: 0;">
+            <div class="col border border-secondary mt-4 " style="height: 380px;">
+                <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                    style="width: 100%; height: 120px; object-fit: cover; margin-left: 0;">
+                <h5 style="padding-top: 10px; padding-left: 10px;">Panchang</h5>
+                <div class="scroll-container" style="height: 220px;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

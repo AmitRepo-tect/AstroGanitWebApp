@@ -1,0 +1,74 @@
+<div style="display: flex;">
+    <div
+        style="border-radius: 5px;border-width: .5px;border-style: solid;border-color: gainsboro;width: 100%;height: fit-content;">
+        <div *ngFor="let item of charDashaArray; let i = index" (click)="onItemClick(i) "
+            [ngClass]="{'selected-item': selectedPos === i}">
+
+            <div style="display: flex;">
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: left;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{charDashaArray[i].planetName}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: left;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{charDashaArray[i].duration}} year
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: left;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{charDashaArray[i].startYear}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: left;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{charDashaArray[i].endYear}}
+                    </p>
+                </div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 5%; justify-content: left;">
+                    <img src="assets/images/forward-arrow.png" alt="Sample Image" width="20px" height="20px">
+                </div>
+
+            </div>
+            <hr style="margin: 0%;padding: 0%;">
+        </div>
+    </div>
+    <!-- <ng-template #notCharAnterDashaShow> -->
+    <div
+        style="border-radius: 5px;border-width: .5px;border-style: solid;border-color: gainsboro;width: 70%;margin-left: 20px;">
+        <!-- <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                {{charDashaArray[selectedPos].planetName}} {{charDashaArray[selectedPos].duration}}
+            </p>
+        </div>
+        <hr style="margin: 0%;padding: 0%;"> -->
+        <div *ngFor="let item of charDashaArray[selectedPos].charAntaraDashaList; let i = index"
+            (click)="onItemClick(i)">
+
+            <div style="display: flex;">
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: left;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{item.planetName}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: left;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{item.startDate}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: left;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{item.endDate}}
+                    </p>
+                </div>
+            </div>
+            <hr style="margin: 0%;padding: 0%;">
+        </div>
+    </div>
+    <!-- </ng-template> -->
+</div>

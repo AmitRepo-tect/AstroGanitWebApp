@@ -1,0 +1,13 @@
+<div style="width: 100%;">
+    <h6 style="font-weight: 600;">व्यक्ति विवरण</h6>
+    <div style="border-radius: 5px;border-width: .5px;border-color: gainsboro;border-style: solid;">
+        <div *ngFor="let item of personalDetailLabels; let i = index">
+            <div style="display: flex; padding: 0%;margin: 0%; ">
+                <p style="width: 100%;padding: 8px; margin: 0%;">{{personalDetailLabels[i]}} </p>
+                <p style="width: 100%;padding: 8px;margin: 0%;">{{personalDetails[i]}} </p>
+            </div>
+            <hr *ngIf="i !== personalDetailLabels.length - 1" style="padding: 0%; margin: 0%;">
+        </div>
+    </div>
+
+</div>

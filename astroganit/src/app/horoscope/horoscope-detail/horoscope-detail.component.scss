@@ -1,0 +1,32 @@
+.button-container {
+    display: flex;
+    /* Use flexbox for layout */
+    justify-content: center;
+    /* Center the buttons horizontally */
+    text-align: center;
+    height: 10vh;
+    /* Full height of the viewport */
+}
+
+/* Style for buttons */
+button {
+    margin: 10px;
+    /* Space between buttons */
+    padding: 10px 20px;
+    /* Padding inside the buttons */
+    font-size: 16px;
+    /* Font size */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    border-radius: 5px;
+    border-color: gray;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+}
+
+button.selected {
+    background-color: aquamarine;
+    color: white;
+    border: 1px solid green;
+}

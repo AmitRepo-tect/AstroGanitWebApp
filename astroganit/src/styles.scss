@@ -1,0 +1,130 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$astroganit-primary: mat.define-palette(mat.$indigo-palette);
+$astroganit-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$astroganit-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$astroganit-theme: mat.define-light-theme((
+  color: (
+    primary: $astroganit-primary,
+    accent: $astroganit-accent,
+    warn: $astroganit-warn,
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($astroganit-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.text-center{
+    text-align: center;
+}
+
+@media (max-width: 980px) {
+    body {
+      padding-top: 0;
+    }
+}
+.body-container{
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: rgb(255, 255, 255);
+}
+.footer-body{
+    
+    background-color: rgb(214, 219, 218);
+    
+}
+.box-shadow{
+    box-shadow: 0 0 4px 2px #ccc;border-radius: 10px;margin: 0 auto;
+}
+.btn-custum{
+    
+  border-radius: 30px;
+  box-shadow: 1px 1px 10px 1px #ccc;
+  display: flex;
+  margin: 6px auto 0;
+  height: 40px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  transition: .3s ease-in-out;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.nav-tabs {
+  border-bottom: 2px solid #ddd;
+  background-color: #ffffff;
+  align-items: center;
+}
+
+.nav-tabs .nav-link:hover {
+  background-color: #ffbc03;
+  border-color: #e9ecef #e9ecef #ddd;
+}
+.nav-btn-custom{
+//width: 14.28%;
+text-align: center;
+background-color: #fff;
+cursor: pointer;
+transition: all .3s ease-in-out;
+font-size: 14px;
+font-weight: 600;
+//border: .1px solid #ccc;
+}
+
+.tab-content {
+ // border: 1px solid #ddd;
+  border-top: none;
+  //padding-top: 15px;
+  background-color: #fff;
+}
+
+.tab-content .tab-pane {
+  padding-top: 15px;
+  //background-color: #f8f9fa;
+ // border: 1px solid #ddd;
+}
+
+/* Table Styles */
+.tab-content .tab-pane table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tab-content .tab-pane table th,
+.tab-content .tab-pane table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.tab-content .tab-pane table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}

@@ -1,0 +1,68 @@
+<div style="display: flex;">
+    <div style="border-radius: 5px;border-width: .5px;border-style: solid;border-color: gainsboro;width: 100%;">
+        <div *ngFor="let item of yoginiDashaList; let i = index" (click)="onItemClick(i)"
+            [ngClass]="{'selected-item': selectedPos === i}">
+
+            <div style="display: flex;">
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{yoginiDashaList[i].planetName}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{yoginiDashaList[i].duration}} year
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{yoginiDashaList[i].startYear}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{yoginiDashaList[i].endYear}}
+                    </p>
+                </div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 5%; justify-content: center;">
+                    <img src="assets/images/forward-arrow.png" alt="Sample Image" width="20px" height="20px">
+                </div>
+
+            </div>
+            <hr style="margin: 0%;padding: 0%;">
+        </div>
+    </div>
+    <!-- <ng-template #notCharAnterDashaShow> -->
+    <div
+        style="border: 0.5px solid gainsboro; border-radius: 5px; width: 100%; margin-left: 20px; height: fit-content; overflow: auto;">
+        <!-- <div style="display: flex; align-items: center; justify-content: center; padding: 0 10px;">
+            <p style="margin: 0; padding: 6px 0; text-align: center;">
+                {{yoginiDashaList[selectedPos].planetName}} {{yoginiDashaList[selectedPos].duration}}
+            </p>
+        </div>
+        <hr style="margin: 0; padding: 0;"> -->
+
+        <div *ngFor="let item of yoginiDashaList[selectedPos].antaraDashaList; let i = index" (click)="onItemClick(i)">
+            <div style="display: flex;">
+                <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 0 10px;">
+                    <p style="margin: 0; padding: 6px 0; text-align: center;">{{item.planetName}}</p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 0 10px;">
+                    <p style="margin: 0; padding: 6px 0; text-align: center;">{{item.startDate}}</p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 0 10px;">
+                    <p style="margin: 0; padding: 6px 0; text-align: center;">{{item.endDate}}</p>
+                </div>
+            </div>
+            <hr *ngIf="i < yoginiDashaList[selectedPos].antaraDashaList.length - 1" style="margin: 0; padding: 0;">
+
+        </div>
+    </div>
+
+    <!-- </ng-template> -->
+</div>

@@ -1,0 +1,54 @@
+:host {
+    transition: opacity 0.5s ease;
+}
+
+.button-container {
+    display: flex;
+    /* Use flexbox for layout */
+    justify-content: center;
+    /* Center the buttons horizontally */
+    text-align: center;
+    height: 10vh;
+    /* Full height of the viewport */
+}
+
+/* Style for buttons */
+.button-without-rounded {
+    width: 100%;
+    margin: 0px;
+    padding: 6px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 0.5px solid #FFF39A;
+    background-color: white;
+}
+
+.button-left {
+    width: 100%;
+    margin: 0;
+    padding: 6px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 0.5px solid #FFF39A;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: white;
+}
+
+.button-right {
+    width: 100%;
+    margin: 0;
+    padding: 6px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 0.5px solid #FFF39A;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: white;
+}
+
+button.selected {
+    background-color: #FFFDD0;
+    color: black;
+    border: .5px solid #FFF39A;
+}

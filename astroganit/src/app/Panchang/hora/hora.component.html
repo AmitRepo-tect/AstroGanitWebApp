@@ -1,0 +1,268 @@
+<app-header></app-header>
+<div class="container-fluid" style="display: flex;flex-direction: column;">
+    <app-date-picker *ngIf="isModalOpen" (closeDialog)="closeDatePlaceDialog()">
+    </app-date-picker>
+    <div class="row" style="margin-top: 30px; margin-left: 70px;margin-right: 70px;">
+        <div class="col-9">
+            <h1><strong>होरा</strong></h1>
+            <p>वैदिक ज्योतिष दिन के प्रत्येक घंटे को होरा के रूप में परिभाषित करता है। पाश्चात्य घड़ी की तरह ही, हिंदू
+                वैदिक पंचांग में सूर्योदय से सूर्यास्त तक शुरू होने वाले 24 होरा हैं। एक होरा एक दिन में एक घंटे की अवधि
+                का होता है और एक विशेष ग्रह द्वारा शासित होता है। इन ग्रहों पर निर्भर करता है कि होरा फायदेमंद होगा या
+                हानिकारक। किसी शुभ कार्य की योजना बनाने और कार्य को करने से जीवन पर उसका अधिकतम सकारात्मक प्रभाव पाने
+                तथा बुरे परिणामों से बचने के लिए होरा का उपयोग किया जाता है। होरा सारणी तब बनायी जाती है जब शिशु के जन्म
+                के समय उसके भविष्य का पूर्वानुमान करना हो या किसी शुभ कार्य को करने के लिए शुभ घड़ी तय कराना हो। होरा
+                सारणी किसी के भी जीवन के मजबूत व कमजोर पक्ष की पहचान करने में मदद करता है।</p>
+            <div class="container" style="background-color: blanchedalmond; border-radius: 5px; padding: 15px;">
+                <p style="text-align: left; font-size: 22px; font-family: Arial, sans-serif;">
+                    <strong> होरा के लिए दिनांक और स्थान दर्ज करें </strong>
+                </p>
+                <div class="horizontal-container">
+                    <div class="spinner-container">
+                        <div class="custom-spinner">
+                            <select id="spinner" class="spinner" [(ngModel)]="year" (change)="selectYear(year)">
+                                <option *ngFor="let year of years" [value]="year">{{ year }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="spinner-container">
+                        <div class="custom-spinner">
+                            <select id="spinner" class="spinner" [(ngModel)]="month" (change)="selectMonth(month)">
+                                <option *ngFor="let month of months" [value]="month">{{ month }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="spinner-container">
+                        <div class="custom-spinner">
+                            <select id="spinner" class="spinner" [(ngModel)]="day" (change)="selectDate(day)">
+                                <option *ngFor="let day of days" [value]="day">{{ day }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: left; font-size: 22px; font-family: Arial, sans-serif; margin-top: 10px;">
+                    <strong>Your
+                        Location</strong>
+                </p>
+                <div style="display: flex; align-items: center; justify-content: flex-start;">
+                    <div
+                        style="display: flex; justify-content: flex-start; width: 60%; border-width: 1px; border-color: yellow; border-style: solid; border-radius: 4px;">
+                        <img src="assets/images/ic_location.png" alt="Icon"
+                            style="width: 40px; height: 40px; background-color: yellow; border-radius: 4px; margin: 0; padding: 0;">
+
+
+                        <div class="spinner-container1" style="padding-bottom: 0;">
+                            <div class="custom-spinner" style="margin-top: 0;margin-bottom: 0;">
+                                <input type="text" [(ngModel)]="selectedItem" (input)="filterItem()"
+                                    placeholder="Select a Item" class="spinner-input" />
+                                <ul *ngIf="filteredItems.length > 0" class="spinner-dropdown">
+                                    <li *ngFor="let item of filteredItems" (click)="selectPlace(item)">
+                                        {{ item.place+','+item.state}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        style="background-color: yellow; width: 40%;height: 42px;   border-top: 1px solid yellow; border-left: 1px solid yellow; border-radius: 4px; box-shadow: none; margin-left: 10px; border:none;"
+                        (click)="submit()">SUBMIT</button>
+
+                </div>
+            </div>
+            <div style="display: flex; justify-content: left; margin-top: 20px; padding-left: 0;">
+                <div
+                    style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;width: 94%;">
+                    <h5 style="margin: 0;"><strong>आज का होरा</strong> {{selectedDate}}</h5>
+                </div>
+                <div style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                    <img src="assets/images/ic_backword_arrow.png" alt="Icon" (click)="decrementDate()"
+                        style="width: 30px; height: 30px;  border-radius: 5px; padding: 0;margin-right: 10px;">
+                    <img src="assets/images/ic_forword_arrow.png" alt="Icon" (click)="incrementDate()"
+                        style="width: 30px; height: 30px;  border-radius: 5px; margin-right: 0; padding: 0;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h5>दिन होरा</h5>
+                    <div style="border-width: 1px; border-radius: 5px;border-color: gray;border-style: solid;">
+                        <div style="background-color: gainsboro; padding: 0; display: flex; align-items: center;">
+                            <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">होरा</p>
+                            <p style="width: 70%; margin: 0; text-align: left;padding: 10px;">समय</p>
+                        </div>
+                        <div *ngFor="let item of panchangData?.horaResponse?.dayHoraList; let i = index">
+
+                            <hr style="margin: 0;">
+                            <div style=" padding: 0; display: flex; align-items: center;">
+                                <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">{{item.planetName}}
+                                </p>
+                                <p style="width: 70%; margin: 0; text-align: left; padding: 10px;">{{item.duration}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-6">
+                    <h5>रात होरा </h5>
+                    <div style="border-width: 1px; border-radius: 5px;border-color: gray;border-style: solid;">
+                        <div style="background-color: gainsboro; padding: 0; display: flex; align-items: center;">
+                            <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">होरा</p>
+                            <p style="width: 70%; margin: 0; text-align: left;padding: 10px;">समय</p>
+                        </div>
+                        <div *ngFor="let item of panchangData?.horaResponse?.nightHoraList; let i = index">
+
+                            <hr style="margin: 0;">
+                            <div style=" padding: 0; display: flex; align-items: center;">
+                                <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">{{item.planetName}}
+                                </p>
+                                <p style="width: 70%; margin: 0; text-align: left; padding: 10px;">{{item.duration}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <h3 style="margin-top: 30px; padding: 0;margin-left: 0;margin-right: 0;">शुभ मुहूर्त 2025 </h3>
+            <div class="container" style="padding: 0;">
+                <div class="horizontal-container" style=" margin-top: 10px;">
+                    <div style=" width: 50%; background-color: aqua; border-radius: 8px; border-color: blue;
+                    border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center;
+                    height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025 </p>
+                    </div>
+                    <div
+                        style="width: 50%; background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
+                    </div>
+                </div>
+                <div class="horizontal-container" style=" margin-top: 15px; ">
+                    <div style=" width: 50%; background-color: aqua; border-radius: 8px; border-color: blue;
+                    border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center;
+                    height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
+                    </div>
+                    <div
+                        style="width: 50%; background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
+                    </div>
+                </div>
+                <div class="horizontal-container" style="margin-top: 15px; ">
+                    <div style=" width: 50%; background-color: aqua; border-radius: 8px; border-color: blue;
+                    border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center;
+                    height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
+                    </div>
+                    <div
+                        style="width: 50%; background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
+                    </div>
+                </div>
+            </div>
+            <h3 style="margin-top: 30px;"><strong>होरा की गणना</strong></h3>
+            <hr>
+            <div style="display: flex; flex-direction: column; justify-content: space-between; height: 200px;">
+
+                <P>
+
+                    किसी व्यक्ति के जन्म या जन्म कुंडली की गणना होरा के आधार पर की जाती है। अगर आप यह जानना चाहते हैं कि
+                    आपका जन्म किस होरा में हुआ है तो हम आपको बता दें कि जातक सूर्य होरा या चंद्र होरा में ही जन्म लेता
+                    है। जब दिन के समय के होरों पर विचार किया जाता है तो सूर्य, शुक्र और बृहस्पति पर अधिक ध्यान दिया जाता
+                    है, क्योंकि इन्हें मजबूत ग्रह माना जाता है। जबकि रात के समय के होरों की गणना करते समय चंद्रमा, मंगल
+                    और शनि पर ध्यान दिया जाता है। ये ग्रह रात में शक्तिशाली होते हैं ऐसा माना जाता है। इनके अलावा, जन्म
+                    के समय के आधार पर बुध का प्रभाव भिन्न होता है। यह तब शक्तिशाली होता है जब जन्म का समय सूर्योदय या
+                    सूर्यास्त के करीब होता है, जन्म का समय अलग होने पर इसका प्रभाव सामान्य रहता है।
+
+                </P>
+                <p>
+                    किसी भी जातक का जन्म बारह राशियों में से किसी एक में ही होता है। प्रत्येक राशि को राशिचक्र में 30
+                    अंश का मान दिया गया है। इस अंश को आगे दो हिस्सों में विभाजित किया जाता है, प्रत्येक को 15 अंश पर।
+                    वृष, कर्क, कन्या, वृश्चिक, मकर और मीन राशियों के जातक रात्रि होरा के होते हैं और चंद्रमा द्वारा
+                    शासित होते हैं। तो वहीं मेष, मिथुन, सिंह, तुला, धनु और कुंभ राशि के जातक दिन होरा के होते हैं और
+                    सूर्य द्वारा शासित होता है।
+                </p>
+                <p>
+                    इन सभी विशेषताओं के आधार पर सारणी तैयार की जाती है और एक बार ग्रहों के घंटे या होरों का विश्लेषण कर
+                    लेने के बाद यह विभिन्न कार्यों को करने के लिए दिन में शुभ और अशुभ समय के अनुसार परिणाम देते हैं।</p>
+                <h3>एक होरा में प्रत्येक ग्रह का महत्व </h3>
+                <p>
+                    प्रत्येक होरा की गणना दिन की योजना बनाने के लिए ग्रहों की चाल के आधार पर की जाती है और होरा 24 घंटे
+                    के समय चक्र में किन चीजों को किया जा सकता है, यह बताता है। प्रत्येक ग्रह एक विशेष प्रकार के लक्ष्य
+                    को प्राप्त करने में सहयोग करते हैं और लक्ष्य का अनुसरण किया जाए तो यह सर्वोपरि परिणाम देते हैं।</p>
+                <p>
+                    सूर्य - प्रशासनिक, स्वास्थ्य, खेल, सरकारी काम <br>
+                    चंद्रमा - घरेलू गृहस्थी, जनसंपर्क, मातृ देखभाल, सामाजिक सेवाएं <br>
+                    बुध - शिक्षा, सूचना प्रौद्योगिकी, संचार, व्यवसाय <br>
+                    शुक्र- साहित्य, सामाजिक सेवाएं, घरेलू गृहस्थी, कला, मनोरंजन <br>
+                    मंगल - खेल, सैन्य, शारीरिक कार्य <br>
+                    बृहस्पति - शिक्षा, वित्तीय, धार्मिक, यात्रा, मातृ <br>
+                    शनि - व्यवसाय, घरेलू गृहस्थी, सफाई <br>
+                </p>
+                <p>शुक्र और बृहस्पति ग्रहों के होरा में जातक यदि कोई कार्य करता है तो उसे उस कार्य का परिणाम उसके जन्म
+                    कुंडली के अनुसार प्राप्त होगा। इसके विपरीत, शनि और मंगल ग्रह के होरा में कार्य करते समय व्यक्ति को
+                    सतर्क रहना चाहिए, क्योंकि ये किसी व्यक्ति के जीवन में विभिन्न मोर्चों पर बाधा, दबाव, तनाव और चिंता
+                    को अपने साथ लेकर आते हैं।</p>
+            </div>
+
+        </div>
+        <div class="col-3 ">
+            <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                style="width: 100%; height: 250px; object-fit: cover; margin-left: 0;">
+            <div class="col border border-secondary mt-4 " style="height: 380px;">
+                <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                    style="width: 100%; height: 120px; object-fit: cover; margin-left: 0;">
+                <h5 style="padding-top: 10px; padding-left: 10px;">Panchang</h5>
+                <div class="scroll-container" style="height: 220px;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

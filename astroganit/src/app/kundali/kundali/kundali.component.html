@@ -1,0 +1,135 @@
+<app-header></app-header>
+
+
+<div class="body-container">
+    <h1 class="text-center"> Free Kundli Online</h1>
+    <h4 class="text-center"> Get instant & accurate, Janam Kundli</h4>
+    <h5 class="mt-5"><b>Free Kundli Online - Get Your Detailed Birth Chart with Predictions</b></h5>
+    <p>Looking for your free Kundli from expert astrologers? Then you have come to the right place. The online free
+        kundali available on Astrotalk is a 100% free and authentic free Kundli that has been prepared after consulting
+        more than 50 expert astrologers on board. The free kundli is such that it can give you a glimpse into various
+        aspects of your life such as your career, love life, marriage, business and much more. The online kundli
+        prepared by the free Kundali software here is no less than any traditional Kundli and can also be used for
+        purposes like matching making, kundali matching for marriage or simply making future predictions.</p>
+    <div class="header">
+        <h3>New Kundali</h3>
+    </div>
+    <div class="container box-shadow p-3">
+        <form [formGroup]="kundaliform" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-md-6">
+
+                    <div class="m-2">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" formControlName="name"
+                            placeholder="Enter Name">
+                        <div *ngIf="kundaliform.get('name')?.invalid && kundaliform.get('name')?.touched">
+                            Name is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="m-2">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-control" id="gender" formControlName="gender">
+                            <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
+                        </select>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="header m-2">
+                <h5>Birth Details</h5>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="m-2">
+                        <label for="day" class="form-label">Day</label>
+                        <select class="form-control" id="day" formControlName="day">
+                            <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="m-2">
+                        <label for="month" class="form-label">Month</label>
+                        <select class="form-control" id="month" formControlName="month">
+                            <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="m-2">
+                        <label for="year" class="form-label">Year</label>
+                        <select class="form-control" id="year" formControlName="year">
+                            <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="m-2">
+                        <label for="hour" class="form-label">Hour</label>
+                        <select class="form-control" id="hour" formControlName="hour">
+                            <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="m-2">
+                        <label for="minute" class="form-label">Minute</label>
+                        <select class="form-control" formControlName="minute" id="minute">
+                            <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="m-2">
+                        <label for="second" class="form-label">Second</label>
+                        <select class="form-control" formControlName="second" id="second">
+                            <option *ngFor="let second of seconds" [value]="second">{{ second }}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="m-2">
+                        <label for="place" class="form-label">Place</label>
+                        <input type="text" id="place" class="form-control" formControlName="place" [formControl]="place"
+                            [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"
+                            (optionSelected)="onOptionSelected($event.option.value)">
+                            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                                {{ option.place+', '+option.state }}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="m-2">
+                        <label for="InputSubmit" class="form-label"></label>
+                        <button type="submit" id="InputSubmit" class="btn btn btn-warning btn-custum">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="body-container mt-5" style="background-color: rgb(229, 236, 234);">
+    <h3>Online Free Kundli For Future Predictions</h3>
+    <h4>Get Your Kundli by Date of Birth</h4>
+    <p>The Kundli of a person is one of the most sought aspects of astrology. A Kundali entails the details about the
+        positions of stars and planets at the time of your birth based on which further predictions are made. And with
+        further predictions, we mean predictions about different aspects of one's life like love, career, health,
+        business, finance, and even marriage. Simply said, Kundli making is a necessary thing for any individual and is
+        likely to improve their decision-making capabilities gradually in the course of time.</p>
+    <P>A Janam Kundli is made after studying the exact position of planets at the time you were born and based on the
+        same, one’s Sun sign, Moon sign, and other such astrological aspects are listed. The Kundali is a co-existence
+        of predictions and charts that help the astrologer learn about what your future would be like, the times you
+        will have to grind harder, and also the times when luck will be by your side in abundance.</P>
+</div>
+
+<app-footer></app-footer>
