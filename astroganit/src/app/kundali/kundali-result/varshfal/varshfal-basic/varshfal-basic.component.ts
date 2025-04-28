@@ -12,22 +12,20 @@ export class VarshfalBasicComponent {
   tabType: number = 1
   planetInRashi: number[] = []
   lagna: number | null = null;
-  private selectedYear: number = new Date().getFullYear();
+  selectedDate = new Date();
   constructor(private kundliService: KundaliService, private varshfalService: VarshfalService) { }
 
   changeHoroscopeType(tabType: number) {
     this.tabType = tabType
   }
   ngOnInit(): void {
-    let now = new Date()
-    console.log(this.kundliService.getBirthDetail().getDateTime().getHr() + ":" + this.kundliService.getBirthDetail().getDateTime().getMin() + ":" + this.kundliService.getBirthDetail().getDateTime().getSec())
-
-    let yearCount = this.getCurrentYearNumber(this.kundliService.getBirthDetail(), now.getDate(), now.getMonth(), this.selectedYear)
-
-    let birthDetail = this.varshfalService.getVarshfalBirthDetail(yearCount, this.kundliService.getBirthDetail(), this.selectedYear)
-
-    this.fetchKundliData(birthDetail)
+    this.fetchVarshfalData()
     this.addObservers()
+  }
+  fetchVarshfalData() {
+    let yearCount = this.getCurrentYearNumber(this.kundliService.getBirthDetail(), this.selectedDate.getDate(), this.selectedDate.getMonth(), this.selectedDate.getFullYear())
+    let birthDetail = this.varshfalService.getVarshfalBirthDetail(yearCount, this.kundliService.getBirthDetail(), this.selectedDate.getFullYear())
+    this.fetchKundliData(birthDetail)
   }
   fetchKundliData(birthDetail: BirthDetail) {
     this.varshfalService.getKundliData(birthDetail).subscribe(
@@ -75,4 +73,13 @@ export class VarshfalBasicComponent {
     }
     return presentYearNumber
   }
+  incrementDate() {
+    this.selectedDate.setFullYear(this.selectedDate.getFullYear() + 1);
+    this.fetchVarshfalData()
+  }
+  decrementDate() {
+    this.selectedDate.setFullYear(this.selectedDate.getFullYear() - 1);
+    this.fetchVarshfalData()
+  }
+
 }

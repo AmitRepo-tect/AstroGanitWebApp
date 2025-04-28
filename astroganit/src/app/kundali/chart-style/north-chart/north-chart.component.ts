@@ -1,11 +1,12 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input, OnChanges, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-north-chart',
   templateUrl: './north-chart.component.html',
   styleUrl: './north-chart.component.scss'
 })
-export class NorthChartComponent implements AfterViewInit {
+export class NorthChartComponent implements AfterViewInit, OnChanges {
+
   browserWidth: number = window.innerWidth;
   @ViewChild('canvasElement', { static: false }) canvasElement!: ElementRef;
   @Input() planets!: number[];  // Input property for planets' positions
@@ -17,7 +18,8 @@ export class NorthChartComponent implements AfterViewInit {
   ryaxis: number[] = [];
   pxaxis!: number[][];
   pyaxis!: number[][];
-  plaName = ["su", "mo", "ma", "me", "ju", "ve", "sa", "ra", "ke", "ur", "ne", "pl"]
+  plaName = ["सू", "चं", "मं", "बु", "गु", "शु", "श", "रा", "के", "यू", "ने", "प्लू"];
+  count: number = 0
   colors: string[] = [
     'rgb(165, 42, 42)', // Brown
     'rgb(220, 20, 60)', // Crimson
@@ -54,8 +56,19 @@ export class NorthChartComponent implements AfterViewInit {
     this.drawChart()
     this.printRashi()
     this.printBhav()
-
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.count == 0) { this.count++; return }
+    if (changes['planets'] || changes['lagna']) {
+      this.width = 360//(this.browserWidth - 300) / 3
+      this.height = 360//(this.browserWidth - 300) / 3
+      this.drawChart()
+      this.printRashi()
+      this.printBhav()
+    }
+  }
+
   drawChart() {
     // Wait for the view to be initialized before drawing
     const canvas = this.canvasElement.nativeElement;

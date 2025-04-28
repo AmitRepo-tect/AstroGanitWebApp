@@ -11,9 +11,8 @@ import { BirthDetail } from '../../../../../../models/birthdetail.model';
 export class VarshfalChartComponent {
   planetInRashi: number[] = []
   lagna: number | null = null;
-  constructor(private kundliService: KundaliService, private varshfalService: VarshfalService) { }
+  constructor(private varshfalService: VarshfalService) { }
   ngOnInit(): void {
-    console.log("VarshfalChartComponent")
     this.addObservers()
   }
 
@@ -21,8 +20,6 @@ export class VarshfalChartComponent {
     this.varshfalService.kundliData$.subscribe(data => {
       this.planetInRashi = this.varshfalService.getLagnaKundliPlanetsRashiArray(this.getPlanetDegreeArray(data?.planetDegree!))
       this.lagna = this.planetInRashi[12]
-
-
     });
   }
   private getPlanetDegreeArray(plaDegStr: string): number[] {

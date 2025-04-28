@@ -48,6 +48,11 @@ import { VarshfalDetailComponent } from './kundali/kundali-result/varshfal/varsh
 import { VarshfalChartComponent } from './kundali/kundali-result/varshfal/varshfal-basic/varshfal-chart/varshfal-chart/varshfal-chart.component';
 import { VarshfalTableComponent } from './kundali/kundali-result/varshfal/varshfal-basic/varshfal-table/varshfal-table/varshfal-table.component';
 import { VarshfalPredictionComponent } from './kundali/kundali-result/varshfal/varshfal-basic/varshfal-prediction/varshfal-prediction/varshfal-prediction.component';
+import { VividhBasicComponent } from './kundali/kundali-result/vividh/component/vividh-basic/vividh-basic.component';
+import { KarakComponent } from './kundali/kundali-result/vividh/component/karak/karak/karak.component';
+import { AvasthaComponent } from './kundali/kundali-result/vividh/component/avastha/avastha/avastha.component';
+import { NavtaraComponent } from './kundali/kundali-result/vividh/component/navtara/navtara/navtara.component';
+import { RogandNidanComponent } from './kundali/kundali-result/vividh/component/rogandnidan/rogand-nidan/rogand-nidan.component';
 
 
 
@@ -89,7 +94,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     VarshfalDetailComponent,
     VarshfalChartComponent,
     VarshfalTableComponent,
-    VarshfalPredictionComponent
+    VarshfalPredictionComponent,
+    VividhBasicComponent,
+    KarakComponent,
+    AvasthaComponent,
+    NavtaraComponent,
+    RogandNidanComponent
   ],
   imports: [
     MatAutocompleteModule,

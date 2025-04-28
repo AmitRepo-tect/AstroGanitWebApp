@@ -23,9 +23,8 @@ export class VarshfalTableComponent {
       let plaDeg = this.getPlanetDegreeArray(data!)
       let combustArr = this.getCombustArray(data!)
       let retrograteArr = this.getRetrograteArray(data!)
-
-      let planetName = ['Lag', 'Sun', 'Mon', 'Mar', 'Mer', 'Jup', 'Ven', 'Sat', 'Rah', 'Ket', 'Ura', 'Nep', 'Plu', 'Asc']
-      let rashiName = ['Ari', 'Tau', 'Gem', 'Can', 'Leo', 'Vir', 'Lib', 'Sco', 'Sag', 'Cap', 'Aqu', 'Pis']
+      let planetName = ['लग्न', 'सूर्य', 'चंद्र', 'मंगल', 'बुध', 'गुरु', 'शुक्र', 'शनि', 'राहु', 'केतु', 'यूरेनस', 'नेपच्यून ', 'प्लूटो', 'लग्न'];
+      let rashiName = ['मेष', 'वृषभ', 'मिथुन', 'कर्क', 'सिंह', 'कन्या', 'तुला', 'वृश्चिक', 'धनु', 'मकर', 'कुंभ', 'मीन'];
       let nakshName = ['Ashwi', 'Bharni', 'Kritt', 'Rohin', 'Mriga', 'Ardra', 'PunVa', 'Pushy', 'Ashle', 'Magha', 'PuPha', 'UtPha', 'Hasta', 'Chitr', 'Swati', 'Visha', 'Anura', 'Jyesh', 'Moola', 'PoSha', 'UtSha', 'Sravan', 'Danis', 'Shabh', 'PoBha', 'UtBha', 'Revat']
       let rashiLord = ['Ma', 'Ve', 'Me', 'Mo', 'Su', 'Me', 'Ve', 'Ma', 'Ju', 'Sa', 'Sa', 'Ju',]
       let nakshLord = ['Ke', 'Ve', 'Su', 'Mo', 'Ma', 'Ra', 'Ju', 'Sa', 'Me', 'Ke', 'Ve', 'Su', 'Mo', 'Ma', 'Ra', 'Ju', 'Sa', 'Me', 'Ke', 'Ve', 'Su', 'Mo', 'Ma', 'Ra', 'Ju', 'Sa', 'Me']

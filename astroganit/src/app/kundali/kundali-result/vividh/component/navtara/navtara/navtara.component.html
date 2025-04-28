@@ -1,0 +1,70 @@
+<div style="border: 0.5px solid gray;
+        border-radius: 5px;min-height: 10px;">
+    <div style="display: flex;align-items: stretch; background-color: rgb(247, 245, 245);">
+
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                <strong> नवतारा</strong>
+            </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                <strong>नक्षत्र</strong>
+            </p>
+        </div>
+
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                <strong> नक्षत्र</strong>
+            </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                <strong> नक्षत्र </strong>
+            </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                <strong>स्वामी </strong>
+            </p>
+        </div>
+    </div>
+    <hr style="border: none; height: 1px; background-color: gray;margin: 0%; padding: 0%;">
+    <div *ngFor="let plan of navtaraList; let i = index">
+        <div style="display: flex;align-items: stretch;">
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{planetName[navtaraList[i].planet] }}
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{nakshName[navtaraList[i].fchakra] }}
+                </p>
+            </div>
+
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{nakshName[navtaraList[i].schakra] }}</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{nakshName[navtaraList[i].tchakra] }}</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{planet[navtaraList[i].lord] }}</p>
+            </div>
+        </div>
+        <hr *ngIf="i!=navtaraList.length-1"
+            style="border: none; height: 1px; background-color: gray;margin: 0%; padding: 0%;">
+    </div>
+</div>

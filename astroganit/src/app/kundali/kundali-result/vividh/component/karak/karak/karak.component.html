@@ -1,0 +1,49 @@
+<div style="border: 0.5px solid gray;
+        border-radius: 5px;min-height: 10px;">
+    <div style="display: flex;align-items: stretch; background-color: rgb(247, 245, 245);">
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                <strong>कारक </strong>
+            </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                <strong>चर</strong>
+            </p>
+        </div>
+
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                <strong>स्थिर</strong>
+            </p>
+        </div>
+
+    </div>
+    <hr style="border: none; height: 1px; background-color: gray;margin: 0%; padding: 0%;">
+    <div *ngFor="let karak of karakList;let i=index">
+        <div style="display: flex;align-items: stretch;">
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{karakName[karak.karakName] }}
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{sthirKarak[karak.sthirKarak] }}
+                </p>
+            </div>
+
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{chalKarak[karak.chalKarak] }}</p>
+            </div>
+
+        </div>
+        <hr *ngIf="i!=karakList.length-1"
+            style="border: none; height: 1px; background-color: gray;margin: 0%; padding: 0%;">
+    </div>
+</div>
