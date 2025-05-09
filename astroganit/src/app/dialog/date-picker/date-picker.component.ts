@@ -27,7 +27,7 @@ export class DatePickerComponent implements OnInit {
   @Output() closeDialog = new EventEmitter<void>();
   panchangInput: PanchangInput | null = null;
   years: number[] = [];
-  months: string[] = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  months: string[] = ["जनवरी", "फ़रवरी", "मार्च", "अप्रैल", "मई", "जून", "जुलाई", "अगस्त", "सितंबर", "अक्टूबर", "नवंबर", "दिसंबर"];
   days: number[] = [];
   isLoading = true;
   selectedItem: string = '';
@@ -57,7 +57,7 @@ export class DatePickerComponent implements OnInit {
         this.year = this.panchangInput.date.getFullYear();
         this.selectedItem = this.panchangInput.place.place
       } else {
-        this.setPanchangInput(new PanchangInput(new Place(29585, "New Delhi", "28", "38", "N", "77", "13", "E", "NCT", "India", "5.5", "Asia/Kolkata"), new Date()))
+        this.setPanchangInput(new PanchangInput(new Place(29585, "New Delhi", "28", "38", "N", "28.644800", "77", "13", "E", "77.216721", "NCT", "India", "5.5", "Asia/Kolkata"), new Date()))
       }
     });
   }
@@ -121,7 +121,11 @@ export class DatePickerComponent implements OnInit {
       if (!this.places || this.places.length === 0) {
         this.placeService.getCityInfo(this.selectedItem)
           .subscribe(response => {
-            this.places = response;  // Store the API response in places
+            console.log(response)
+            //this.places = response;  // Store the API response in places
+            this.places = response.map(p => Place.fromJson(p));
+            console.log("latDeg" + response[0].latDeg)
+            console.log("latitude" + response[0].latitude)
             this.filterData();  // Now filter the data
           }, error => {
             console.error('Error fetching city info', error);

@@ -25,19 +25,27 @@ export class PanchangService {
   constructor(private http: HttpClient) { }
 
   // Function to fetch Panchang data based on the parameters
-  getPanchangData(city: string, state: string, day: number, month: number, year: number): Observable<PanchangResponse> {
+  getPanchangData(city: string, state: string, latitude: string, longitude: string, timezone: string, day: number, month: number, year: number): Observable<PanchangResponse> {
+    console.log(city + state)
+    console.log(latitude + longitude)
     const body = {
-      place: {
-        city: city,
-        state: state
-      },
-      dateTimeInfo: {
-        day: day,
-        month: month,
-        year: year
-      }
-    };
+      "langCode": 2,
+      "panchangInputModel": {
 
+        "place": {
+          "city": city,
+          "state": state,
+          "latitude": latitude,
+          "longitude": longitude,
+          "timezone": timezone
+        },
+        "dateTimeInfo": {
+          "day": day,
+          "month": month,
+          "year": year
+        }
+      }
+    }
     return this.http.post<PanchangResponse>(this.apiUrl, body);
   }
   setPanchangData(panchangResponse: PanchangResponse) {

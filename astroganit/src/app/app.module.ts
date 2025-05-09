@@ -53,6 +53,7 @@ import { KarakComponent } from './kundali/kundali-result/vividh/component/karak/
 import { AvasthaComponent } from './kundali/kundali-result/vividh/component/avastha/avastha/avastha.component';
 import { NavtaraComponent } from './kundali/kundali-result/vividh/component/navtara/navtara/navtara.component';
 import { RogandNidanComponent } from './kundali/kundali-result/vividh/component/rogandnidan/rogand-nidan/rogand-nidan.component';
+import { DatePlaceComponent } from './Panchang/date-place/date-place/date-place.component';
 
 
 
@@ -99,7 +100,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     KarakComponent,
     AvasthaComponent,
     NavtaraComponent,
-    RogandNidanComponent
+    RogandNidanComponent,
+    DatePlaceComponent
   ],
   imports: [
     MatAutocompleteModule,

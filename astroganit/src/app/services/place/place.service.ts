@@ -15,7 +15,6 @@ export class PlaceService {
   private placeUrl2 = "/api/place/city/"
   //private placeUrl1 = 'https://cors-anywhere.herokuapp.com/http://64.227.152.37:5000/api/place/city/jai';
 
-
   getCityInfo1(): Observable<Place[]> {
     return this.http.get<Place[]>(this.placeUrl2);  // Return the observable of custom object
   }

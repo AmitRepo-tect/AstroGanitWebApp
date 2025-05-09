@@ -27,8 +27,9 @@ export class DailyPanchangComponent implements OnInit {
         this.panchangInput = data
         this.selectedDate = this.getFormattedDate(this.panchangInput.date)
         this.selectedPlace = this.panchangInput.place.place
+        this.fetchPanchangData();
       } else {
-        this.setPanchangInput(new PanchangInput(new Place(29585, "New Delhi", "28", "38", "N", "77", "13", "E", "NCT", "India", "5.5", "Asia/Kolkata"), new Date()))
+        this.setPanchangInput(new PanchangInput(new Place(29585, "New Delhi", "28", "38", "N", "28.644800", "77", "13", "E", "77.216721", "NCT", "India", "5.5", "Asia/Kolkata"), new Date()))
       }
     });
     this.panchangService.panchangData$.subscribe(data => {
@@ -50,14 +51,15 @@ export class DailyPanchangComponent implements OnInit {
   }
   fetchPanchangData(): void {
 
-    this.panchangService.getPanchangData('New York', 'USA', this.panchangInput?.date.getDate()!, this.panchangInput?.date.getMonth()!, this.panchangInput?.date.getFullYear()!).subscribe(
-      data => {
-        this.panchangService.setPanchangData(data);
-      },
-      error => {
-        console.error('Error fetching Panchang data:', error);
-      }
-    );
+    this.panchangService.getPanchangData(this.panchangInput?.place.Place!, this.panchangInput?.place.state!, this.panchangInput?.place.latitude!, this.panchangInput?.place.longitude!, this.panchangInput?.place.timezone!,
+      this.panchangInput?.date.getDate()!, this.panchangInput?.date.getMonth()!, this.panchangInput?.date.getFullYear()!).subscribe(
+        data => {
+          this.panchangService.setPanchangData(data);
+        },
+        error => {
+          console.error('Error fetching Panchang data:', error);
+        }
+      );
   }
 
   setPanchangInput(panchangInput: PanchangInput) {

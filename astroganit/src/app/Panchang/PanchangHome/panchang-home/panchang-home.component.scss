@@ -98,7 +98,7 @@ img.img-fluid {
 }
 
 .fixed-height-row {
-    height: 500px;
+    height: 400px;
     /* Set your desired height */
     background-color: #f8f9fa;
     padding-left: 10px;
@@ -107,7 +107,7 @@ img.img-fluid {
 }
 
 .scroll-container {
-    height: 200px;
+    height: 225px;
     /* Set fixed height */
     overflow-y: auto;
     /* Enable vertical scroll */
@@ -146,16 +146,16 @@ img.img-fluid {
 }
 
 .scroll-container::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
     /* Set the width of the scrollbar */
-    height: 8px;
+    height: 6px;
     /* For horizontal scrollbar */
 }
 
 /* 2. Styling the thumb (draggable part) */
 .scroll-container::-webkit-scrollbar-thumb {
     background-color: #888;
-    border-radius: 10px;
+    border-radius: 5px;
 
     /* Creates a border around the thumb */
 }
@@ -168,7 +168,7 @@ img.img-fluid {
 /* 3. Styling the track (background of the scrollbar) */
 .scroll-container::-webkit-scrollbar-track {
     background: #e0e0e0;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 /* 4. Optional: Styling the scrollbar corner */

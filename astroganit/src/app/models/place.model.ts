@@ -11,6 +11,11 @@ export class Place {
     country: string;
     timezone: string;
     timezoneStr: string;
+    longitude: string;
+    latitude: string;
+
+
+
 
     // Default constructor with default values
     constructor(
@@ -19,9 +24,11 @@ export class Place {
         latDeg: string = '',
         latMin: string = '',
         latNS: string = '',
+        latitude: string = '',
         longDeg: string = '',
         longMin: string = '',
         longEW: string = '',
+        longitude: string = '',
         state: string = '',
         country: string = '',
         timezone: string = '',
@@ -32,9 +39,11 @@ export class Place {
         this.latDeg = latDeg;
         this.latMin = latMin;
         this.latNS = latNS;
+        this.latitude = latitude;
         this.longDeg = longDeg;
         this.longMin = longMin;
         this.longEW = longEW;
+        this.longitude = longitude;
         this.state = state;
         this.country = country;
         this.timezone = timezone;
@@ -122,5 +131,37 @@ export class Place {
     }
     set TimezoneStr(value: string) {
         this.timezoneStr = value;
+    }
+    get Latitude(): string {
+        return this.latitude;
+    }
+    set Latitude(value: string) {
+        this.latitude = value;
+    }
+
+    get Longitude(): string {
+        return this.longitude;
+    }
+    set Longitude(value: string) {
+        this.longitude = value;
+    }
+
+    static fromJson(json: any): Place {
+        return new Place(
+            json.id,
+            json.place,
+            json.latDeg,
+            json.latMin,
+            json.latNS,
+            json.latitude,
+            json.longDeg,
+            json.longMin,
+            json.longEW,
+            json.longitude,
+            json.state,
+            json.country,
+            json.timezone,
+            json.timezoneStr
+        );
     }
 }

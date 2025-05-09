@@ -12,66 +12,7 @@
                 तथा बुरे परिणामों से बचने के लिए होरा का उपयोग किया जाता है। होरा सारणी तब बनायी जाती है जब शिशु के जन्म
                 के समय उसके भविष्य का पूर्वानुमान करना हो या किसी शुभ कार्य को करने के लिए शुभ घड़ी तय कराना हो। होरा
                 सारणी किसी के भी जीवन के मजबूत व कमजोर पक्ष की पहचान करने में मदद करता है।</p>
-            <div class="container" style="background-color: blanchedalmond; border-radius: 5px; padding: 15px;">
-                <p style="text-align: left; font-size: 22px; font-family: Arial, sans-serif;">
-                    <strong> होरा के लिए दिनांक और स्थान दर्ज करें </strong>
-                </p>
-                <div class="horizontal-container">
-                    <div class="spinner-container">
-                        <div class="custom-spinner">
-                            <select id="spinner" class="spinner" [(ngModel)]="year" (change)="selectYear(year)">
-                                <option *ngFor="let year of years" [value]="year">{{ year }}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="spinner-container">
-                        <div class="custom-spinner">
-                            <select id="spinner" class="spinner" [(ngModel)]="month" (change)="selectMonth(month)">
-                                <option *ngFor="let month of months" [value]="month">{{ month }}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="spinner-container">
-                        <div class="custom-spinner">
-                            <select id="spinner" class="spinner" [(ngModel)]="day" (change)="selectDate(day)">
-                                <option *ngFor="let day of days" [value]="day">{{ day }}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <p style="text-align: left; font-size: 22px; font-family: Arial, sans-serif; margin-top: 10px;">
-                    <strong>Your
-                        Location</strong>
-                </p>
-                <div style="display: flex; align-items: center; justify-content: flex-start;">
-                    <div
-                        style="display: flex; justify-content: flex-start; width: 60%; border-width: 1px; border-color: yellow; border-style: solid; border-radius: 4px;">
-                        <img src="assets/images/ic_location.png" alt="Icon"
-                            style="width: 40px; height: 40px; background-color: yellow; border-radius: 4px; margin: 0; padding: 0;">
-
-
-                        <div class="spinner-container1" style="padding-bottom: 0;">
-                            <div class="custom-spinner" style="margin-top: 0;margin-bottom: 0;">
-                                <input type="text" [(ngModel)]="selectedItem" (input)="filterItem()"
-                                    placeholder="Select a Item" class="spinner-input" />
-                                <ul *ngIf="filteredItems.length > 0" class="spinner-dropdown">
-                                    <li *ngFor="let item of filteredItems" (click)="selectPlace(item)">
-                                        {{ item.place+','+item.state}}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <button
-                        style="background-color: yellow; width: 40%;height: 42px;   border-top: 1px solid yellow; border-left: 1px solid yellow; border-radius: 4px; box-shadow: none; margin-left: 10px; border:none;"
-                        (click)="submit()">SUBMIT</button>
-
-                </div>
-            </div>
+            <app-date-place></app-date-place>
             <div style="display: flex; justify-content: left; margin-top: 20px; padding-left: 0;">
                 <div
                     style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;width: 94%;">
@@ -123,51 +64,55 @@
 
                 </div>
             </div>
-            <h3 style="margin-top: 30px; padding: 0;margin-left: 0;margin-right: 0;">शुभ मुहूर्त 2025 </h3>
-            <div class="container" style="padding: 0;">
-                <div class="horizontal-container" style=" margin-top: 10px;">
-                    <div style=" width: 50%; background-color: aqua; border-radius: 8px; border-color: blue;
-                    border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center;
-                    height: 50px; padding: 2px;">
+            <h3 style="margin-top: 50px; padding: 0;margin-left: 0;margin-right: 0; margin-bottom: 15px;">
+                <strong>शुभ मुहूर्त 2025</strong>
+            </h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
                         <img src="assets/images/ic_home.png" alt="Icon"
-                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025 </p>
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">विवाह मुहूर्त 2025 </p>
+
+
+
+
+
                     </div>
-                    <div
-                        style="width: 50%; background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
                         <img src="assets/images/ic_home.png" alt="Icon"
-                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
-                    </div>
-                </div>
-                <div class="horizontal-container" style=" margin-top: 15px; ">
-                    <div style=" width: 50%; background-color: aqua; border-radius: 8px; border-color: blue;
-                    border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center;
-                    height: 50px; padding: 2px;">
-                        <img src="assets/images/ic_home.png" alt="Icon"
-                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
-                    </div>
-                    <div
-                        style="width: 50%; background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
-                        <img src="assets/images/ic_home.png" alt="Icon"
-                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;"> वाहन खरीद मुहूर्त 2025</p>
                     </div>
                 </div>
-                <div class="horizontal-container" style="margin-top: 15px; ">
-                    <div style=" width: 50%; background-color: aqua; border-radius: 8px; border-color: blue;
-                    border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center;
-                    height: 50px; padding: 2px;">
+                <div class="row my-3">
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
                         <img src="assets/images/ic_home.png" alt="Icon"
-                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">गृह प्रवेश मुहूर्त 2025</p>
                     </div>
-                    <div
-                        style="width: 50%; background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
                         <img src="assets/images/ic_home.png" alt="Icon"
-                            style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                        <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">नामकरण मुहूर्त 2025</p>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">मुंडन मुहूर्त 2025</p>
+                    </div>
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">अन्नप्राशन मुहूर्त 2025</p>
                     </div>
                 </div>
             </div>

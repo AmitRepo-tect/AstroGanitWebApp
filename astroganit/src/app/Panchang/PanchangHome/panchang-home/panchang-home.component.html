@@ -12,306 +12,356 @@
 
 <body>
 
-
-    <div class="container-fluid">
+    <app-header></app-header>
+    <div style="margin-left: 120px;margin-right: 120px; margin-top: 20px;">
         <div class="container">
-            <h3>Panchang - A Guide To Hindu Calendar</h3>
-            <p>A Panchang, also known as Panchangam, is a
-                detailed Hindu
-                calendar that resorts to
-                the traditional units
-                of the Indian scriptures to provide information relevant to astrologers for them to forecast planetary
-                occurrences and mark auspicious and inauspicious time frames for important occasions such as rites,
-                rituals,
-                festivals, marriage, education, investments, and other important activities of life. You can stay
-                informed
-                about the year's events and significant festivals by using the Hindu Panchang and calendars.</p>
-            <div class="row  fixed-height-row">
-                <div class="col border border-success">
-                    <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
-                        style="width: 100%; height: 150px; object-fit: cover; margin-left: 0;">
-                    <h5 style="padding-top: 10px;">आज का पंचांग</h5>
-                    <p style="padding: 0;">{{panchangInput?.place?.place}} - {{currentDate}}</p>
-                    <div class="scroll-container">
-                        <div class="row" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-3">दिनाँक</div>
-                            <div class="col-9">{{currentDate}}</div>
+            <h3 style="font-weight: 600;">पंचांग-Panchang</h3>
+            <p style="text-align: justify;">
+                पंचांग, एक हिन्दू कैलेंडर है। यह कैलेंडर भारतीय शास्त्रों का उपयोग करके ग्रह घटनाओं की भविष्यवाणी करने
+                और शुभ-अशुभ समय को जानने में आपकी मदद करता है। यह हिन्दू कैलेण्डर, कुछ ज़रूरी मौकों जैसे कि पूजा-पाठ,
+                त्योहार, शादी, पढ़ाई, निवेश और ज़िन्दगी के दूसरे अहम कामों के लिए शुभ मुहूर्त के बारे में जानने के लिए
+                उपयोगी है। हिंदी पंचांग कैलेंडर का उपयोग करके आप साल भर के महत्वपूर्ण त्योहारों और घटनाओं के बारे में
+                जानकारी रख सकते हैं।</p>
+            <div style="display: flex;height: 440px;">
+                <div style="width: 100%;padding: 0%; border: solid;border-width: 1px;border-color: gray;">
+                    <img src="assets/images/panchang-banner-5.jpg" alt="Sample Image"
+                        style="width: calc(100% - 4px); height: 130px; object-fit: cover; margin: 2px;">
+                    <h5 style="padding-top: 10px; font-weight: 600;margin: 0 10px;">आज का पंचांग</h5>
+                    <p
+                        style="font-size: 18px;padding: 0; font-weight: 500;margin-left:  10px;margin-right: 10px; margin-top: 10px;">
+                        {{panchangInput?.place?.place}} -{{currentDate}}</p>
+                    <div class="scroll-container" style="margin: 0 10px; height: 170px;">
+                        <div style=" display: flex; padding: 0 ;margin: 0 ;">
+                            <p style="width: 40%; font-size: medium;padding: 0;margin: 0; ">दिनाँक</p>
+                            <p style="width: 100%;font-size: medium;padding: 0;margin: 0;">
+                                {{currentDate}}</p>
                         </div>
-                        <hr style="margin: 0;">
-                        <div class="row" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-3">तिथि</div>
-                            <div class="col-9">
-                                <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.tithi != null && panchangData.sampurnPanchangModel.tithi.length > 0"
-                                    style="padding: 0; margin: 0;">
-                                    {{ panchangData.sampurnPanchangModel.tithi[0] }}
-                                </p>
-                            </div>
+                        <hr style="margin: 5px 0px; padding: 0%;">
+                        <div style=" display: flex; padding: 0 ;margin: 0 ;">
+                            <p style="width: 40%; font-size: medium;padding: 0;margin: 0;">तिथि</p>
+                            <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.tithi != null && panchangData.sampurnPanchangModel.tithi.length > 0"
+                                style="width: 100%;font-size: medium;padding: 0;margin: 0 ;">
+                                {{ panchangData.sampurnPanchangModel.tithi[0] }} </p>
                         </div>
-                        <hr style="margin: 0;">
-                        <div class="row" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-3">वार</div>
-                            <div class="col-9">
-                                <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
-                                    style="padding: 0; margin: 0;">
-                                    {{ panchangData.sampurnPanchangModel.vara }}
-                                </p>
-                            </div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-3">पक्ष</div>
-                            <div class="col-9">
-                                <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
-                                    style="padding: 0; margin: 0;">
-                                    {{ panchangData.sampurnPanchangModel.paksha }}
-                                </p>
-                            </div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-3">सूर्योदय</div>
-                            <div class="col-9">
-                                <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
-                                    style="padding: 0; margin: 0;">
-                                    {{ panchangData.sampurnPanchangModel.sunRiseTime }}
-                                </p>
-                            </div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-3">सूर्यास्त</div>
-                            <div class="col-9">
-                                <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
-                                    style="padding: 0; margin: 0;">
-                                    {{ panchangData.sampurnPanchangModel.sunSetTime }}
-                                </p>
-                            </div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-3">चन्द्रोदय</div>
-                            <div class="col-9">
-                                <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
-                                    style="padding: 0; margin: 0;">
-                                    {{ panchangData.sampurnPanchangModel.moonRiseAndSetTime[0] }}
-                                </p>
-                            </div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-3">नक्षत्र</div>
-                            <div class="col-9">
-                                <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
-                                    style="padding: 0; margin: 0;">
-                                    {{ panchangData.sampurnPanchangModel.nakshtra[0] }}
-                                </p>
-                            </div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-3">योग</div>
-                            <div class="col-9">
-                                <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
-                                    style="padding: 0; margin: 0;">
-                                    {{ panchangData.sampurnPanchangModel.yog[0] }}
-                                </p>
-                            </div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-3">करण</div>
-                            <div class="col-9">
-                                <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
-                                    style="padding: 0; margin: 0;">
-                                    {{ panchangData.sampurnPanchangModel.karan[0] }}
-                                </p>
-                            </div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-3">चन्द्रराशि</div>
-                            <div class="col-9">
-                                <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
-                                    style="padding: 0; margin: 0;">
-                                    {{ panchangData.sampurnPanchangModel.moonSign }}
-                                </p>
-                            </div>
-                        </div>
-                        <hr style="margin: 0;">
-                    </div>
-                    <button class="btn btn-primary" style="margin-top: 10px;" routerLink="/daily-panchang">View
-                        More</button>
-                </div>
-                <div class="col border border-secondary me-3 ms-3">
-                    <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
-                        style="width: 100%; height: 150px; object-fit: cover; margin-left: 0;">
-                    <h5 style="padding-top: 10px;">Panchang</h5>
-                    <div class="scroll-container" style="height: 300px;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;"
-                            routerLink="/hora">
-                            <div class="col-12"> आज का शुभ होरा <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;"
-                            routerLink="/chogdia">
-                            <div class="col-12"> आज का चौघड़िया <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col border border-success">
-                    <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
-                        style="width: 100%; height: 150px; object-fit: cover; margin-left: 0;">
-                    <h5 style="padding-top: 10px;">Feast and Festival 2025</h5>
-                    <div class="scroll-container" style="height: 300px;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> English New Year 2026 <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> English New Year 2026 <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> English New Year 2026 <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> English New Year 2026 <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> English New Year 2026 <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> English New Year 2026 <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> English New Year 2026 <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> English New Year 2026 <span> ➔</span></div>
-                        </div>
-                        <hr style="margin: 0;">
-                        <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
-                            <div class="col-12"> English New Year 2026 <span> ➔</span></div>
-                        </div>
-                    </div>
-                </div>
-                <h5 style="margin-top: 50px; padding: 0;margin-left: 0;margin-right: 0;">Shubh Muhurat 2025</h5>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-4 me-3"
-                            style="background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
-                            <img src="assets/images/ic_home.png" alt="Icon"
-                                style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                            <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
-                        </div>
-                        <div class="col-4 me-3"
-                            style="background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
-                            <img src="assets/images/ic_home.png" alt="Icon"
-                                style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                            <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
-                        </div>
-                    </div>
-                    <div class="row my-3">
-                        <div class="col-4 me-3"
-                            style="background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
-                            <img src="assets/images/ic_home.png" alt="Icon"
-                                style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                            <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
-                        </div>
-                        <div class="col-4 me-3"
-                            style="background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
-                            <img src="assets/images/ic_home.png" alt="Icon"
-                                style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                            <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
-                        </div>
-                    </div>
-                    <div class="row my-3">
-                        <div class="col-4 me-3"
-                            style="background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
-                            <img src="assets/images/ic_home.png" alt="Icon"
-                                style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                            <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
-                        </div>
-                        <div class="col-4 me-3"
-                            style="background-color: aqua; border-radius: 8px; border-color: blue; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
-                            <img src="assets/images/ic_home.png" alt="Icon"
-                                style="width: 45px; height: 45px; background-color: bisque; border-radius: 5px; margin: 0; padding: 0;">
-                            <p style="margin: 0; margin-left: 10px;">Marriage Muhurat 2025</p>
-                        </div>
-                    </div>
-                </div>
-                <h5 style="margin-top: 30px; padding: 0;margin-left: 0;margin-right: 0;">What You Need to Know About
-                    Hindu Calendar?</h5>
-                <p style=" padding: 0;margin-left: 0;margin-right: 0;">Hindu calendars are divided into
-                    two categories
+                        <hr style="margin: 5px 0px; padding: 0%;">
+                        <div style=" display: flex; padding: 0 ;margin: 0 ;">
+                            <p style="width: 40%; font-size: medium;padding: 0;margin: 0;">वार</p>
+                            <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
+                                style="width: 100%;font-size: medium;padding: 0;margin: 0 ;">
+                                {{ panchangData.sampurnPanchangModel.vara }}
+                            </p>
 
-                    Solar calendar (Surya ganana), which is based on the Sun's entry into different zodiac signs.
-                    Lunar calendar (Chandra ganana) which is based on the Moon's transit.
-                    However, the majority of the calculations are based on the Moon's orbit. Panchang uses the lunar
-                    month system to measure time, with each month's name indicating the Moon's passage through each
-                    Nakshatras. Our Panchang follows the lunar calendar calculation, which is the most popular Hindu
-                    calendar in India.</p>
-                <h5 style="margin-top: 30px; padding: 0;margin-left: 0;margin-right: 0;">How Is Panchang Beneficial?
+                        </div>
+                        <hr style="margin: 5px 0px; padding: 0%;">
+                        <div style=" display: flex; padding: 0 ;margin: 0 ;">
+                            <p style="width: 40%; font-size: medium;padding: 0;margin: 0;">पक्ष</p>
 
-                </h5>
-                <p style=" padding: 0;margin-left: 0;margin-right: 0;">The study of Panchang is the fundamental
-                    understanding of Rashi Phala, the impact of each of the 12 zodiac signs on an individual, and
-                    how their day-to-day lives change based on several movements of the planets. The casting of a
-                    Panchang requires detailed mathematical work involving a high level of spherical geometry and an
-                    in-depth understanding of the movements of the planets and the stars.</p>
-                <ul style="list-style-type: square; margin-left: 20px;">
-                    <li>Panchang is created for the fundamental purpose of providing information on how a day might
-                        look, how people should optimize the ‘Shubh’ or positive span of time in order to lead a happy
-                        and prosperous life, and what they should refrain from doing at negative hours of the day to
-                        avoid problems.</li>
-                    <li>Panchang is optimally utilized in Hindu culture for planning important events and functions in a
-                        person’s life. Panchang matches the current planetary configurations with the position of the
-                        heavenly bodies in a person’s astrological chart so that auspicious days and times can be
-                        pin-pointed in their best interests.</li>
-                    <li>The Panchang is also used to calculate a person's Vedic birth chart or natal chart. The
-                        calculations done to create a Panchang are based upon the position or movement of planets,
-                        stars, or Nakshatra in a certain sign at certain degrees. These calculations represent how these
-                        movements and transitions are supposed to affect a person on a particular date and can be done
-                        to minimize the negative effects and maximize the positive effects.</li>
-                    <li>With the help of Panchang, you can accurately plan your job interviews, travel plans,
-                        investments, festivals, pujas, and the beginning of any significant tasks.</li>
-                </ul>
+                            <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
+                                style="width: 100%;font-size: medium;padding: 0;margin: 0 ;">
+                                {{ panchangData.sampurnPanchangModel.paksha }}
+                            </p>
+                        </div>
+                        <hr style="margin: 5px 0px; padding: 0%;">
+                        <div style=" display: flex; padding: 0 ;margin: 0 ;">
+                            <p style="width: 40%; font-size: medium;padding: 0;margin: 0;">सूर्योदय</p>
+
+                            <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
+                                style="width: 100%;font-size: medium;padding: 0;margin: 0 ;">
+                                {{ panchangData.sampurnPanchangModel.sunRiseTime }}
+                            </p>
+
+                        </div>
+                        <hr style="margin: 5px 0px; padding: 0%;">
+                        <div style=" display: flex; padding: 0 ;margin: 0 ;">
+                            <p style="width: 40%; font-size: medium;padding: 0;margin: 0;">सूर्यास्त</p>
+
+                            <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
+                                style="width: 100%;font-size: medium;padding: 0;margin: 0 ;">
+                                {{ panchangData.sampurnPanchangModel.sunSetTime }}
+                            </p>
+
+                        </div>
+                        <hr style="margin: 5px 0px; padding: 0%;">
+                        <div style=" display: flex; padding: 0 ;margin: 0 ;">
+                            <p style="width: 40%; font-size: medium;padding: 0;margin: 0;">चन्द्रोदय</p>
+                            <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
+                                style="width: 100%;font-size: medium;padding: 0;margin: 0 ;">
+                                {{ panchangData.sampurnPanchangModel.moonRiseAndSetTime[0] }}
+                            </p>
+
+                        </div>
+                        <hr style="margin: 5px 0px; padding: 0%;">
+                        <div style=" display: flex; padding: 0 ;margin: 0 ;">
+                            <p style="width: 40%; font-size: medium;padding: 0;margin: 0;">नक्षत्र</p>
+
+                            <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
+                                style="width: 100%;font-size: medium;padding: 0;margin: 0 ;">
+                                {{ panchangData.sampurnPanchangModel.nakshtra[0] }}
+                            </p>
+
+                        </div>
+                        <hr style="margin: 5px 0px; padding: 0%;">
+                        <div style=" display: flex; padding: 0 ;margin: 0 ;">
+                            <p style="width: 40%; font-size: medium;padding: 0;margin: 0;">योग</p>
+                            <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
+                                style="width: 100%;font-size: medium;padding: 0;margin: 0 ;">
+                                {{ panchangData.sampurnPanchangModel.yog[0] }}
+                            </p>
+
+                        </div>
+                        <hr style="margin: 5px 0px; padding: 0%;">
+                        <div style=" display: flex; padding: 0 ;margin: 0 ;">
+                            <p style="width: 40%; font-size: medium;padding: 0;margin: 0;">करण</p>
+                            <p style="width: 100%;font-size: medium;padding: 0;margin: 0 ;"
+                                *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null">
+                                {{ panchangData.sampurnPanchangModel.karan[0] }}
+                            </p>
+
+                        </div>
+                        <hr style="margin: 5px 0px; padding: 0%;">
+                        <div style=" display: flex; padding: 0 ;margin: 0 ;">
+                            <p style="width: 40%; font-size: medium;padding: 0;margin: 0;">चन्द्रराशि</p>
+                            <p *ngIf="panchangData != null && panchangData.sampurnPanchangModel != null && panchangData.sampurnPanchangModel.vara != null"
+                                style="width: 100%;font-size: medium;padding: 0;margin: 0 ;">
+                                {{ panchangData.sampurnPanchangModel.moonSign }}
+                            </p>
+
+                        </div>
+
+                    </div>
+                    <div class="text-center" style="margin-top: 5px;">
+                        <button class="btn btn-primary" routerLink="/daily-panchang">आगे देखें</button>
+                    </div>
+                </div>
+                <div
+                    style="width: 100%;padding: 0%; border: solid;border-width: 1px;border-color: gray; margin: 0 20px;">
+                    <img src="assets/images/panchang-banner-6.jpg" alt="Sample Image"
+                        style="width: calc(100% - 4px); height: 130px; object-fit: cover; margin: 2px;">
+                    <h5 style="padding-top: 10px; font-weight: 600;margin: 0 10px;margin-bottom: 20px;">पंचांग</h5>
+                    <div class="scroll-container" style="margin: 0 10px;">
+                        <div style="padding: 0 ;margin: 0 ;  " routerLink="/daily-panchang">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का पंचांग
+                            </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+                        <div style="padding: 0 ;margin: 0 ; " routerLink="/hora">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का होरा
+                            </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+                        <div style="padding: 0 ;margin: 0 ; " routerLink="/chogdia">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का चौघड़िया </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+                        <div style="padding: 0 ;margin: 0 ; ">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का दो घटी </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+                        <div style="padding: 0 ;margin: 0 ; ">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का राहुकाल </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+                        <div style="padding: 0 ;margin: 0 ; ">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का लग्न मुहूर्त </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+
+                    </div>
+                </div>
+                <div style="width: 100%;padding: 0%; border: solid;border-width: 1px;border-color: gray;">
+                    <img src="assets/images/panchang-banner-5.jpg" alt="Sample Image"
+                        style="width: calc(100% - 4px); height: 130px; object-fit: cover; margin: 2px;">
+                    <h5 style="padding-top: 10px; font-weight: 600;margin: 0 10px;margin-bottom: 20px;">पंचांग</h5>
+                    <div class="scroll-container" style="margin: 0 10px;">
+                        <div style="padding: 0 ;margin: 0 ;  " routerLink="/hora">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का पंचांग
+                            </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+                        <div style="padding: 0 ;margin: 0 ; " routerLink="/chogdia">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का होरा
+                            </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+                        <div style="padding: 0 ;margin: 0 ; ">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का चौघड़िया </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+                        <div style="padding: 0 ;margin: 0 ; ">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का दो घटी </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+                        <div style="padding: 0 ;margin: 0 ; ">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का राहुकाल </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+                        <div style="padding: 0 ;margin: 0 ; ">
+                            <p style="font-size: medium;padding: 0;margin: 0; "> <span> ➔</span> आज का लग्न मुहूर्त </p>
+                        </div>
+                        <hr style="margin: 8px 0px; padding: 0%;">
+
+                    </div>
+                </div>
             </div>
+            <h3 style="margin-top: 50px; padding: 0;margin-left: 0;margin-right: 0; margin-bottom: 15px;">
+                <strong>शुभ मुहूर्त 2025</strong>
+            </h3>
+            <div class="container">
+                <div class="row">
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">विवाह मुहूर्त 2025 </p>
+
+
+
+
+
+                    </div>
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;"> वाहन खरीद मुहूर्त 2025</p>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">गृह प्रवेश मुहूर्त 2025</p>
+                    </div>
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">नामकरण मुहूर्त 2025</p>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">मुंडन मुहूर्त 2025</p>
+                    </div>
+                    <div class="col-4 me-3"
+                        style="background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 45px; height: 40px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">अन्नप्राशन मुहूर्त 2025</p>
+                    </div>
+                </div>
+            </div>
+            <h3 style="margin-top: 30px; padding: 0;margin-left: 0;margin-right: 0;">
+                <strong>हिन्दू पंचांग या कैलेण्डर</strong>
+            </h3>
+            <h6 style="margin-top: 10px; padding: 0;margin-left: 0;margin-right: 0;">
+                <strong> हिन्दू कैलेंडर को दो श्रेणियों में बाँटा गया है:</strong>
+            </h6>
+            <p>
+                <b>1.</b>
+                सूर्य कैलेंडर (सूर्य गणना), सूर्य के विभिन्न राशियों में प्रवेश पर आधारित होता है।
+            </p>
+            <p>
+                <b>2.</b>
+                सूर्य कैलेंडर (सूर्य गणना), सूर्य के विभिन्न राशियों में प्रवेश पर आधारित होता है।
+            </p>
+            <p>भारतीय ज्योतिष में, पंचांग (Panchang) ज्यादातर चंद्र कैलेण्डर पर आधारित होता है। हालांकि इसमें विशेष रूप
+                से सूर्य की गति को भी ध्यान में रखा जाता है। पंचांग तिथियों, त्योहारों, और सटीक समय तय करने के लिए चंद्र
+                माह प्रणाली का उपयोग करता है। एस्ट्रोयोगी का हिन्दू पंचांग चंद्र कैलेंडर पर आधारित होता है, जो कि भारत
+                में सबसे ज्यादा प्रचलित हिन्दू कैलेंडर है।</p>
+            <h3><strong>पंचांग का अर्थ क्या है?</strong></h3>
+            <p>हिन्दू कैलेण्डर या पंचांग (hindu calendar), संस्कृत के दो शब्दों से मिलकर बना है: 'पंच', जिसका मतलब होता
+                है पांच, और 'अंग', जिसका मतलब होता है भाग। पंचांग पांच मुख्य तत्वों को ध्यान में रखकर बनाया जाता है जो
+                कि पारंपरिक हिन्दू समय के निर्धारण में इस्तेमाल होते हैं। पंचांग के पांच प्रमुख अंग होते हैं इसमें तिथि,
+                नक्षत्र, योग, वार, और करण शामिल होते हैं। इन पांच तत्वों की मदद से आप जान सकते हैं कि माह के किस दिन
+                क्या खास होने वाला है और विभिन्न शुभ कार्यों के लिए शुभ समय क्या है।</p>
+            <p><b>आइए इन तत्वों को विस्तार से समझते हैं-</b></p>
+            <p><b>तिथि</b></p>
+            <p>हिन्दू पंचांग के अनुसार, हर महीने लगभग 30 तिथियां (चंद्र दिन) होती हैं। पहले पंद्रह दिनों को शुक्ल पक्ष
+                कहा जाता है और बाकी के पंद्रह दिनों को कृष्ण पक्ष कहते हैं। ये दोनों चंद्रमा के बढ़ने और घटने के दो चरण
+                होते हैं।</p>
+            <p>हिन्दू कैलेंडर में, हर महीने पूर्णिमा तिथि (पूर्ण चांद) और अमावस्या तिथि एक बार आती है।
+                पूर्णिमा को 15वीं तिथि माना जाता है, और अमावस्या को 30वीं तिथि माना जाता है, जबकि अन्य तिथियां महीने में
+                दो बार आती हैं। इनमें प्रतिपदा, द्वितीया, तृतीया, चतुर्थी, पंचमी, षष्ठी, सप्तमी, अष्टमी, नवमी, दशमी,
+                एकादशी, द्वादशी, त्रयोदशी, और चतुर्दशी शामिल हैं।</p>
+
+            <p><b>नक्षत्र</b></p>
+            <p>नक्षत्र, संस्कृत शब्द "नक्षा" यानी मानचित्र और "तारा" यानी सितारा से बना होता है, जो किसी दिन के किसी
+                निश्चित समय पर सितारों की स्थिति को जन्म कुंडली में चंद्रमा की स्थिति के आधार पर निर्धारित करता है।
+                भारतीय वैदिक ज्योतिष में 27 नक्षत्र होते हैं। हालांकि मुहूर्त ज्योतिष में एक 28वां नक्षत्र भी होता है,
+                जिसे अभिजीत नक्षत्र कहा जाता है।</p>
+            <p>हर नक्षत्र को हिंदू धर्म में किसी विशेष काम के लिए शुभ या उपयुक्त माना जाता है, जैसे कि शादी करना, गृह
+                प्रवेश, नए घर में प्रवेश, नामकरण संस्कार, नई कार या घर खरीदना, नई नौकरी या व्यवसाय शुरू करना आदि।</p>
+            <p><b>योग</b></p>
+            <p>योग, सूर्य और चंद्रमा के बीच की कोणीय दूरी के आधार पर बनता है। वैदिक ज्योतिष में 27 योग होते हैं। ये योग
+                शुभ और अशुभ दोनों हो सकते हैं। 27 योगों में से कुल 9 योग अशुभ माने जाते हैं। प्रत्येक योग किसी व्यक्ति
+                के जीवन में एक दिन के लिए उपयोगी होता है। योग का महत्व विशेष रूप से मुहूर्त शास्त्र में देखा जाता है, यह
+                शुभ और अशुभ समय को निर्धारित करता है।</p>
+            <p><b>करण</b></p>
+            <p>करण को तिथि का आधा भाग माना जाता है, यानी दो करण मिलकर एक तिथि बनाते हैं। ज्योतिष में कुल 11 करण होते
+                हैं। सात करण चर करण होते हैं और अन्य चार स्थिर होते हैं। इनमें से आठ करण एक चंद्र मास में आते हैं। हर
+                तिथि में दो करण होते हैं, जिन्हें पूर्वार्ध करण और उत्तरार्ध करण कहा जाता है। करण का उपयोग अक्सर पंचांग
+                निर्धारण और मुहूर्त निकालने में किया जाता है।</p>
+            <p><b>वार</b></p>
+            <p>वार का मतलब एक सूर्योदय से अगले सूर्योदय तक का समय होता है। एक सप्ताह में सात वार होते हैं, जिन्हें
+                रविवार (इतवार), सोमवार, मंगलवार, बुधवार, बृहस्पतिवार, शुक्रवार और शनिवार के नाम से जाना जाता है। यह
+                सातों दिन यानी वार अपना एक विशेष महत्व रखते हैं। यह सभी दिन अलग-अलग देवताओं से जुड़ा होता है।</p>
+            <h3><b>पंचांग का क्या महत्व है? ये क्यों जरूरी है?</b></h3>
+            <p>हिंदू धर्म में, कोई भी शुभ कार्य पंचांग देखे बिना नहीं किया जाता है। भारतीय हिन्दू कैलेंडर का वैदिक
+                ज्योतिष में बहुत महत्व होता है और इसे भारत में हजारों साल से इस्तेमाल किया जाता रहा है। हिंदू कोई भी शुभ
+                अवसर या समारोह होने पर पंचांग का उपयोग करते हैं, क्योंकि यह किसी विशेष दिन और समय की विस्तृत जानकारी और
+                महत्व प्रदान करता है।</p>
+
+            <p>यह माना जाता है कि अगर आप कोई नई यात्रा या काम शुरू करने जा रहे हैं, चाहे वह व्यापार, करियर, शादी आदि हो,
+                तो उसे सही समय यानी पंचांग शुभ मुहूर्त पर करना चाहिए। यह शुभ समय पंचांग देखकर पता लगाया जा सकता है।</p>
+            <p>हिन्दू कैलेंडर ग्रहों की स्थिति पर आधारित होता है। हिन्दू पंचांग ज्योतिषियों और ज्योतिष में रुचि रखने
+                वाले लोगों को महत्वपूर्ण ज्योतिषीय जानकारी की गणना करके महत्वपूर्ण जानकारी प्रदान करता है। हिन्दू तिथि
+                कैलेंडर का उपयोग करके विभिन्न सामाजिक और धार्मिक कार्यक्रमों के लिए शुभ समय और अन्य महत्वपूर्ण ज्योतिषीय
+                विवरण निर्धारित किए जाते हैं। पारंपरिक हिन्दू समाज में, कोई भी शुभ कार्य करने के लिए उपयुक्त दिन और समय
+                निर्धारित करने में पंचांग कैलेंडर का महत्वपूर्ण स्थान होता है।</p>
+            <p>पंचांग के बिना, आप शुभ दिन और समय निर्धारित नहीं कर सकते हैं। वार, करण, योग, नक्षत्र, और तिथि का उपयोग
+                करके यह निर्धारित किया जाता है कि कोई मुहूर्त अच्छा है या बुरा।</p>
+            <h3><b>पंचांग के फायदे</b></h3>
+            <p>भारतीय संस्कृति में पंचांग के उपयोग को बहुत महत्वपूर्ण माना जाता है। इसका उपयोग आप रोज़मर्रा के जीवन में
+                बड़े निर्णय लेने के लिए करते हैं। पंचांग शुभ मुहूर्त निर्धारित करने और ज्योतिषीय समझ प्रदान करने में
+                महत्वपूर्ण भूमिका निभाता है। हिंदू कैलेंडर पंचांग के कुछ बड़े लाभ इस प्रकार हैं। </p>
+            <ul style="list-style-type: square; margin-left: 20px;">
+                <li>पंचांग का निर्माण इसलिए किया जाता है ताकि यह जानकारी मिल सके कि आने वाला दिन कैसा रहेगा। यह आपको
+                    'शुभ' या सकारात्मक समय के बारे में सूचित करता है। हिंदी कैलेंडर का पालन जरूर करना चाहिए ताकि आप
+                    खुशहाल और समृद्ध जीवन जी सकें, और दिन के नकारात्मक समय के बारे में जानकारी हासिल करके शुभ कामों से
+                    परहेज कर सकें। इस प्रकार आप सभी समस्याओं से खुद को बचा सकते हैं।</li>
+                <li>पंचांग हिन्दू संस्कृति में आपके जीवन में महत्वपूर्ण घटनाओं और समारोहों की योजना बनाने में आदर्श रूप
+                    से उपयोग किया जाता है। शादी, गृह प्रवेश, व्यापार जैसे महत्वपूर्ण कार्यों के लिए शुभ मुहूर्त का चयन
+                    पंचांग के माध्यम से किया जाता है। यह सुनिश्चित करता है कि कार्य अनुकूल समय पर आरंभ हो, जिससे ज्यादा
+                    से ज्यादा सफलता और शुभता प्राप्त हो सके।</li>
+                <li>पंचांग का उपयोग आपकी वैदिक जन्म कुंडली की गणना करने के लिए भी किया जाता है। पंचांग बनाने के लिए की
+                    गई गणनाएं किसी विशेष राशि में किसी विशेष डिग्री पर ग्रहों, तारों, या नक्षत्रों की स्थिति या गति पर
+                    आधारित होती हैं। ये गणनाएं यह दर्शाती हैं कि इन गतियों और परिवर्तनों का विशेष तारीख पर आप पर कैसा
+                    प्रभाव पड़ने वाला है और इसे नकारात्मक प्रभावों को कम करने और सकारात्मक प्रभावों को बढ़ाने के लिए किया
+                    जा सकता है।</li>
+                <li>पंचांग की मदद से आप अपनी नौकरी के साक्षात्कार, यात्रा से जुड़ी योजनाएं, निवेश, त्योहार, पूजाएं और
+                    किसी भी महत्वपूर्ण कार्य की शुरुआत के लिए सटीक रूप से योजना बना सकते हैं।</li>
+            </ul>
+            <h3><b>ऑनलाइन पंचांग कितना उपयोगी है?</b></h3>
+
+            <p>अगर आप हिन्दू कैलेंडर का पालन करते हैं और पंचांग से जुड़ी जानकारी चाहते हैं, तो एस्ट्रोयोगी का ऑनलाइन
+                पंचांग कैलकुलेटर आपके लिए सबसे अच्छा विकल्प हो सकता है। हमारा पंचांग टूल ऐप और वेबसाइट दोनों पर उपलब्ध
+                है, जिससे आप किसी भी स्थान से और किसी भी समय कुछ ही क्लिक्स में सटीक पंचांगम विवरण प्राप्त कर सकते हैं।
+            </p>
+            <p>इसके अलावा, आपके लिए यह भी जानना महत्वपूर्ण है कि एक ही समय में दो अलग-अलग स्थानों के लिए पंचांग से जुड़ी
+                जानकारी अलग हो सकती है। एक ही देश के भीतर भी, विभिन्न शहरों के लिए पंचांग भिन्न हो सकता है। इसलिए,
+                एस्ट्रोयोगी का ऑनलाइन पंचांग, निर्णय लेने के लिए सही समय निर्धारित करने में अत्यंत सहायक हो सकता है।</p>
+            <p>तो आएं और हमारे ऑनलाइन पंचांग टूल (online panchang) का उपयोग करें ताकि आप जान सकें कि वर्तमान दिन में या
+                आने वाले दिनों में कौन-सा समय बेहतर होगा और जीवन के विभिन्न पहलुओं में अपनी सफलता की संभावनाओं को कैसे
+                बढ़ाया जा सकता है। </p>
+            <p></p>
         </div>
     </div>
+
 
 </body>
 
