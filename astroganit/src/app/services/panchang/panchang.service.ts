@@ -9,7 +9,7 @@ import { PanchangInput } from '../../models/panchanginput.model';
   providedIn: 'root'
 })
 export class PanchangService {
-  private apiUrl = 'http://localhost:8080/api/panchang';
+  private apiUrl = 'http://143.110.184.190:5000/api/panchang';
 
   private panchangDataSubject = new BehaviorSubject<PanchangResponse | null>(null);
   private PanchangInputSubject = new BehaviorSubject<PanchangInput | null>(null);

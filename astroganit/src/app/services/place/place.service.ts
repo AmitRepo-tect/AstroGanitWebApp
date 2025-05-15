@@ -10,8 +10,8 @@ import { Place } from '../../models/place.model';
 export class PlaceService {
 
   constructor(private http: HttpClient) { }
-  private placeUrl = 'http://64.227.152.37:5000/api/place/city/';
-  private placeUrl1 = 'http://64.227.152.37:5000/api/place/city/jai';
+  private placeUrl = 'http://143.110.184.190:5000/api/place/city/';
+  private placeUrl1 = 'http://143.110.184.190:5000/api/place/city/jai';
   private placeUrl2 = "/api/place/city/"
   //private placeUrl1 = 'https://cors-anywhere.herokuapp.com/http://64.227.152.37:5000/api/place/city/jai';
 

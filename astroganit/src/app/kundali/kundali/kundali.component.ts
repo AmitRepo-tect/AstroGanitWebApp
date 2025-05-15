@@ -164,6 +164,8 @@ export class KundaliComponent implements OnInit {
     this.birthDetail.setDateTime(dateTime);
     this.birthDetail.setPlace(place);
     this.fetchKundliData();
+    //this.generatePdf();
+    //this.kundaliService.downloadPdf(this.birthDetail)
   }
   fetchKundliData() {
     this.kundaliService.getKundliData(this.birthDetail).subscribe(
@@ -176,4 +178,63 @@ export class KundaliComponent implements OnInit {
       }
     );
   }
+  // generatePdf() {
+
+  //   const body = {
+  //     name: this.birthDetail.getName(),
+  //     sex: this.birthDetail.getSex(),
+  //     dateTimeBean: {
+  //       day: this.birthDetail.getDateTime().getDate(),
+  //       month: parseInt(this.birthDetail.getDateTime().getMonth()),
+  //       year: this.birthDetail.getDateTime().getYear(),
+  //       hrs: this.birthDetail.getDateTime().getHr(),
+  //       min: this.birthDetail.getDateTime().getMin(),
+  //       sec: this.birthDetail.getDateTime().getSec(),
+  //     },
+  //     placeDetail: {
+  //       place: this.birthDetail.getPlace().place,
+  //       latDeg: this.birthDetail.getPlace().latDeg,
+  //       latMin: this.birthDetail.getPlace().latMin,
+  //       latNS: this.birthDetail.getPlace().latNS,
+  //       longDeg: this.birthDetail.getPlace().longDeg,
+  //       longMin: this.birthDetail.getPlace().longMin,
+  //       longEW: this.birthDetail.getPlace().longEW,
+  //       state: this.birthDetail.getPlace().state,
+  //       country: this.birthDetail.getPlace().country,
+  //       timezone: this.birthDetail.getPlace().timezone,
+  //       timezoneStr: this.birthDetail.getPlace().timezoneStr
+  //     },
+  //     dst: this.birthDetail.getDst(),
+  //     ayanamsa: this.birthDetail.getAyanamsa(),
+  //     charting: "1",
+  //     kphn: "0",
+  //     button1: "",
+  //     languageCode: this.birthDetail.getLanguageCode(),
+  //   };
+
+  //   this.kundaliService.downloadPdf(body).subscribe(response => {
+  //     const blob = new Blob([response.body!], { type: 'application/pdf' });
+
+  //     // Create a download link
+  //     const url = window.URL.createObjectURL(blob);
+  //     const a = document.createElement('a');
+  //     a.href = url;
+
+  //     // Optional: extract filename from header if your backend sets it
+  //     const contentDisposition = response.headers.get('Content-Disposition');
+  //     let filename = 'drawing.pdf';
+  //     if (contentDisposition) {
+  //       const matches = /filename="([^"]*)"/.exec(contentDisposition);
+  //       if (matches != null && matches[1]) filename = matches[1];
+  //     }
+
+  //     a.download = filename;
+  //     a.click();
+  //     window.URL.revokeObjectURL(url);
+  //   }, error => {
+  //     console.error('PDF download failed', error);
+  //   });
+  // }
+
 }
+
