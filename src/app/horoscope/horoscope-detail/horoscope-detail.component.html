@@ -1,0 +1,183 @@
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="container">
+
+        <h3 style="text-align: center; margin-top: 20px;">Horoscope</h3>
+        <hr>
+        <div class="button-container">
+            <button (click)="changeHoroscopeType(1)" [ngClass]="{'selected': horoscopeType == 1}">Daily
+                Horoscope</button>
+            <button (click)="changeHoroscopeType(2)" [ngClass]="{'selected': horoscopeType == 2}">Yearly
+                Horoscope</button>
+        </div>
+
+
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-1" (click)="onClick(0)" style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding:
+                0;">
+                <img [src]="zodiacImgArr[0]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[0]}}</p>
+            </div>
+            <div class="col-1" (click)="onClick(1)"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;   padding: 0;">
+                <img [src]="zodiacImgArr[1]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[1]}}</p>
+            </div>
+            <div class="col-1" (click)="onClick(2)" style=" display: flex; flex-direction: column; align-items: center; justify-content: center; padding:
+                0;">
+                <img [src]="zodiacImgArr[2]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[2]}}</p>
+            </div>
+            <div class="col-1" (click)="onClick(3)"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;   padding: 0;">
+                <img [src]="zodiacImgArr[3]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[3]}}</p>
+            </div>
+            <div class="col-1" (click)="onClick(4)"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;   padding: 0;">
+                <img [src]="zodiacImgArr[4]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[4]}}</p>
+            </div>
+            <div class="col-1" (click)="onClick(5)"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;   padding: 0;">
+                <img [src]="zodiacImgArr[5]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[5]}}</p>
+            </div>
+            <div class="col-1" (click)="onClick(6)"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;   padding: 0;">
+                <img [src]="zodiacImgArr[6]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[6]}}</p>
+            </div>
+            <div class="col-1" (click)="onClick(7)"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;   padding: 0;">
+                <img [src]="zodiacImgArr[7]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[7]}}</p>
+            </div>
+            <div class="col-1" (click)="onClick(8)"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;   padding: 0;">
+                <img [src]="zodiacImgArr[8]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[8]}}</p>
+            </div>
+            <div class="col-1" (click)="onClick(9)"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;   padding: 0;">
+                <img [src]="zodiacImgArr[9]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[9]}}</p>
+            </div>
+            <div class="col-1" (click)="onClick(10)"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;   padding: 0;">
+                <img [src]="zodiacImgArr[10]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[10]}}</p>
+            </div>
+            <div class="col-1" (click)="onClick(11)"
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center;   padding: 0;">
+                <img [src]="zodiacImgArr[11]" alt="Icon" style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <p style="margin-top: 5px; ">{{rahiName[11]}}</p>
+            </div>
+        </div>
+        <div class="row mt2">
+            <div class="col-1"
+                style="display: flex; flex-direction: row; align-items: center; justify-content: center; height: 100px; padding: 0;">
+                <img [src]="zodiacImgArr[selectedRashi]" alt="Icon"
+                    style="width: 45px; height: 45px; margin: 0; padding: 0;">
+                <h4 style=" text-align: center; padding: 0;margin: 0; margin-left: 10px;">{{rahiName[selectedRashi]}}
+                </h4>
+            </div>
+        </div>
+        <div class="container" *ngIf="horoscopeType == 1 ">
+            <div class="row mt2">
+                <div class=" col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Personal</h6>
+                    <p>{{dailyHoroscope[selectedRashi].love}}</p>
+                </div>
+            </div>
+            <div class="row mt5" style="margin-top: 20px;">
+                <div class="col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Wealth</h6>
+                    <p>{{ dailyHoroscope[selectedRashi].wealth }}</p>
+                </div>
+            </div>
+            <div class="row mt5" style="margin-top: 20px;">
+                <div class="col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Family</h6>
+                    <p>{{ dailyHoroscope[selectedRashi].family }}</p>
+                </div>
+            </div>
+            <div class="row mt5" style="margin-top: 20px;">
+                <div class="col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Carrer</h6>
+                    <p>{{ dailyHoroscope[selectedRashi].carrer }}</p>
+                </div>
+            </div>
+            <div class="row mt5" style="margin-top: 20px;">
+                <div class="col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Health</h6>
+                    <p>{{ dailyHoroscope[selectedRashi].health }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="container" *ngIf="horoscopeType == 2">
+            <div class="row mt2">
+                <div class=" col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Personal</h6>
+                    <p>{{yearlyHoroscope[selectedRashi].love}}</p>
+                </div>
+            </div>
+            <div class="row mt5" style="margin-top: 20px;">
+                <div class="col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Wealth</h6>
+                    <p>{{ yearlyHoroscope[selectedRashi].finance }}</p>
+                </div>
+            </div>
+            <div class="row mt5" style="margin-top: 20px;">
+                <div class="col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Family</h6>
+                    <p>{{ yearlyHoroscope[selectedRashi].family }}</p>
+                </div>
+            </div>
+            <div class="row mt5" style="margin-top: 20px;">
+                <div class="col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Carrer</h6>
+                    <p>{{ yearlyHoroscope[selectedRashi].carrer }}</p>
+                </div>
+            </div>
+            <div class="row mt5" style="margin-top: 20px;">
+                <div class="col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Health</h6>
+                    <p>{{ yearlyHoroscope[selectedRashi].health }}</p>
+                </div>
+            </div>
+            <div class="row mt5" style="margin-top: 20px;">
+                <div class="col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Marriage</h6>
+                    <p>{{ yearlyHoroscope[selectedRashi].marriage }}</p>
+                </div>
+            </div>
+            <div class="row mt5" style="margin-top: 20px;">
+                <div class="col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Education</h6>
+                    <p>{{ yearlyHoroscope[selectedRashi].education }}</p>
+                </div>
+            </div>
+            <div class="row mt5" style="margin-top: 20px;">
+                <div class="col"
+                    style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
+                    <h6 style="padding: 0;margin: 0;">Business</h6>
+                    <p>{{yearlyHoroscope[selectedRashi].business }}</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

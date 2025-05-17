@@ -1,0 +1,16 @@
+<div *ngFor="let item of planetRogNidanList; let i = index">
+    <h4 style="font-weight: 600;">{{planetName[i]}}</h4>
+    <div style="border: 0.5px solid gainsboro;border-radius: 5px;min-height: 10px; margin-bottom: 20px;padding: 10px;">
+        <h5><strong>{{planetName[i]}} की विषम स्थितियाँ </strong></h5>
+        <p> {{ item.wicked_pos }}</p>
+        <h5><strong>{{planetName[i]}} के प्रभाव से होने वाले रोग</strong></h5>
+        <p>{{ item.rog }}</p>
+        <h5><strong>रत्न</strong></h5>
+        <p> {{ item.ratan }}</p>
+        <h5><strong>तांत्रिक मंत्र </strong></h5>
+        <p> {{ item.tmantra }}</p>
+        <h5><strong>बीज मंत्र </strong></h5>
+        <p> {{ item.bmantra }}</p>
+
+    </div>
+</div>

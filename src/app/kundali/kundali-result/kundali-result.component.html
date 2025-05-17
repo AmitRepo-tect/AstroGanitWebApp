@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div>
+    <div style="display: flex; margin-left: 130px; margin-right: 130px; margin-top: 30px;">
+        <button class="button-left" (click)="changeHoroscopeType(1)" [ngClass]="{'selected': tabType == 1}">
+            पारम्परिक</button>
+
+        <button class="button-without-rounded" (click)="changeHoroscopeType(2)" [ngClass]="{'selected': tabType == 2}">
+            दशा</button>
+        <button class="button-without-rounded" (click)="changeHoroscopeType(3)" [ngClass]="{'selected': tabType == 3}">
+            केपी सिस्टम</button>
+        <button class="button-without-rounded" (click)="changeHoroscopeType(4)" [ngClass]="{'selected': tabType == 4}">
+            षोडशवर्ग</button>
+        <button class="button-without-rounded" (click)="changeHoroscopeType(5)" [ngClass]="{'selected': tabType == 5}">
+            वर्षफल </button>
+        <button class="button-without-rounded" (click)="changeHoroscopeType(6)" [ngClass]="{'selected': tabType == 6}">
+            विविध</button>
+        <button class="button-right" (click)="changeHoroscopeType(7)" [ngClass]="{'selected': tabType == 7}">
+            लाल किताब </button>
+
+    </div>
+    <div [@fade] style="margin-top: 20px;">
+        <ng-container *ngIf="tabType ==1">
+            <app-kundli-basic></app-kundli-basic>
+        </ng-container>
+        <ng-container *ngIf="tabType ==2">
+            <app-dasha-basic></app-dasha-basic>
+        </ng-container>
+        <ng-container *ngIf="tabType ==5">
+            <app-varshfal-basic></app-varshfal-basic>
+        </ng-container>
+        <ng-container *ngIf="tabType ==6">
+            <app-vividh-basic></app-vividh-basic>
+        </ng-container>
+    </div>
+
+</div>

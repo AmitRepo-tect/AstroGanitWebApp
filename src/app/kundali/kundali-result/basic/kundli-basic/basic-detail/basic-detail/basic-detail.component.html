@@ -1,0 +1,36 @@
+<div style="display: flex; ">
+    <div style="width: 100%;">
+        <h6 style="font-weight: 600;">व्यक्ति विवरण</h6>
+        <div style="border-radius: 5px;border-width: .5px;border-color: gainsboro;border-style: solid;">
+            <div *ngFor="let item of personalDetailLabels; let i = index">
+                <div style="display: flex; padding: 0%;margin: 0%; ">
+                    <p style="width: 100%;padding: 8px; margin: 0%;">{{personalDetailLabels[i]}} </p>
+                    <p style="width: 100%;padding: 8px;margin: 0%;">{{personalDetails[i]}} </p>
+                </div>
+                <hr *ngIf="i !== personalDetailLabels.length - 1" style="padding: 0%; margin: 0%;">
+            </div>
+        </div>
+        <h6 style="margin-top: 20px;font-weight: 600;">पंचांग विवरण</h6>
+        <div style="border-radius: 5px;border-width: .5px;border-color: gainsboro;border-style: solid;">
+            <div *ngFor="let item of panchangDetailLabels; let i = index">
+                <div style="display: flex; padding: 0%;margin: 0%; ">
+                    <p style="width: 100%;padding: 8px; margin: 0%;">{{panchangDetailLabels[i]}} </p>
+                    <p style="width: 100%;padding: 8px;margin: 0%;">{{panchangDetails[i]}} </p>
+                </div>
+                <hr *ngIf="i !== panchangDetailLabels.length - 1" style="padding: 0%; margin: 0%;">
+            </div>
+        </div>
+    </div>
+    <div style="width: 100%;margin-left: 20px;">
+        <h6 style="font-weight: 600;">अवकहडा चक्र</h6>
+        <div style="border-radius: 5px;border-width: .5px;border-color: gainsboro;border-style: solid;">
+            <div *ngFor="let item of avkhadaDetailLabels; let i = index">
+                <div style="display: flex; padding: 0%;margin: 0%; ">
+                    <p style="width: 100%;padding: 8px; margin: 0%;">{{avkhadaDetailLabels[i]}} </p>
+                    <p style="width: 100%;padding: 8px;margin: 0%;">{{avkhadaDetails[i]}} </p>
+                </div>
+                <hr *ngIf="i !== avkhadaDetailLabels.length - 1" style="padding: 0%; margin: 0%;">
+            </div>
+        </div>
+    </div>
+</div>

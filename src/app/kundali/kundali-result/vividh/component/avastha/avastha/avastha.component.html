@@ -1,0 +1,51 @@
+<div style="border: 0.5px solid gray;
+        border-radius: 5px;min-height: 10px;">
+    <div style="display: flex;align-items: stretch;background-color: rgb(247, 245, 245);">
+
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+
+                <strong>ग्रह</strong>
+            </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                <strong>जागृत</strong>
+            </p>
+        </div>
+
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                <strong>बलादि</strong>
+            </p>
+        </div>
+
+    </div>
+    <hr style="margin: 0%;padding: 0%;">
+    <div *ngFor="let planet of avasthaList; let i = index">
+        <div style="display: flex;align-items: stretch;">
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{planetName[avasthaList[i].planet] }}
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{avasthaName[avasthaList[i].jaagritAvastha] }}
+                </p>
+            </div>
+
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: left;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{baladiAvasthaName[avasthaList[i].baladiAvastha] }}</p>
+            </div>
+
+        </div>
+        <hr *ngIf="i!=avasthaList.length-1" style="margin: 0%;padding: 0%;">
+
+    </div>
+</div>

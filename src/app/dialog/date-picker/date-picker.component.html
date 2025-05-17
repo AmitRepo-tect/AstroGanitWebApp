@@ -1,0 +1,70 @@
+<div class="overlay" @modalAnimation> <!-- Ensure `@modalAnimation` is applied here -->
+    <div class="modal-content">
+        <div class="horizontal-container">
+            <p style="text-align: left; font-size: 22px; font-family: Arial, sans-serif;">
+                <strong>Date</strong>
+            </p>
+            <p style="text-align: left; font-size: 22px; font-family: Arial, sans-serif;" (click)="close()">
+                <strong>X</strong>
+            </p>
+        </div>
+
+        <div class="horizontal-container">
+            <div class="spinner-container">
+                <div class="custom-spinner">
+                    <select id="spinner" class="spinner" [(ngModel)]="year" (change)="selectYear(year)">
+                        <option *ngFor="let year of years" [value]="year">{{ year }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div class="spinner-container">
+                <div class="custom-spinner">
+                    <select id="spinner" class="spinner" [(ngModel)]="month" (change)="selectMonth(month)">
+                        <option *ngFor="let month of months" [value]="month">{{ month }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="spinner-container">
+                <div class="custom-spinner">
+                    <select id="spinner" class="spinner" [(ngModel)]="day" (change)="selectDate(day)">
+                        <option *ngFor="let day of days" [value]="day">{{ day }}
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+
+        </div>
+        <p style="text-align: left; font-size: 22px; font-family: Arial, sans-serif; margin-top: 10px;"><strong>Your
+                Location</strong></p>
+        <div style="display: flex; align-items: center; justify-content: flex-start;">
+            <div
+                style="display: flex; justify-content: flex-start; width: 60%; border-width: 1px; border-color: yellow; border-style: solid; border-radius: 4px;">
+                <img src="assets/images/ic_location.png" alt="Icon"
+                    style="width: 40px; height: 40px; background-color: bisque; border-radius: 4px; margin: 0; padding: 0;">
+
+
+                <div class="spinner-container">
+                    <div class="custom-spinner">
+                        <input type="text" [(ngModel)]="selectedItem" (input)="filterItem()" placeholder="Select a Item"
+                            class="spinner-input" />
+                        <ul *ngIf="filteredItems.length > 0" class="spinner-dropdown">
+                            <li *ngFor="let item of filteredItems" (click)="selectPlace(item)">
+                                {{ item.place +','+item.state}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <button
+                style="background-color: yellow; width: 40%;height: 42px;   border-top: 1px solid yellow; border-left: 1px solid yellow; border-radius: 4px; box-shadow: none; margin-left: 10px; border:none;"
+                (click)="submit()">SUBMIT</button>
+
+        </div>
+
+
+
+    </div>

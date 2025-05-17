@@ -1,0 +1,32 @@
+:host {
+    transition: opacity 0.5s ease;
+}
+
+.button-container {
+    display: flex;
+    /* Use flexbox for layout */
+    justify-content: center;
+    /* Center the buttons horizontally */
+    text-align: center;
+    height: 10vh;
+    /* Full height of the viewport */
+}
+
+/* Style for buttons */
+button {
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 6px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 0.5px solid #FFF39A;
+    border-radius: 25px;
+    background-color: white;
+}
+
+button.selected {
+    background-color: #FFFDD0;
+    color: black;
+    border: .5px solid #FFF39A;
+}

@@ -1,0 +1,35 @@
+<div style="margin-left: 130px; margin-right: 130px;">
+    <div style="display: flex;  ">
+        <button (click)="changeHoroscopeType(1)" [ngClass]="{'selected': tabType == 1}">वर्षफल विवरण</button>
+        <button (click)="changeHoroscopeType(2)" [ngClass]="{'selected': tabType == 2}">वर्षफल कुण्डली </button>
+        <button (click)="changeHoroscopeType(3)" [ngClass]="{'selected': tabType == 3}">वर्षफल तालिका</button>
+        <button (click)="changeHoroscopeType(4)" [ngClass]="{'selected': tabType == 4}">वर्षफल भविष्यफल</button>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;  height: 60px;">
+        <img src="assets/images/ic_backward_black.png" alt="Decrement" (click)="decrementDate()"
+            style="border: 1px solid gray; border-radius: 5px; width: 40px; height: 40px; padding: 4px;margin-right: 20px;">
+
+        <button style="border-radius: 5px; border: 1px solid gray; padding: 8px 50px; margin: 0;">
+            {{selectedDate.getFullYear()}}
+        </button>
+
+        <img src="assets/images/ic_forword_black.png" alt="Increment" (click)="incrementDate()"
+            style="border: 1px solid gray; border-radius: 5px; width: 40px; height: 40px; padding: 4px;margin-left: 20px;">
+    </div>
+
+    <div style="margin-top: 20px;">
+        <ng-container *ngIf="tabType == 1">
+            <app-varshfal-detail></app-varshfal-detail>
+        </ng-container>
+        <ng-container *ngIf="tabType == 2">
+            <app-varshfal-chart></app-varshfal-chart>
+        </ng-container>
+        <ng-container *ngIf="tabType == 3">
+            <app-varshfal-table></app-varshfal-table>
+        </ng-container>
+        <ng-container *ngIf="tabType == 4">
+            <app-varshfal-prediction></app-varshfal-prediction>
+        </ng-container>
+
+    </div>
+</div>

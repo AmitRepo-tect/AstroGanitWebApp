@@ -1,0 +1,294 @@
+<app-header></app-header>
+<div class="container-fluid" style="display: flex;flex-direction: column;">
+    <app-date-picker *ngIf="isModalOpen" (closeDialog)="closeDatePlaceDialog()">
+    </app-date-picker>
+    <div class="row" style="margin-top: 30px; margin-left: 70px;margin-right: 70px;">
+        <div class="col-9">
+            <h1><strong>चौघड़िया </strong></h1>
+            <p style="text-align: justify;">चौघड़िया वैदिक पंचांग का एक रूप है। यदि कभी किसी कार्य के लिए शुभ मुहूर्त
+                नहीं निकल पा रहा हो या कार्य को
+                शीघ्रता से आरंभ करना हो तथा किसी यात्रा पर आवश्यक रूप से जाना हो तो उसके लिए चौघड़िया मुहूर्त देखने का
+                विधान है। ज्योतिष के अनुसार चौघड़िया मुहूर्त देखकर कार्य या यात्रा आरंभ करना उत्तम है। ज्योतिष में
+                चौघड़िया को विशेष स्थान प्राप्त है। आगे हम चौघड़िया क्या है, चौघड़िया की गणना कैसे की जाती है, चौघड़िया
+                का क्या महत्व है और चौघड़िया की उपयोगिता क्या है, इसके बारे में जानेंगे।
+            </p>
+            <!-- <div class="container" style="background-color: blanchedalmond; border-radius: 5px; padding: 15px;">
+                <p style="text-align: left; font-size: 22px; font-family: Arial, sans-serif;">
+                    <strong> चौघड़िया के लिए दिनांक और स्थान दर्ज करें </strong>
+                </p>
+                <div class="horizontal-container">
+                    <div class="spinner-container">
+                        <div class="custom-spinner">
+                            <select id="spinner" class="spinner" [(ngModel)]="year" (change)="selectYear(year)">
+                                <option *ngFor="let year of years" [value]="year">{{ year }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="spinner-container">
+                        <div class="custom-spinner">
+                            <select id="spinner" class="spinner" [(ngModel)]="month" (change)="selectMonth(month)">
+                                <option *ngFor="let month of months" [value]="month">{{ month }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="spinner-container">
+                        <div class="custom-spinner">
+                            <select id="spinner" class="spinner" [(ngModel)]="day" (change)="selectDate(day)">
+                                <option *ngFor="let day of days" [value]="day">{{ day }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: left; font-size: 22px; font-family: Arial, sans-serif; margin-top: 10px;">
+                    <strong>Your Location</strong>
+                </p>
+                <div style="display: flex; align-items: center; justify-content: flex-start;">
+                    <div
+                        style="display: flex; justify-content: flex-start; width: 60%; border-width: 1px; border-color: yellow; border-style: solid; border-radius: 4px;">
+                        <img src="assets/images/ic_location.png" alt="Icon"
+                            style="width: 40px; height: 40px; background-color: yellow; border-top-left-radius: 4px;border-bottom-left-radius: 4px; margin: 0; padding: 0;">
+
+
+                        <div class="spinner-container1">
+                            <div class="custom-spinner">
+                                <input type="text" [(ngModel)]="selectedItem" (input)="filterItem()"
+                                    placeholder="Select a Item" class="spinner-input" />
+                                <ul *ngIf="filteredItems.length > 0" class="spinner-dropdown">
+                                    <li *ngFor="let item of filteredItems" (click)="selectPlace(item)">
+                                        {{ item.place + ',' + item.state }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        style="background-color: yellow; width: 40%;height: 42px;   border-top: 1px solid yellow; border-left: 1px solid yellow; border-radius: 4px; box-shadow: none; margin-left: 10px; border:none;"
+                        (click)="submit()">SUBMIT</button>
+
+                </div>
+            </div> -->
+            <app-date-place></app-date-place>
+            <div style="display: flex; justify-content: left; margin-top: 20px; padding-left: 0;">
+                <div
+                    style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;width: 94%;">
+                    <h5 style="margin: 0;"><strong>आज का चोघडिया</strong> {{selectedDate}}</h5>
+                </div>
+                <div style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                    <img src="assets/images/ic_backword_arrow.png" alt="Icon" (click)="decrementDate()"
+                        style="width: 30px; height: 30px;  border-radius: 5px; padding: 0;margin-right: 10px;">
+                    <img src="assets/images/ic_forword_arrow.png" alt="Icon" (click)="incrementDate()"
+                        style="width: 30px; height: 30px;  border-radius: 5px; margin-right: 0; padding: 0;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h5>दिन चोघडिया</h5>
+                    <div style="border-width: 1px; border-radius: 5px;border-color: gray;border-style: solid;">
+                        <div style="background-color: gainsboro; padding: 0; display: flex; align-items: center;">
+                            <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">चोघडिया</p>
+                            <p style="width: 70%; margin: 0; text-align: left;padding: 10px;">समय</p>
+                        </div>
+                        <div *ngFor="let item of panchangData?.chogdiyaResponse?.dayChogdiyaList; let i = index">
+
+                            <hr style="margin: 0;">
+                            <div style=" padding: 0; display: flex; align-items: center;">
+                                <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">{{item.planetName}}
+                                </p>
+                                <p style="width: 70%; margin: 0; text-align: left; padding: 10px;">{{item.duration}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-6">
+                    <h5>रात चोघडिया </h5>
+                    <div style="border-width: 1px; border-radius: 5px;border-color: gray;border-style: solid;">
+                        <div style="background-color: gainsboro; padding: 0; display: flex; align-items: center;">
+                            <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">चोघडिया</p>
+                            <p style="width: 70%; margin: 0; text-align: left;padding: 10px;">समय</p>
+                        </div>
+                        <div *ngFor="let item of panchangData?.chogdiyaResponse?.nightChogdiyaList; let i = index">
+
+                            <hr style="margin: 0;">
+                            <div style=" padding: 0; display: flex; align-items: center;">
+                                <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">{{item.planetName}}
+                                </p>
+                                <p style="width: 70%; margin: 0; text-align: left; padding: 10px;">{{item.duration}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <h3 style="margin-top: 50px; padding: 0;margin-left: 0;margin-right: 0; margin-bottom: 15px;">
+                <strong>शुभ मुहूर्त 2025</strong>
+            </h3>
+            <div class="container" style="padding: 0%;">
+                <div style="display: flex; ">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">विवाह मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">वाहन खरीद मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+                <div style="display: flex; margin-top: 20px;">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">गृह प्रवेश मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">नामकरण मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+                <div style="display: flex; margin-top: 20px;">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">मुंडन मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">अन्नप्राशन मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <h3 style="margin-top: 30px;"><strong>चौघड़िया क्या है? </strong></h3>
+            <hr>
+            <!-- <div style="display: flex; flex-direction: column; justify-content: space-between; height: 200px;"> -->
+
+            <P>
+                चौघड़िया ज्योतिष की एक ऐसी तालिका है जो खगोलिय स्थिति के आधार पर दिन के 24 घंटों की दशा बताती है।
+                इसमें प्रतिदिन के लिये दिन, नक्षत्र, तिथि, योग एवं करण दिये होते हैं। ग्रहों की स्थिति पर आधारित ऐसी
+                दशाओं में से दिन और रात्रि में पूजा, विवाह समारोह, त्योहारों आदि के हेतु शुभ एवं अशुभ समयों को इस
+                सारिणी के विभिन्न तालिकाओं में वर्गीकृत किया जाता है।
+            </P>
+            <h3 style="margin-top: 30px;"><strong>चौघड़िया की गणना की विधि </strong></h3>
+
+            <p>
+                चौघड़िया की गणना के लिए, प्रत्येक दिन को दो समय अवधि में विभाजित किया जाता है। दिनमान जो सूर्योदय से
+                सूर्यास्त तक की अवधि है रात्रि-समय जो सूर्यास्त से सूर्योदय तक की अवधि है। इन दो भागों को फिर आठ बराबर
+                भागों में विभाजित किया जाता है। इन आठ विभाजनों में से प्रत्येक चार एक घड़ी के बराबर है और समय के इस
+                विभाजन को चौघड़िया कहा जाता है।
+            </p>
+            <h3 style="margin-top: 30px;"><strong>चौघड़िया का महत्व </strong></h3>
+            <p>
+
+                चौघड़िया मुहूर्त वैदिक हिंदू कैलेंडर, पंचांग का एक अभिन्न हिस्सा है। चौघड़िया का प्रत्येक भाग दिन की
+                तारीख और समय के आधार पर समान रूप से लाभप्रद या नुकसानदेह हो सकता है। चौघड़िया विभिन्न पहलुओं पर तय किया
+                जाता है। दिन के पहले चौघड़िया की गणना दिन के स्वामी ग्रह के आधार पर की जाती है।</p>
+            <h3 style="margin-top: 30px;"><strong> चौघड़िया का उपयोग </strong></h3>
+            <p>
+                चौघड़िया भारत में समय की गणना के लिए एक प्राचीन उपाय है जो प्रत्येक खंड में लगभग 24 मिनट के बराबर है।
+                चौघड़िया उत्तर भारत के अधिकांश क्षेत्रों में एक ज्योतिषी से परामर्श के बिना एक अच्छा मुहूर्त खोजने के
+                लिए उपयोग किया जाता है। दक्षिण में चौघड़िया को गोवरी पंचांग कहा जाता है। चौघड़िया का अधिक उपयोग भारत के
+                पश्चिमी क्षेत्रों में किया जाता है। चौघड़िया मुहूर्त का प्रयोग किसी नए कार्य को करने, यात्रा करने,
+                व्यापार शुरु करने के लिए किया जाता रहा है। घड़ीं का अर्थ समय के कुछ भाग से होता है। प्राचीन भारत में दिन
+                और रात्रि को आज के घंटे एवं मिनटों के स्थान पर विभिन्न घड़ियों में बांटा गया था।</p>
+            <h3 style="margin-top: 30px;"><strong> चौघड़िया मुहूर्त </strong></h3>
+
+            <p><b>उदवेग: </b>
+                चौघड़िया में उदवेग प्रथम मुहूर्त है, जिसका स्वामी ग्रह सूर्य है। इस घड़ी में प्रशासनिक कार्य करने पर
+                उचित परिणाम मिलने के कम आसार होते हैं।</p>
+            <p><b>लाभ: </b>
+                इस मुहूर्त का स्थान चौघड़िया में द्वितीय है। बुध ग्रह इसका स्वामी ग्रह है। इस समय पर व्यावसायिक और
+                शिक्षा से जुड़े कार्य करने पर उचित परिणाम मिलते हैं।</p>
+            <p><b>चर: </b>
+                इस मुहूर्त का स्वामी ग्रह शुक्र है। इसका स्थान चौघड़िया में तृतीय है। इस मुहूर्त में यात्रा और पर्यटन
+                करना उत्तम माना जाता है।</p>
+            <p><b>रोग: </b>
+                इस मुहूर्त का चौघड़िया में चौथा स्थान है। इसका स्वामी ग्रह मंगल है। इस घड़ी में चिकित्सीय सलाह लेने से
+                बचना चाहिए।</p>
+            <p><b>शुभ: </b>
+                इस मुहूर्त का स्वामी ग्रह बृहस्पति ग्रह है। यह समय शुभ कार्यों को करने के लिए उत्तम है। इस घड़ी में
+                विवाह, पूजा, यज्ञ करवाने पर शुभफल प्राप्त होता है।</p>
+            <p><b>काल: </b>
+                काल मुहूर्त में कोई भी शुभ कार्य नहीं किया जाता है। ज्योतिष भी इस मुहूर्त में किसी भी तहर का कार्य करने
+                से मना करते हैं। इस घड़ी पर शनि का स्वामित्व है और काल का सीधा संबंध अंत से हैं।</p>
+            <p><b>अमृत: </b>
+                यह चौघड़िया का अंतिम मुहूर्त है। इस पर चंद्रमा का स्वामित्व है। अमृत मुहूर्त में कोई भी कार्य करने पर
+                अच्छा परिणाम मिलता है।</p>
+            <p>
+                ध्यान दे - वार वेला, काल वेला और कालरात्रि का समय भारतीय ज्योतिष में शुभ नहीं माना जाता है और
+                भविष्यवाणियां करते समय इनसे बचना चाहिए।</p>
+
+
+        </div>
+
+        <!-- </div> -->
+        <div class="col-3 ">
+            <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                style="width: 100%; height: 250px; object-fit: cover; margin-left: 0;">
+            <div class="col border border-secondary mt-4 " style="height: 380px;">
+                <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                    style="width: 100%; height: 120px; object-fit: cover; margin-left: 0;">
+                <h5 style="padding-top: 10px; padding-left: 10px;">Panchang</h5>
+                <div class="scroll-container" style="height: 220px;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

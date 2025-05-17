@@ -1,0 +1,38 @@
+<div style="border: 0.5px solid gainsboro;
+        border-radius: 5px;min-height: 10px;">
+    <div style="display: flex;align-items: stretch;">
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">ग्रह</p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">राशि</p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">अंश </p>
+        </div>
+
+    </div>
+    <hr style="margin: 0%;padding: 0%;">
+    <div *ngFor="let planetData of planetDataList">
+        <div style="display: flex;align-items: stretch;">
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">{{planetData.planet}}
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">{{planetData.rashi}}
+                </p>
+            </div>
+
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">{{planetData.deg}}</p>
+            </div>
+
+        </div>
+        <hr style="margin: 0%;padding: 0%;">
+    </div>
+</div>

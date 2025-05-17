@@ -1,0 +1,62 @@
+<div>
+
+    <div style="border-radius: 5px;border-width: .5px;border-style: solid;border-color: gainsboro;">
+        <div style="display: flex;align-items: stretch;min-height: 10px;background-color: #E5E4E2;">
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600;">ग्रह
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">आरंभ
+                    तिथि</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">अंतिम
+                    तिथि</p>
+            </div>
+            <div *ngIf="clickedCount<4"
+                style="display: flex; align-items: center; padding: 0 10px; width: 5%; justify-content: center;">
+            </div>
+        </div>
+        <div *ngFor="let item of vimDasaArr; let i = index" (click)="onItemClick(i)">
+            <hr style="margin: 0%;padding: 0%;">
+            <div style="display: flex;">
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{vimDasaArr[i].planetName}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{vimDasaArr[i].dasaTimeStr}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{vimDasaArr[i].dasaTimeStr}}
+                    </p>
+                </div>
+                <div *ngIf="clickedCount<4"
+                    style="display: flex; align-items: center; padding: 0 10px; width: 5%; justify-content: center;">
+                    <img src="assets/images/forward-arrow.png" alt="Sample Image" width="20px" height="20px">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div *ngIf="clickedCount>0" style="text-align: center; margin-top: 10px;margin-bottom: 20px;">
+        <button style="
+        border: 2px solid #4CAF50; 
+        background-color: #4CAF50; 
+        color: white; 
+        padding: 6px 40px; 
+        border-radius: 5px; 
+        cursor: pointer;
+        margin-bottom: 20px;
+      " (click)="changeDasaOnBackPress()">Back</button>
+    </div>
+</div>

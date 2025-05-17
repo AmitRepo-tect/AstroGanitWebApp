@@ -1,0 +1,152 @@
+<div>
+    <h6 style="font-weight: 600">अष्टकवर्ग चार्ट</h6>
+    <p>अष्टकवर्ग का उपयोग जन्म कुंडली में मौजूद शक्ति और पैटर्न का आकलन करने के लिए किया जाता है। अष्टकवर्ग या अष्टकवर्ग
+        अन्य 7 ग्रहों और लग्न के संदर्भ में चार्ट में रखे गए प्रत्येक ग्रह का एक संख्यात्मक परिमाण या स्कोर है। सर्व
+        अष्टक वर्ग में सभी बीएवी के कुल अंकों को ओवरले किया जाता है और फिर टोटल किया जाता है। यह चार्ट का SAV बनाता है।
+        सभी स्कोर का योग 337 होना चाहिए।</p>
+    <div style="border-radius: 5px;border-width: .5px;border-style: solid;border-color: gainsboro;">
+        <div style="display: flex;align-items: stretch;min-height: 10px;">
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;"></p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">मेष</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">वृष</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">मिथुन
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">कर्क
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">सिंह
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">कन्या
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">तुला
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">वृश्चिक
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">धनु</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">मकर</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">कुंभ
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">मीन</p>
+            </div>
+        </div>
+
+        <div *ngFor="let item of planetName; let i = index">
+            <hr style="margin: 0%;padding: 0%;">
+            <div style="display: flex;">
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">
+                        {{planetName[i]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][0]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][1]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][2]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][3]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][4]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][5]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][6]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][7]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][8]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][9]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][10]}}
+                    </p>
+                </div>
+                <div class="vertical-line"></div>
+                <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                    <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                        {{ashtakVargaArr[i][11]}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

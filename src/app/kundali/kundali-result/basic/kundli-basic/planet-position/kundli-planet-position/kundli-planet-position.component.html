@@ -1,0 +1,114 @@
+<div style="border: 0.5px solid gainsboro;
+        border-radius: 5px;min-height: 10px;">
+    <div style="display: flex;align-items: stretch;">
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">ग्रह</p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">राशि</p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">राशि स्वामी
+            </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">नक्षत्र
+            </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">नक्षत्र
+                स्वामी
+            </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">अंश </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">वक्री </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 30%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">अस्त </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">अवस्था
+            </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 30%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600">गृह </p>
+        </div>
+        <div class="vertical-line"></div>
+        <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+            <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;font-weight: 600;">स्थिति
+            </p>
+        </div>
+    </div>
+    <hr style="margin: 0%;padding: 0%;">
+    <div *ngFor="let planetData of planetDataList">
+        <div style="display: flex;align-items: stretch;">
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">{{planetData.planet}}
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">{{planetData.rashi}}
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{planetData.rashiLord}}</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">{{planetData.naksh}}
+                </p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{planetData.nakshLord}}</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 100%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">{{planetData.deg}}</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">{{ planetData.combust
+                    === '1' ? 'वक्री' : 'प्रत्यक्ष' }}</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 30%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">{{
+                    planetData.retrograte == '1' ? 'हां' : 'नहीं' }}</p>
+                <!-- <p style="margin: 0; padding: 6px;">{{planetData.retrograte}}</p> -->
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;"><strong>अवस्था
+                    </strong></p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 30%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;">
+                    {{planetData.planetBhav}}</p>
+            </div>
+            <div class="vertical-line"></div>
+            <div style="display: flex; align-items: center; padding: 0 10px; width: 50%; justify-content: center;">
+                <p style="margin: 0; padding-top: 6px; padding-bottom: 6px; text-align: center;"><strong>स्थिति
+                    </strong></p>
+            </div>
+        </div>
+        <hr style="margin: 0%;padding: 0%;">
+    </div>
+</div>
