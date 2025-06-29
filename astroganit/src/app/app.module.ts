@@ -54,6 +54,14 @@ import { AvasthaComponent } from './kundali/kundali-result/vividh/component/avas
 import { NavtaraComponent } from './kundali/kundali-result/vividh/component/navtara/navtara/navtara.component';
 import { RogandNidanComponent } from './kundali/kundali-result/vividh/component/rogandnidan/rogand-nidan/rogand-nidan.component';
 import { DatePlaceComponent } from './Panchang/date-place/date-place/date-place.component';
+import { DoGhatiComponent } from './Panchang/do-ghati/do-ghati/do-ghati.component';
+import { RahukaalComponent } from './Panchang/rahukaal/rahukaal/rahukaal.component';
+import { LagnaMuhuratComponent } from './Panchang/lagna-muhurat/lagna-muhurat/lagna-muhurat.component';
+import { VratComponent } from './Panchang/vrat/vrat/vrat.component';
+import { FestivalComponent } from './Panchang/festival/festival/festival.component';
+import { HolidaysComponent } from './Panchang/Holidays/holidays/holidays.component';
+import { PanchakComponent } from './Panchang/panchak/panchak/panchak.component';
+import { BhadraComponent } from './Panchang/bhadra/bhadra/bhadra.component';
 
 
 
@@ -101,7 +109,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     AvasthaComponent,
     NavtaraComponent,
     RogandNidanComponent,
-    DatePlaceComponent
+    DatePlaceComponent,
+    DoGhatiComponent,
+    RahukaalComponent,
+    LagnaMuhuratComponent,
+    VratComponent,
+    FestivalComponent,
+    HolidaysComponent,
+    PanchakComponent,
+    BhadraComponent
   ],
   imports: [
     MatAutocompleteModule,

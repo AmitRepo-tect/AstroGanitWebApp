@@ -13,7 +13,8 @@ export class HoroscopeDetailComponent implements OnInit {
   horoscopeType: number = 1
   dailyHoroscope: DailyHoroscope[] = [];
   yearlyHoroscope: YearlyHoroscope[] = [];
-  rahiName: string[] = ['Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn', 'Aquarius', 'Pisces']
+
+  rahiName: string[] = ['मेष', 'वृष', 'मिथुन', 'कर्क', 'सिंह', 'कन्या', 'तुला', 'वृश्चिक', 'धनु', 'मकर', 'कुम्भ', 'मीन']
   zodiacImgArr: string[] = ['assets/images/zodic__1.png', 'assets/images/zodic__2.png', 'assets/images/zodic__3.png', 'assets/images/zodic__4.png', 'assets/images/zodic__5.png', 'assets/images/zodic__6.png', 'assets/images/zodic__7.png', 'assets/images/zodic__8.png', 'assets/images/zodic__9.png', 'assets/images/zodic__10.png', 'assets/images/zodic__11.png', 'assets/images/zodic__12.png'];
   selectedRashi: number = 0
   constructor(private horoscopeService: HoroscopeService, private cdr: ChangeDetectorRef) { }
@@ -26,6 +27,7 @@ export class HoroscopeDetailComponent implements OnInit {
   }
   ngOnInit(): void {
     this.fetchDailyHoroscopeData()
+    this.fetchYearlyHoroscopeData()
     this.addObservers()
     // this.horoscopeService.getDailyHoroscope().subscribe(
     //   response => {
@@ -58,6 +60,19 @@ export class HoroscopeDetailComponent implements OnInit {
       }
     );
   }
+  fetchYearlyHoroscopeData() {
+    console.log("fetchDailyHoroscopeData")
+    this.horoscopeService.getYearlyHoroscope().subscribe(
+      response => {
+        console.log("data" + response)
+        this.horoscopeService.setYearlyHoroscopeData(response)
+      },
+      error => {
+        // console.error('Error occurred:', error);
+        console.log("data" + error)
+      }
+    );
+  }
   addObservers() {
     this.horoscopeService.horoscopeData$.subscribe(data => {
       if (data != null) {
@@ -65,6 +80,12 @@ export class HoroscopeDetailComponent implements OnInit {
         console.log("data" + data)
       }
 
+    });
+    this.horoscopeService.yearlyHoroscopeData$.subscribe(data => {
+      if (data != null) {
+        this.yearlyHoroscope = data;
+        console.log("data" + data)
+      }
     });
   }
 }

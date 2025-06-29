@@ -1,0 +1,380 @@
+<app-header></app-header>
+<div class="container-fluid" style="display: flex;flex-direction: column;">
+    <app-date-picker *ngIf="isModalOpen" (closeDialog)="closeDatePlaceDialog()">
+    </app-date-picker>
+    <div class="row" style="margin-top: 30px; margin-left: 70px;margin-right: 70px;">
+        <div class="col-9">
+            <!-- <h1><strong>दो घटी </strong></h1> -->
+            <!-- <p style="text-align: justify;">वैदिक ज्योतिष में एक दिन, सूर्योदय से अगले दिन के सूर्योदय तक माना जाता है।
+                अर्थात दिन सूर्योदय से प्रारम्भ होकर अगले दिन सूर्योदय पर अन्त होता है। सूर्योदय से सूर्यास्त के समय को
+                30 (३०) घटी (वैदिक समय गणना की इकाई) में विभाजित किया गया है। एवं सूर्यास्त से सूर्योदय के मध्य का समय
+                भी 30 घटी में विभाजित किया जाता है। इसका अर्थ ये है कि, एक पूरे दिन में 60 (६०) घटी होती हैं।
+
+                एक पूरा दिन = 60 घटी
+
+                1 घटी = 60 पल
+
+                1 पल = 60 विपल
+
+                घटी समय को मापने की एक वैदिक इकाई है। यह एक दिन का तीसवाँ भाग होती है। यदि आप सूर्योदय से सूर्यास्त के
+                मध्य के समय को 30 भागों में विभाजित करेंगे, तो हमें 1 घटी की अवधि प्राप्त होगी।
+
+
+                बहुत सी वेबसाइट और ज्योतिषी, घटी के समय अवधि को स्थिर समझ, एक घण्टे को 2.5 (ढाई) घटी के बराबर मान लेते
+                हैं जो की सही नहीं है। घटी की अवधि (घटीकाल) स्थिर न होकर स्थान के अनुसार बदलती रहती है। 1 घटी लगभग 24
+                मिनट की होती है।
+
+                सूर्योदय और सूर्यास्त के मध्य की अवधि = 30 घटी
+
+                (सूर्योदय और सूर्यास्त के मध्य की अवधि / 30) = 1 घटी
+
+                एक दिन में कुल 30 मुहूर्त होते हैं। 15 मुहूर्त दिन में एवं 15 मुहूर्त रात्रि में होते हैं। प्रत्येक
+                मुहूर्त 2 घटी का होता है, इसलिए ये 30 मुहूर्त "दो घटी मुहूर्त" के नाम से भी जाने जाते हैं। इन 30
+                महुर्तों के नाम निम्नलिखित हैं -
+
+                1. रुद्र मुहूर्त हानिकारक होता है।
+                2.उरग मुहूर्त हानिकारक होता है।
+                3.मित्र मुहूर्त लाभदायक होता है।
+                4.पितर मुहूर्त हानिकारक होता है।
+                5.वसु मुहूर्त लाभदायक होता है।
+                6.अम्बु मुहूर्त लाभदायक होता है।
+                7.विश्वेदेव मुहूर्त लाभदायक होता है।
+                8.विधि मुहूर्त लाभदायक है।
+                9.ब्रह्मा मुहूर्त लाभदायक होता है।
+                10.इन्द्र मुहूर्त लाभदायक होता है।
+                11.इन्द्राग्नी मुहूर्त हानिकारक होता है।
+                12.दैत्य मुहूर्त हानिकारक होता है।
+                13.वरुण मुहूर्त लाभदायक होता है।
+                14.अर्यमा मुहूर्त लाभदायक है।
+                15.भग मुहूर्त हानिकारक होता है।
+                16.ईश्वर मुहूर्त हानिकारक होता है।
+                17.अजैकपाद मुहूर्त हानिकारक होता है।
+                18.अहिर्बुध्न्य मुहूर्त लाभदायक होता है।
+                19.पूषा मुहूर्त लाभदायक होता है।
+                20.अश्विनी कुमार मुहूर्त लाभदायक होता है।
+                21.यम मुहूर्त हानिकारक होता है।
+                22.अग्नि मुहूर्त हानिकारक होता है।
+                23.ब्रह्मा मुहूर्त लाभदायक होता है।
+                24.चन्द्र मुहूर्त लाभदायक होता है।
+                25.अदिति मुहूर्त लाभदायक होता है।
+                26.बृहस्पति मुहूर्त लाभदायक होता है।
+                27.विष्णु मुहूर्त लाभदायक होता है।
+                28.सूर्य मुहूर्त लाभदायक होता है।
+                29.त्वष्टा मुहूर्त लाभदायक होता है।
+                30.समीरण मुहूर्त लाभदायक होता है।
+            </p> -->
+            <!-- <div class="container" style="background-color: blanchedalmond; border-radius: 5px; padding: 15px;">
+                <p style="text-align: left; font-size: 22px; font-family: Arial, sans-serif;">
+                    <strong> चौघड़िया के लिए दिनांक और स्थान दर्ज करें </strong>
+                </p>
+                <div class="horizontal-container">
+                    <div class="spinner-container">
+                        <div class="custom-spinner">
+                            <select id="spinner" class="spinner" [(ngModel)]="year" (change)="selectYear(year)">
+                                <option *ngFor="let year of years" [value]="year">{{ year }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="spinner-container">
+                        <div class="custom-spinner">
+                            <select id="spinner" class="spinner" [(ngModel)]="month" (change)="selectMonth(month)">
+                                <option *ngFor="let month of months" [value]="month">{{ month }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="spinner-container">
+                        <div class="custom-spinner">
+                            <select id="spinner" class="spinner" [(ngModel)]="day" (change)="selectDate(day)">
+                                <option *ngFor="let day of days" [value]="day">{{ day }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: left; font-size: 22px; font-family: Arial, sans-serif; margin-top: 10px;">
+                    <strong>Your Location</strong>
+                </p>
+                <div style="display: flex; align-items: center; justify-content: flex-start;">
+                    <div
+                        style="display: flex; justify-content: flex-start; width: 60%; border-width: 1px; border-color: yellow; border-style: solid; border-radius: 4px;">
+                        <img src="assets/images/ic_location.png" alt="Icon"
+                            style="width: 40px; height: 40px; background-color: yellow; border-top-left-radius: 4px;border-bottom-left-radius: 4px; margin: 0; padding: 0;">
+
+
+                        <div class="spinner-container1">
+                            <div class="custom-spinner">
+                                <input type="text" [(ngModel)]="selectedItem" (input)="filterItem()"
+                                    placeholder="Select a Item" class="spinner-input" />
+                                <ul *ngIf="filteredItems.length > 0" class="spinner-dropdown">
+                                    <li *ngFor="let item of filteredItems" (click)="selectPlace(item)">
+                                        {{ item.place + ',' + item.state }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        style="background-color: yellow; width: 40%;height: 42px;   border-top: 1px solid yellow; border-left: 1px solid yellow; border-radius: 4px; box-shadow: none; margin-left: 10px; border:none;"
+                        (click)="submit()">SUBMIT</button>
+
+                </div>
+            </div> -->
+            <app-date-place></app-date-place>
+            <div style="display: flex; justify-content: left; margin-top: 20px; padding-left: 0;">
+                <div
+                    style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;width: 94%;">
+                    <h5 style="margin: 0;"><strong>आज का दोघटी</strong> {{selectedDate}}</h5>
+                </div>
+                <div style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                    <img src="assets/images/ic_backword_arrow.png" alt="Icon" (click)="decrementDate()"
+                        style="width: 30px; height: 30px;  border-radius: 5px; padding: 0;margin-right: 10px;">
+                    <img src="assets/images/ic_forword_arrow.png" alt="Icon" (click)="incrementDate()"
+                        style="width: 30px; height: 30px;  border-radius: 5px; margin-right: 0; padding: 0;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h5>दिन का दोघटी</h5>
+                    <div style="border-width: 1px; border-radius: 5px;border-color: gray;border-style: solid;">
+                        <div style="background-color: gainsboro; padding: 0; display: flex; align-items: center;">
+                            <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">प्रहर </p>
+                            <p style="width: 30%; margin: 0; text-align: left;padding: 10px;">मुहूर्त </p>
+                            <p style="width: 70%; margin: 0; text-align: left; padding: 10px; ">अंतराल</p>
+                        </div>
+                        <div *ngFor="let item of panchangData?.doGhatiResponse?.dayDoGhatiList; let i = index">
+
+                            <hr style="margin: 0;">
+                            <div style=" padding: 0; display: flex; align-items: center;">
+                                <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">
+                                    {{item.planetName}}
+                                </p>
+                                <p style="width: 30%; margin: 0; text-align: left; padding: 10px;">
+                                    {{item.planetMeaning}}</p>
+                                <p style="width: 70%; margin: 0; text-align: left; padding: 10px;">
+                                    {{item.duration}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-6">
+                    <h5>रात का दोघटी </h5>
+                    <div style="border-width: 1px; border-radius: 5px;border-color: gray;border-style: solid;">
+                        <div style="background-color: gainsboro; padding: 0; display: flex; align-items: center;">
+                            <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">प्रहर </p>
+                            <p style="width: 30%; margin: 0; text-align: left;padding: 10px;">मुहूर्त </p>
+                            <p style="width: 70%; margin: 0; text-align: left; padding: 10px; ">अंतराल</p>
+                        </div>
+                        <div *ngFor="let item of panchangData?.doGhatiResponse?.nightDoGhatiList; let i = index">
+
+                            <hr style="margin: 0;">
+                            <div style=" padding: 0; display: flex; align-items: center;">
+                                <p style="width: 30%; margin: 0; text-align: left; padding: 10px; ">
+                                    {{item.planetName}}
+                                </p>
+                                <p style="width: 30%; margin: 0; text-align: left; padding: 10px;">
+                                    {{item.planetMeaning}}</p>
+                                <p style="width: 70%; margin: 0; text-align: left; padding: 10px;">
+                                    {{item.duration}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <h3 style="margin-top: 50px; padding: 0;margin-left: 0;margin-right: 0; margin-bottom: 15px;">
+                <strong>शुभ मुहूर्त 2025</strong>
+            </h3>
+            <div class="container" style="padding: 0%;">
+                <div style="display: flex; ">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">विवाह मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">वाहन खरीद मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+                <div style="display: flex; margin-top: 20px;">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">गृह प्रवेश मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">नामकरण मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+                <div style="display: flex; margin-top: 20px;">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">मुंडन मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">अन्नप्राशन मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <P style="margin-top: 20px;">मुहूर्त, जिसे दो घटी भी कहा जाता है, एक विशेष प्रकार का शुभ समय होता है जिसकी
+                अवधि 48 मिनट मानी जाती है।
+                यह ऐसा समय होता है जिसमें सभी प्रकार के शुभ कार्य करना उचित और फलदायक माना जाता है। जब किसी व्यक्ति का
+                जीवन आरंभ होता है, तो उसी क्षण से उसके जीवन के शुभ और अशुभ क्षण भी प्रारंभ हो जाते हैं, जो उसके अंतिम
+                समय तक उसके साथ रहते हैं। जीवन और मृत्यु पर किसी का नियंत्रण नहीं होता — यह सब सृष्टिकर्ता की योजना का
+                हिस्सा है, जो हमारे समझ और अधिकार से परे है।
+
+                वैदिक ज्योतिष में समय की गति और जीवन की घटनाओं को समझने के लिए एक मापन प्रणाली विकसित की गई है, जिसे
+                'मुहूर्त' या 'दो घटी' कहा जाता है।
+
+                मुहूर्त का उद्देश्य जीवन में आने वाले शुभ और अशुभ समयों का अध्ययन करना होता है। लेकिन दो घटी को समझने से
+                पहले यह जानना आवश्यक है कि ‘घटी’ वास्तव में होता क्या है।
+            </P>
+            <h3 style="margin-top: 30px;"><strong>घटी क्या है?</strong></h3>
+            <hr>
+            <!-- <div style="display: flex; flex-direction: column; justify-content: space-between; height: 200px;"> -->
+
+            <P>
+                प्राचीन समय में लोग सूर्य की आकाश में स्थिति को देखकर समय का आकलन करते थे। वैदिक ज्योतिष में समय को
+                सूर्य के एक उदय से अगले सूर्य उदय तक की अवधि यानी एक सामान्य सौर दिन के रूप में माना जाता था। वहीं,
+                आधुनिक युग में समय की गणना पृथ्वी की अपनी धुरी पर घूमने की गति पर आधारित होती है, जिसे घंटों, मिनटों और
+                सेकंडों जैसी इकाइयों में मापा जाता है।
+
+                इसके विपरीत, वैदिक ज्योतिष में समय को मापने के लिए विभिन्न पारंपरिक इकाइयों का प्रयोग किया जाता है, जैसे
+                — घटी, पल, विपल, वालिप्टा और परा। इन इकाइयों के माध्यम से समय को सूक्ष्म स्तर तक विभाजित कर, ज्योतिषीय
+                गणनाओं में प्रयोग किया जाता है।
+            </P>
+
+
+
+
+
+
+            <p>1 दिन या 24 घंटे = 60 घटियां या 1 घंटा = 2.5 घटियां</p>
+            <p>1 घटी = 60 पल, काला या विघटी</p>
+            <p>1 पल = 60 विपल</p>
+            <p>1 विपल= 60 वालिप्टा</p>
+            <p>1 वालिप्टा= 60 परा</p>
+            <p>1 परा= 60 ततपरा</p>
+            <h3 style="margin-top: 30px;"><strong>दो घटी मुहूर्त क्या होता है ? </strong></h3>
+            <p>
+                वास्तव में, दो घटी मुहूर्त एक ऐसा विशिष्ट क्षण होता है जो आकाश में स्थित ग्रहों की स्थिति और उनके आपसी
+                संयोग पर आधारित होता है। यदि इन ग्रह स्थितियों में शुभ या अशुभ संकेत उपस्थित हों, तो वे निश्चित रूप से
+                व्यक्ति के जीवन पर प्रभाव डालते हैं। दो घटी मुहूर्त के निर्धारण के पश्चात यह भी परखा जाता है कि यह समय
+                विशेष उस जातक के लिए लाभकारी और सौभाग्यदायक रहेगा या नहीं।
+            </p>
+            <p>संक्षेप में कहा जा सकता है कि दो घटी मुहूर्त एक ऐसा समय है जिसका उपयोग शुभ कार्यों की शुरुआत के लिए किया
+                जाता है। यह सूर्य, चंद्रमा और अन्य ग्रहों की सापेक्ष गति पर आधारित होता है। सरल शब्दों में कहें तो यह वह
+                अनुकूल समय होता है जब किसी भी कार्य को प्रारंभ करना फलदायी और शुभ माना जाता है।
+            </p>
+            <h3 style="margin-top: 30px;"><strong>दो घटी मुहूर्त के नाम</strong></h3>
+
+            <p>वैदिक ज्योतिष में 30 अलग-अलग मुहूर्त की चर्चा की गयी है।</p>
+            <p>रुद्र, आहि, मित्र, पितृ, वसु, वाराह, विश्वदेवा, विधि, सतमुखी, पुरुहूत, वाहिनी, नक्तनकरा, वरुण, अर्यमा,
+                भग, गिरीश, अजपाद, अहिर बुध्न्य, पुष्य, अश्विनी, यम, अग्नि, विधातॄ,क्ण्ड,अदिति, जीव, विष्णु, युमिगद्युति,
+                ब्रह्म, समुद्रम</p>
+            <h3 style="margin-top: 30px;"><strong> दो घट्टी मुहूर्त के चर (प्रभावित करने वाली वस्तुएँ) </strong></h3>
+            <p>सूर्य और चंद्रमा की सापेक्ष गति के आधार पर, मुहूर्त के निम्नलिखित चर हैं:</p>
+            <ul>
+                <li><strong>अयन</strong>: यह वह काल होता है जब सूर्य एक निश्चित दिशा में गतिमान रहते हुए राशियों से होकर
+                    गुजरता है। एक वर्ष में दो अयन होते हैं — उत्तरायण और दक्षिणायण।</li>
+                <li> <strong>महीना</strong>: वैदिक पंचांग के अनुसार एक माह में सामान्यतः 30 दिन होते हैं, जो चंद्र मास
+                    पर आधारित होते हैं।</li>
+                <li><strong>नक्षत्र</strong>: हिंदू वैदिक ज्योतिष में 27 नक्षत्र माने गए हैं, जिनमें प्रत्येक नक्षत्र 13
+                    अंश 20 मिनट के विस्तार में होता है और यह राशियों के भीतर विभाजित होते हैं।</li>
+                <li><strong>तिथि</strong>: वैदिक गणना में कुल 30 तिथियां होती हैं। इनमें पहले 15 तिथियां शुक्ल पक्ष की
+                    होती हैं (अमावस्या से पूर्णिमा तक), और शेष 15 तिथियां कृष्ण पक्ष की (पूर्णिमा से अमावस्या तक)।</li>
+                <li><strong>वार</strong>: एक वार सूर्य के उदय से लेकर अगले सूर्योदय तक की अवधि को कहा जाता है। वैदिक
+                    ज्योतिष में सात वार माने गए हैं — रविवार, सोमवार, मंगलवार, बुधवार, गुरुवार, शुक्रवार और शनिवार।</li>
+                <li><strong>योग</strong>: यह समय की एक विशेष स्थिति होती है जो सूर्य और चंद्रमा की सापेक्ष गति से
+                    निर्मित होती है। ज्योतिष में कुल 27 योगों को मान्यता दी गई है।</li>
+                <li><strong>लग्न</strong>: किसी कार्य को प्रारंभ करने के लिए उपयुक्त समय का निर्धारण करने में लग्न का
+                    विशेष महत्व होता है। यह कार्य की प्रकृति और उसके फल पर प्रभाव डालता है, इसलिए उचित लग्न का चयन
+                    आवश्यक होता है।</li>
+
+            </ul>
+            <!-- <h3 style="margin-top: 30px;"><strong> दिन के मुहूर्त के स्वामी </strong></h3>
+            <p>यदि हम एक दिन को 15 समान भागों में विभाजित करें, तो हमें दिन के 15 मुहूर्त और रात के 15 मुहूर्त प्राप्त
+                होते हैं। इन प्रत्येक मुहूर्तों का स्वामित्व विभिन्न नक्षत्रों को सौंपा गया है। नीचे दी गई तालिका में
+                प्रत्येक मुहूर्त और उसके स्वामी का विवरण प्रस्तुत किया गया है।
+            </p> -->
+
+
+
+
+        </div>
+
+        <!-- </div> -->
+        <div class="col-3 ">
+            <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                style="width: 100%; height: 250px; object-fit: cover; margin-left: 0;">
+            <div class="col border border-secondary mt-4 " style="height: 380px;">
+                <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                    style="width: 100%; height: 120px; object-fit: cover; margin-left: 0;">
+                <h5 style="padding-top: 10px; padding-left: 10px;">Panchang</h5>
+                <div class="scroll-container" style="height: 220px;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

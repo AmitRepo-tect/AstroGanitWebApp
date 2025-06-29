@@ -41,7 +41,9 @@ export class PanchangHomeComponent implements OnInit {
     this.panchangService.getPanchangData(this.panchangInput?.place.Place!, this.panchangInput?.place.state!, this.panchangInput?.place.latitude!, this.panchangInput?.place.longitude!, this.panchangInput?.place.timezone!,
       this.panchangInput?.date.getDate()!, this.panchangInput?.date.getMonth()!, this.panchangInput?.date.getFullYear()!).subscribe(
         data => {
+          console.log('Data:', data);
           this.panchangService.setPanchangData(data);
+
         },
         error => {
           console.error('Error fetching Panchang data:', error);

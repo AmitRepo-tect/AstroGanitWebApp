@@ -10,6 +10,14 @@ import { DailyHoroscopeComponent } from './horoscope/daily-horoscope/daily-horos
 import { HoroscopeDetailComponent } from './horoscope/horoscope-detail/horoscope-detail.component';
 import { HoraComponent } from './Panchang/hora/hora.component';
 import { ChogdiaComponent } from './Panchang/chogdia/chogdia.component';
+import { DoGhatiComponent } from './Panchang/do-ghati/do-ghati/do-ghati.component';
+import { RahukaalComponent } from './Panchang/rahukaal/rahukaal/rahukaal.component';
+import { LagnaMuhuratComponent } from './Panchang/lagna-muhurat/lagna-muhurat/lagna-muhurat.component';
+import { VratComponent } from './Panchang/vrat/vrat/vrat.component';
+import { FestivalComponent } from './Panchang/festival/festival/festival.component';
+import { HolidaysComponent } from './Panchang/Holidays/holidays/holidays.component';
+import { PanchakComponent } from './Panchang/panchak/panchak/panchak.component';
+import { BhadraComponent } from './Panchang/bhadra/bhadra/bhadra.component';
 
 const routes: Routes = [
   {
@@ -41,6 +49,30 @@ const routes: Routes = [
   },
   {
     path: 'chogdia', component: ChogdiaComponent
+  },
+  {
+    path: 'do-ghati', component: DoGhatiComponent
+  },
+  {
+    path: 'rahukaal', component: RahukaalComponent
+  },
+  {
+    path: 'lagna-muhurat', component: LagnaMuhuratComponent
+  },
+  {
+    path: 'vrat', component: VratComponent
+  },
+  {
+    path: 'festival', component: FestivalComponent
+  },
+  {
+    path: 'holidays', component: HolidaysComponent
+  },
+  {
+    path: 'panchak', component: PanchakComponent
+  },
+  {
+    path: 'bhadra', component: BhadraComponent
   }
 
 ];

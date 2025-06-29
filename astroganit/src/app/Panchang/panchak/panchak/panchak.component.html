@@ -1,0 +1,197 @@
+<app-header></app-header>
+<div class="container-fluid" style="display: flex;flex-direction: column;">
+    <app-date-picker *ngIf="isModalOpen" (closeDialog)="closeDatePlaceDialog()">
+    </app-date-picker>
+    <div class="row" style="margin-top: 30px; margin-left: 70px;margin-right: 70px;">
+        <div class="col-9">
+            <!-- <h1><strong>चौघड़िया </strong></h1>
+            <p style="text-align: justify;">चौघड़िया वैदिक पंचांग का एक रूप है। यदि कभी किसी कार्य के लिए शुभ मुहूर्त
+                नहीं निकल पा रहा हो या कार्य को
+                शीघ्रता से आरंभ करना हो तथा किसी यात्रा पर आवश्यक रूप से जाना हो तो उसके लिए चौघड़िया मुहूर्त देखने का
+                विधान है। ज्योतिष के अनुसार चौघड़िया मुहूर्त देखकर कार्य या यात्रा आरंभ करना उत्तम है। ज्योतिष में
+                चौघड़िया को विशेष स्थान प्राप्त है। आगे हम चौघड़िया क्या है, चौघड़िया की गणना कैसे की जाती है, चौघड़िया
+                का क्या महत्व है और चौघड़िया की उपयोगिता क्या है, इसके बारे में जानेंगे।
+            </p> -->
+
+            <app-date-place></app-date-place>
+            <div style="display: flex; justify-content: left; margin-top: 20px; padding-left: 0;">
+                <div
+                    style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;width: 94%;">
+                    <h5 style="margin: 0;">{{selectedMonth}} <strong>पंचक दिनांक और समय</strong></h5>
+                </div>
+                <div style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                    <img src="assets/images/ic_backword_arrow.png" alt="Icon" (click)="decrementDate()"
+                        style="width: 30px; height: 30px;  border-radius: 5px; padding: 0;margin-right: 10px;">
+                    <img src="assets/images/ic_forword_arrow.png" alt="Icon" (click)="incrementDate()"
+                        style="width: 30px; height: 30px;  border-radius: 5px; margin-right: 0; padding: 0;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div style="border-width: 1px; border-radius: 5px;border-color: gray;border-style: solid;">
+                        <div style="background-color: gainsboro; padding: 0; display: flex; align-items: center;">
+                            <p style="width: 100%; margin: 0; text-align: left; padding: 10px; ">आरम्भ समय </p>
+                            <p style="width: 100%; margin: 0; text-align: left;padding: 10px;">अंत समय</p>
+                        </div>
+                        <div *ngFor="let item of bhadraData?.arrayList; let i = index">
+
+                            <hr style="margin: 0;">
+                            <div style=" padding: 0; display: flex; align-items: center;">
+
+                                <p style="width: 100%; margin: 0; text-align: left; padding: 10px; ">{{
+                                    getDayName(+item.startDay) }}, {{item.startDate}}
+                                    {{ getMonthName(+item.startMonth) }} {{item.startTime}}
+                                </p>
+                                <p style="width: 100%; margin: 0; text-align: left; padding: 10px;">{{
+                                    getDayName(+item.endDay) }}, {{item.endDate}}
+                                    {{ getMonthName(+item.endMonth) }} {{item.endTime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <h3 style="margin-top: 50px; padding: 0;margin-left: 0;margin-right: 0; margin-bottom: 15px;">
+                <strong>शुभ मुहूर्त 2025</strong>
+            </h3>
+            <div class="container" style="padding: 0%;">
+                <div style="display: flex; ">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">विवाह मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">वाहन खरीद मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+                <div style="display: flex; margin-top: 20px;">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">गृह प्रवेश मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">नामकरण मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+                <div style="display: flex; margin-top: 20px;">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">मुंडन मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">अन्नप्राशन मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <h3 style="margin-top: 30px;"><strong>पंचक क्या है?</strong></h3>
+            <hr>
+            <!-- <div style="display: flex; flex-direction: column; justify-content: space-between; height: 200px;"> -->
+
+            <P>
+                वैदिक ज्योतिष शास्त्र के अनुसार पांच ऐसे विशेष नक्षत्र हैं, जिनके विशेष संयोग से बनने वाले योग को पंचक
+                कहा जाता है। इन पांच नक्षत्रों के दौरान किए जाने वाले कुछ शुभ कार्य अशुभ प्रभाव देने वाले माने जाते हैं,
+                इसी कारण किसी भी महत्वपूर्ण कार्य को करने से पूर्व पंचक का विचार आवश्यक माना जाता है। वैदिक ज्योतिष में
+                कुल 27 नक्षत्रों का उल्लेख मिलता है। इन्हीं नक्षत्रों को आधार मानकर सभी 12 राशियों में इन 27 नक्षत्रों
+                का समान रूप से विभाजन किया गया है। सामान्य रूप से एक राशि में लगभग सवा दो नक्षत्र आते हैं। प्रत्येक
+                नक्षत्र का मान 13 अंश 20 मिनट होता है और प्रत्येक नक्षत्र के चार चरण होते हैं, जिनमें प्रत्येक चरण का
+                मान 3 अंश 20 मिनट होता है। एक राशि का कुल मान 30 अंश होता है। जब चंद्रमा अपनी गति करते हुए कुंभ और मीन
+                राशि में प्रवेश करता है, तब पंचक की स्थिति उत्पन्न होती है।
+
+
+            </P>
+            <h3 style="margin-top: 30px;"><strong>कौन से हैं पंचक नक्षत्र?</strong></h3>
+
+            <p>
+                जैसे ही चंद्र देव कुंभ राशि में प्रवेश करते हैं, धनिष्ठा नक्षत्र के तीसरे चरण की शुरुआत होती है। इसके
+                बाद चंद्रमा शतभिषा, पूर्वा भाद्रपद, उत्तरा भाद्रपद और रेवती नक्षत्र में क्रमशः गति करते हैं। इस प्रकार
+                इन पांच नक्षत्रों में चंद्रमा की गति को पूरा होने में लगभग पांच दिन का समय लगता है। यही पांच नक्षत्र और
+                यही पांच दिन पंचक कहलाते हैं। चूंकि चंद्रमा लगभग 27 दिनों में सभी 12 राशियों में भ्रमण करते हुए पुनः उसी
+                राशि में लौट आते हैं, इसलिए हर 27 दिन के अंतराल के बाद पंचक की पुनरावृत्ति होती है।
+
+
+            </p>
+            <h3 style="margin-top: 30px;"><strong>पंचक का महत्व</strong></h3>
+            <p>
+                हिंदू संस्कृति में किसी भी कार्य को मुहूर्त देखकर करने की परंपरा है। ऐसा माना जाता है कि शुभ मुहूर्त में
+                किए गए कार्य सरलता से संपन्न होते हैं और सफलता प्रदान करते हैं, जबकि बिना मुहूर्त के किए गए कार्यों में
+                सफलता को लेकर संदेह बना रहता है। इसी कारण, विशेष कार्यों के संदर्भ में पंचक का विशेष रूप से विचार किया
+                जाता है और उसे महत्वपूर्ण माना जाता है।
+
+            </p>
+        </div>
+
+        <!-- </div> -->
+        <div class="col-3 ">
+            <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                style="width: 100%; height: 250px; object-fit: cover; margin-left: 0;">
+            <div class="col border border-secondary mt-4 " style="height: 380px;">
+                <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                    style="width: 100%; height: 120px; object-fit: cover; margin-left: 0;">
+                <h5 style="padding-top: 10px; padding-left: 10px;">Panchang</h5>
+                <div class="scroll-container" style="height: 220px;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

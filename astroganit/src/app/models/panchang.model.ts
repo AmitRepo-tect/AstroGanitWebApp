@@ -4,15 +4,21 @@ export class PanchangResponse {
     sampurnPanchangModel: SampurnPanchangModel;
     horaResponse: HoraResponse;
     chogdiyaResponse: ChogdiyaResponse;
+    doGhatiResponse: DoghatiResponse;
+    rahukaalResponse: RahukaalResponse;
 
     constructor(
         sampurnPanchangModel: SampurnPanchangModel,
         horaResponse: HoraResponse,
-        chogdiyaResponse: ChogdiyaResponse
+        chogdiyaResponse: ChogdiyaResponse,
+        doGhatiResponse: DoghatiResponse,
+        rahukaalResponse: RahukaalResponse
     ) {
         this.sampurnPanchangModel = sampurnPanchangModel;
         this.horaResponse = horaResponse;
         this.chogdiyaResponse = chogdiyaResponse;
+        this.doGhatiResponse = doGhatiResponse;
+        this.rahukaalResponse = rahukaalResponse;
     }
 }
 
@@ -164,5 +170,78 @@ export class Chogdiya {
         this.exitTime = exitTime;
         this.planetMeaning = planetMeaning;
         this.duration = duration;
+    }
+
+}
+export class DoghatiResponse {
+    doGhatiList: DoGhati[];
+    dayDoGhatiList: DoGhati[];
+    nightDoGhatiList: DoGhati[];
+
+    constructor(
+        doGhatiList: DoGhati[],
+        dayDoGhatiList: DoGhati[],
+        nightDoGhatiList: DoGhati[]
+    ) {
+        this.doGhatiList = doGhatiList;
+        this.dayDoGhatiList = dayDoGhatiList;
+        this.nightDoGhatiList = nightDoGhatiList;
+    }
+}
+
+export class DoGhati {
+    planetName: string;
+    enterTime: string;
+    exitTime: string;
+    planetMeaning: string;
+    planetCurrentHoraMeaning: string;
+    doGhatiSecondMeaning: string;
+    doGhatiSecondMeaningWikipedia: string;
+    doGhatiMuhurat: string;
+    duration: string;
+
+    constructor(
+        planetName: string,
+        enterTime: string,
+        exitTime: string,
+        planetMeaning: string,
+        planetCurrentHoraMeaning: string,
+        doGhatiSecondMeaning: string,
+        doGhatiSecondMeaningWikipedia: string,
+        doGhatiMuhurat: string,
+        duration: string,
+    ) {
+        this.planetName = planetName;
+        this.enterTime = enterTime;
+        this.exitTime = exitTime;
+        this.planetMeaning = planetMeaning;
+        this.planetCurrentHoraMeaning = planetCurrentHoraMeaning;
+        this.doGhatiSecondMeaning = doGhatiSecondMeaning;
+        this.doGhatiSecondMeaningWikipedia = doGhatiSecondMeaningWikipedia;
+        this.doGhatiMuhurat = doGhatiMuhurat;
+        this.duration = duration;
+    }
+
+}
+export class RahukaalResponse {
+    arrayList: Rahukaal[];
+    constructor(
+        arrayList: Rahukaal[],
+    ) {
+        this.arrayList = arrayList;
+    }
+}
+export class Rahukaal {
+    date: string;
+    from: string;
+    to: string;
+    constructor(
+        date: string,
+        from: string,
+        to: string
+    ) {
+        this.date = date;
+        this.from = from;
+        this.to = to;
     }
 }

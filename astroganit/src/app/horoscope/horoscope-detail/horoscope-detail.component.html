@@ -2,13 +2,12 @@
 <div class="container-fluid">
     <div class="container">
 
-        <h3 style="text-align: center; margin-top: 20px;">Horoscope</h3>
+        <h2 style="text-align: center; margin-top: 20px;"><strong>राशिफल</strong></h2>
         <hr>
         <div class="button-container">
-            <button (click)="changeHoroscopeType(1)" [ngClass]="{'selected': horoscopeType == 1}">Daily
-                Horoscope</button>
-            <button (click)="changeHoroscopeType(2)" [ngClass]="{'selected': horoscopeType == 2}">Yearly
-                Horoscope</button>
+            <button (click)="changeHoroscopeType(1)" [ngClass]="{'selected': horoscopeType == 1}">दैनिक राशिफल</button>
+            <button (click)="changeHoroscopeType(2)" [ngClass]="{'selected': horoscopeType == 2}">वार्षिक
+                राशिफल</button>
         </div>
 
 
@@ -87,35 +86,35 @@
             <div class="row mt2">
                 <div class=" col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Personal</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;">प्रेम</h6>
                     <p>{{dailyHoroscope[selectedRashi].love}}</p>
                 </div>
             </div>
             <div class="row mt5" style="margin-top: 20px;">
                 <div class="col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Wealth</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;">धन </h6>
                     <p>{{ dailyHoroscope[selectedRashi].wealth }}</p>
                 </div>
             </div>
             <div class="row mt5" style="margin-top: 20px;">
                 <div class="col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Family</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;">परिवार </h6>
                     <p>{{ dailyHoroscope[selectedRashi].family }}</p>
                 </div>
             </div>
             <div class="row mt5" style="margin-top: 20px;">
                 <div class="col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Carrer</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;">कार्यक्षेत्र </h6>
                     <p>{{ dailyHoroscope[selectedRashi].carrer }}</p>
                 </div>
             </div>
-            <div class="row mt5" style="margin-top: 20px;">
+            <div class="row mt5" style="margin-top: 20px;padding-bottom: 20px;">
                 <div class="col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Health</h6>
+                    <h6 style="padding: 0;margin: 0; font-weight: 600;">स्वास्थय</h6>
                     <p>{{ dailyHoroscope[selectedRashi].health }}</p>
                 </div>
             </div>
@@ -124,56 +123,56 @@
             <div class="row mt2">
                 <div class=" col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Personal</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;">प्रेम </h6>
                     <p>{{yearlyHoroscope[selectedRashi].love}}</p>
                 </div>
             </div>
             <div class="row mt5" style="margin-top: 20px;">
                 <div class="col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Wealth</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;">धन</h6>
                     <p>{{ yearlyHoroscope[selectedRashi].finance }}</p>
                 </div>
             </div>
             <div class="row mt5" style="margin-top: 20px;">
                 <div class="col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Family</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;"> परिवार </h6>
                     <p>{{ yearlyHoroscope[selectedRashi].family }}</p>
                 </div>
             </div>
             <div class="row mt5" style="margin-top: 20px;">
                 <div class="col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Carrer</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;">कार्यक्षेत्र </h6>
                     <p>{{ yearlyHoroscope[selectedRashi].carrer }}</p>
                 </div>
             </div>
             <div class="row mt5" style="margin-top: 20px;">
                 <div class="col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Health</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;">स्वास्थ </h6>
                     <p>{{ yearlyHoroscope[selectedRashi].health }}</p>
                 </div>
             </div>
             <div class="row mt5" style="margin-top: 20px;">
                 <div class="col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Marriage</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;">विवाह </h6>
                     <p>{{ yearlyHoroscope[selectedRashi].marriage }}</p>
                 </div>
             </div>
             <div class="row mt5" style="margin-top: 20px;">
                 <div class="col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Education</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;">शिक्षा</h6>
                     <p>{{ yearlyHoroscope[selectedRashi].education }}</p>
                 </div>
             </div>
-            <div class="row mt5" style="margin-top: 20px;">
+            <div class="row mt5" style="margin-top: 20px;padding-bottom: 20px;">
                 <div class="col"
                     style="display: flex; flex-direction: column; border: 1px;border-radius: 5px;border-style: solid;border-color: black;background-color: cornsilk;padding: 10px;margin: 0;">
-                    <h6 style="padding: 0;margin: 0;">Business</h6>
+                    <h6 style="padding: 0;margin: 0;font-weight: 600;"> व्यापार </h6>
                     <p>{{yearlyHoroscope[selectedRashi].business }}</p>
                 </div>
             </div>

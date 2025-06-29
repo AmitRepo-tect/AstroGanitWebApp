@@ -1,0 +1,224 @@
+<app-header></app-header>
+<div class="container-fluid" style="display: flex;flex-direction: column;">
+    <app-date-picker *ngIf="isModalOpen" (closeDialog)="closeDatePlaceDialog()">
+    </app-date-picker>
+    <div class="row" style="margin-top: 30px; margin-left: 70px;margin-right: 70px;">
+        <div class="col-9">
+            <!-- <h1><strong>चौघड़िया </strong></h1>
+            <p style="text-align: justify;">चौघड़िया वैदिक पंचांग का एक रूप है। यदि कभी किसी कार्य के लिए शुभ मुहूर्त
+                नहीं निकल पा रहा हो या कार्य को
+                शीघ्रता से आरंभ करना हो तथा किसी यात्रा पर आवश्यक रूप से जाना हो तो उसके लिए चौघड़िया मुहूर्त देखने का
+                विधान है। ज्योतिष के अनुसार चौघड़िया मुहूर्त देखकर कार्य या यात्रा आरंभ करना उत्तम है। ज्योतिष में
+                चौघड़िया को विशेष स्थान प्राप्त है। आगे हम चौघड़िया क्या है, चौघड़िया की गणना कैसे की जाती है, चौघड़िया
+                का क्या महत्व है और चौघड़िया की उपयोगिता क्या है, इसके बारे में जानेंगे।
+            </p> -->
+
+            <app-date-place></app-date-place>
+            <div style="display: flex; justify-content: left; margin-top: 20px; padding-left: 0;">
+                <div
+                    style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;width: 94%;">
+                    <h5 style="margin: 0;">{{selectedMonth}} <strong>भद्रा दिनांक और समय</strong></h5>
+                </div>
+                <div style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                    <img src="assets/images/ic_backword_arrow.png" alt="Icon" (click)="decrementDate()"
+                        style="width: 30px; height: 30px;  border-radius: 5px; padding: 0;margin-right: 10px;">
+                    <img src="assets/images/ic_forword_arrow.png" alt="Icon" (click)="incrementDate()"
+                        style="width: 30px; height: 30px;  border-radius: 5px; margin-right: 0; padding: 0;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div style="border-width: 1px; border-radius: 5px;border-color: gray;border-style: solid;">
+                        <div style="background-color: gainsboro; padding: 0; display: flex; align-items: center;">
+                            <p style="width: 100%; margin: 0; text-align: left; padding: 10px; ">आरम्भ समय </p>
+                            <p style="width: 100%; margin: 0; text-align: left;padding: 10px;">अंत समय</p>
+                        </div>
+                        <div *ngFor="let item of bhadraData?.arrayList; let i = index">
+
+                            <hr style="margin: 0;">
+                            <div style=" padding: 0; display: flex; align-items: center;">
+
+                                <p style="width: 100%; margin: 0; text-align: left; padding: 10px; ">{{item.startDate}}
+                                    {{ item.startMonth }} {{item.startTime}}
+                                </p>
+                                <p style="width: 100%; margin: 0; text-align: left; padding: 10px;">{{item.endDate}}
+                                    {{ item.endMonth }} {{item.endTime}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <h3 style="margin-top: 50px; padding: 0;margin-left: 0;margin-right: 0; margin-bottom: 15px;">
+                <strong>शुभ मुहूर्त 2025</strong>
+            </h3>
+            <div class="container" style="padding: 0%;">
+                <div style="display: flex; ">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">विवाह मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">वाहन खरीद मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+                <div style="display: flex; margin-top: 20px;">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">गृह प्रवेश मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">नामकरण मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+                <div style="display: flex; margin-top: 20px;">
+                    <div
+                        style="width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">मुंडन मुहूर्त 2025 </p>
+
+                    </div>
+                    <div
+                        style="margin-left: 20px; width: 100%;background-color: #fff8e5; border-radius: 8px; border-color: #ffc517; border-width: 1px; border-style: solid; display: flex; justify-content: left; align-items: center; height: 40px; padding: 2px;">
+                        <img src="assets/images/ic_home.png" alt="Icon"
+                            style="width: 40px; height: 35px; background-color: #ffc517; border-radius: 5px; margin: 0; padding: 0;">
+                        <p style="margin: 0; margin-left: 10px;">अन्नप्राशन मुहूर्त 2025 </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <h3 style="margin-top: 30px;"><strong>भद्रा कौन है? </strong></h3>
+            <hr>
+            <!-- <div style="display: flex; flex-direction: column; justify-content: space-between; height: 200px;"> -->
+
+            <P>
+                आइए अब हम भद्रा के विषय में विस्तार से जानते हैं कि वास्तव में भद्रा कौन हैं और इन्हें इतना महत्व क्यों
+                दिया जाता है। यदि धार्मिक मान्यता की बात करें तो भद्रा को सूर्य देव की पुत्री और भगवान शनिदेव की बहन
+                माना जाता है। भद्रा अत्यंत सुंदर थीं, लेकिन उनका स्वभाव काफी कठोर था। उनके इसी कठोर स्वभाव को नियंत्रित
+                करने के उद्देश्य से उन्हें पंचांग के एक महत्वपूर्ण अंग विष्टि करण के रूप में स्थान दिया गया। जब भी किसी
+                शुभ या मांगलिक कार्य के लिए शुभ मुहूर्त निकाला जाता है, तो उसमें भद्रा का विशेष रूप से विचार किया जाता
+                है और भद्रा काल को छोड़कर ही शुभ कार्य संपन्न करने की सलाह दी जाती है। हालांकि, यह भी देखा गया है कि
+                भद्रा का समय हमेशा अशुभ नहीं होता, बल्कि कुछ विशेष कार्यों में भद्रा का प्रभाव सकारात्मक परिणाम भी देता
+                है।
+
+            </P>
+            <h3 style="margin-top: 30px;"><strong>भद्रा की गणना</strong></h3>
+
+            <p>
+                तिथि, वार, योग, नक्षत्र और करण पंचांग के मुख्य भाग होते हैं, जिनमें करण को विशेष रूप से महत्वपूर्ण माना
+                जाता है। कुल 11 प्रकार के करण होते हैं, जिनमें से चार करण — शकुनि, चतुष्पद, नाग और किंस्तुघ्न — अचर माने
+                जाते हैं, जबकि शेष सात करण — बव, बालव, कौलव, तैतिल, गर, वणिज और विष्टि — चर माने जाते हैं। इन्हीं में से
+                विष्टि करण को भद्रा कहा जाता है। चंचल स्वभाव अर्थात् चर होने के कारण भद्रा सदैव गतिशील रहती है। जब भी
+                पंचांग की शुद्धता देखी जाती है, उस समय भद्रा का विशेष ध्यान रखा जाता है।
+
+            </p>
+            <h3 style="margin-top: 30px;"><strong>भद्रा वास</strong></h3>
+            <p>
+
+                भद्रा का वास किस प्रकार ज्ञात किया जाता है।<br>
+
+                <strong>कुम्भ कर्क द्वये मर्त्ये स्वर्गेऽब्जेऽजात्त्रयेऽलिंगे।<br>
+                    स्त्री धनुर्जूकनक्रेऽधो भद्रा तत्रैव तत्फलं।।</strong><br>
+
+                इस श्लोक के अनुसार जब चंद्रमा मेष, वृषभ, मिथुन और वृश्चिक राशि में स्थित होता है, तब भद्रा का वास स्वर्ग
+                लोक में माना जाता है और वह उर्ध्वमुखी होती है। जब चंद्रमा कन्या, तुला, धनु और मकर राशि में होता है, तब
+                भद्रा पाताल लोक में मानी जाती है और अधोमुखी होती है। वहीं, जब चंद्रमा कर्क, सिंह, कुंभ और मीन राशि में
+                स्थित होता है, तब भद्रा का वास भूलोक अर्थात पृथ्वी लोक पर माना जाता है और उस स्थिति में भद्रा सम्मुख
+                होती है।
+
+                उर्ध्वमुखी स्थिति में भद्रा का मुख ऊपर की ओर होता है और अधोमुखी स्थिति में नीचे की ओर। इन दोनों
+                स्थितियों में भद्रा शुभ परिणाम देने वाली मानी जाती है। किंतु जब भद्रा सम्मुख होती है, अर्थात उसका वास
+                पृथ्वी लोक पर होता है, तब वह पूर्ण रूप से प्रभाव दिखाती है।<br>
+
+                <strong>मुहूर्त चिंतामणि</strong> जैसे प्राचीन ग्रंथों के अनुसार, भद्रा का वास जिस लोक में होता है, वहां
+                उसका प्रभाव
+                विशेष रूप से माना जाता है। जब चंद्रमा कर्क, सिंह, कुंभ या मीन राशि में होता है, तब भद्रा भूलोक पर रहती
+                है और पृथ्वी पर उसका प्रभाव अधिक होता है। इस अवधि में कोई भी शुभ कार्य करने से परहेज करना चाहिए, क्योंकि
+                ऐसे कार्य या तो पूर्ण नहीं होते या उनमें विलंब एवं बाधाएं आती हैं।<br>
+
+                <strong>स्वर्गे भद्रा शुभं कुर्यात् पाताले च धनागम।<br>
+                    मृत्युलोक स्थिता भद्रा सर्व कार्य विनाशनी।।</strong><br>
+
+                <strong>पियूष धारा</strong> ग्रंथ के अनुसार, जब भद्रा स्वर्ग लोक या पाताल लोक में होती है, तब वह पृथ्वी
+                लोक पर शुभ फल देती है।<br>
+
+                <strong>स्थिताभूर्लोस्था भद्रा सदात्याज्या स्वर्गपातालगा शुभा।</strong><br>
+
+                <strong>मुहूर्त मार्तण्ड</strong> ग्रंथ में बताया गया है कि जब भद्रा भूलोक में होती है, तब उसका त्याग
+                करना अत्यंत
+                आवश्यक होता है। वहीं जब भद्रा स्वर्ग अथवा पाताल लोक में होती है, तब वह शुभ फल देने वाली मानी जाती है।
+
+                इसका अर्थ यह हुआ कि जब चंद्रमा का गोचर कर्क, सिंह, कुंभ अथवा मीन राशि में होता है, तब भद्रा पृथ्वी लोक
+                पर रहती है और अशुभ प्रभाव देती है। ऐसी स्थिति में भद्रा का त्याग करना ही सर्वश्रेष्ठ होता है।
+            </p>
+        </div>
+
+        <!-- </div> -->
+        <div class="col-3 ">
+            <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                style="width: 100%; height: 250px; object-fit: cover; margin-left: 0;">
+            <div class="col border border-secondary mt-4 " style="height: 380px;">
+                <img src="https://www.astroganit.com/status_old/ganeshji2.jpg" alt="Sample Image"
+                    style="width: 100%; height: 120px; object-fit: cover; margin-left: 0;">
+                <h5 style="padding-top: 10px; padding-left: 10px;">Panchang</h5>
+                <div class="scroll-container" style="height: 220px;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                    <hr style="margin: 0;">
+                    <div class="row ms-1" style="padding-left: 0; padding-right: 0;margin: 10px;">
+                        <div class="col-12"> Today's Nakshatra <span> ➔</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

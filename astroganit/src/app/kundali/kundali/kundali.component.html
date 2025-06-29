@@ -1,18 +1,19 @@
 <app-header></app-header>
 
 
-<div class="body-container">
-    <h1 class="text-center"> Free Kundli Online</h1>
-    <h4 class="text-center"> Get instant & accurate, Janam Kundli</h4>
-    <h5 class="mt-5"><b>Free Kundli Online - Get Your Detailed Birth Chart with Predictions</b></h5>
-    <p>Looking for your free Kundli from expert astrologers? Then you have come to the right place. The online free
-        kundali available on Astrotalk is a 100% free and authentic free Kundli that has been prepared after consulting
-        more than 50 expert astrologers on board. The free kundli is such that it can give you a glimpse into various
-        aspects of your life such as your career, love life, marriage, business and much more. The online kundli
-        prepared by the free Kundali software here is no less than any traditional Kundli and can also be used for
-        purposes like matching making, kundali matching for marriage or simply making future predictions.</p>
+<div class="body-container" style="margin-top: 20px;">
+    <h1 class="text-center" style="font-weight: 600;"> ऑनलाइन मुफ्त कुंडली</h1>
+    <h5 class="text-center" style="font-weight: 600;"> तुरंत और सटीक जन्म कुंडली प्राप्त करें</h5>
+    <h5 class="mt-5"><b>फ्री कुंडली ऑनलाइन – अपनी विस्तृत जन्म कुंडली और भविष्यवाणियाँ पाएँ</b></h5>
+    <p>क्या आप विशेषज्ञ ज्योतिषियों से फ्री कुंडली चाहते हैं?
+        तो आप बिलकुल सही जगह पर आए हैं। AstroGanit पर उपलब्ध ऑनलाइन फ्री कुंडली 100% मुफ़्त और प्रामाणिक है, जिसे 50 से
+        अधिक अनुभवी ज्योतिषियों की सलाह लेकर तैयार किया गया है।
+
+        यह फ्री कुंडली आपके जीवन के कई पहलुओं की झलक देती है, जैसे – करियर, प्रेम जीवन, विवाह, व्यवसाय और बहुत कुछ।
+        यहाँ उपलब्ध फ्री कुंडली सॉफ़्टवेयर द्वारा बनाई गई ऑनलाइन कुंडली किसी पारंपरिक कुंडली से कम नहीं है और इसका उपयोग
+        गुण मिलान, विवाह के लिए कुंडली मिलान, या भविष्यवाणियाँ प्राप्त करने जैसे कार्यों के लिए भी किया जा सकता है।</p>
     <div class="header">
-        <h3>New Kundali</h3>
+        <h4><b>नई कुंडली</b></h4>
     </div>
     <div class="container box-shadow p-3">
         <form [formGroup]="kundaliform" (ngSubmit)="onSubmit()">
@@ -20,9 +21,9 @@
                 <div class="col-md-6">
 
                     <div class="m-2">
-                        <label for="name" class="form-label">Name</label>
+                        <label for="name" class="form-label">नाम</label>
                         <input type="text" class="form-control" id="name" formControlName="name"
-                            placeholder="Enter Name">
+                            placeholder="नाम डालें">
                         <div *ngIf="kundaliform.get('name')?.invalid && kundaliform.get('name')?.touched">
                             Name is required.
                         </div>
@@ -30,7 +31,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="m-2">
-                        <label for="gender" class="form-label">Gender</label>
+                        <label for="gender" class="form-label">लिंग</label>
                         <select class="form-control" id="gender" formControlName="gender">
                             <option *ngFor="let gender of genders" [value]="gender">{{gender}}</option>
                         </select>
@@ -40,12 +41,12 @@
                 </div>
             </div>
             <div class="header m-2">
-                <h5>Birth Details</h5>
+                <h5>जन्म विवरण</h5>
             </div>
             <div class="row">
                 <div class="col-md-4">
                     <div class="m-2">
-                        <label for="day" class="form-label">Day</label>
+                        <label for="day" class="form-label">दिन </label>
                         <select class="form-control" id="day" formControlName="day">
                             <option *ngFor="let day of days" [value]="day">{{ day }}</option>
                         </select>
@@ -53,7 +54,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="m-2">
-                        <label for="month" class="form-label">Month</label>
+                        <label for="month" class="form-label">महीना </label>
                         <select class="form-control" id="month" formControlName="month">
                             <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
                         </select>
@@ -61,7 +62,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="m-2">
-                        <label for="year" class="form-label">Year</label>
+                        <label for="year" class="form-label">वर्ष</label>
                         <select class="form-control" id="year" formControlName="year">
                             <option *ngFor="let year of years" [value]="year">{{ year }}</option>
                         </select>
@@ -71,7 +72,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="m-2">
-                        <label for="hour" class="form-label">Hour</label>
+                        <label for="hour" class="form-label">घंटा </label>
                         <select class="form-control" id="hour" formControlName="hour">
                             <option *ngFor="let hour of hours" [value]="hour">{{ hour }}</option>
                         </select>
@@ -79,7 +80,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="m-2">
-                        <label for="minute" class="form-label">Minute</label>
+                        <label for="minute" class="form-label">मिनट</label>
                         <select class="form-control" formControlName="minute" id="minute">
                             <option *ngFor="let minute of minutes" [value]="minute">{{ minute }}</option>
                         </select>
@@ -87,7 +88,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="m-2">
-                        <label for="second" class="form-label">Second</label>
+                        <label for="second" class="form-label"> सेकंड </label>
                         <select class="form-control" formControlName="second" id="second">
                             <option *ngFor="let second of seconds" [value]="second">{{ second }}</option>
                         </select>
@@ -97,7 +98,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="m-2">
-                        <label for="place" class="form-label">Place</label>
+                        <label for="place" class="form-label">स्थान</label>
                         <input type="text" id="place" class="form-control" formControlName="place" [formControl]="place"
                             [matAutocomplete]="auto">
                         <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn"
@@ -111,25 +112,25 @@
                 <div class="col-md-6">
                     <div class="m-2">
                         <label for="InputSubmit" class="form-label"></label>
-                        <button type="submit" id="InputSubmit" class="btn btn btn-warning btn-custum">Submit</button>
+                        <button type="submit" id="InputSubmit" class="btn btn btn-warning btn-custum">गणना करें</button>
                     </div>
                 </div>
             </div>
         </form>
     </div>
 </div>
-<div class="body-container mt-5" style="background-color: rgb(229, 236, 234);">
-    <h3>Online Free Kundli For Future Predictions</h3>
-    <h4>Get Your Kundli by Date of Birth</h4>
-    <p>The Kundli of a person is one of the most sought aspects of astrology. A Kundali entails the details about the
-        positions of stars and planets at the time of your birth based on which further predictions are made. And with
-        further predictions, we mean predictions about different aspects of one's life like love, career, health,
-        business, finance, and even marriage. Simply said, Kundli making is a necessary thing for any individual and is
-        likely to improve their decision-making capabilities gradually in the course of time.</p>
-    <P>A Janam Kundli is made after studying the exact position of planets at the time you were born and based on the
-        same, one’s Sun sign, Moon sign, and other such astrological aspects are listed. The Kundali is a co-existence
-        of predictions and charts that help the astrologer learn about what your future would be like, the times you
-        will have to grind harder, and also the times when luck will be by your side in abundance.</P>
+<div class="body-container mt-5" style="background-color: rgb(229, 236, 234);padding-top: 20px;padding-bottom: 20px;">
+    <h3>भविष्य जानने के लिए ऑनलाइन मुफ्त कुंडली</h3>
+    <h4>जन्म तिथि द्वारा अपनी कुंडली बनाएं</h4>
+    <p>कुंडली किसी व्यक्ति के जीवन में ज्योतिष का सबसे महत्वपूर्ण पहलू मानी जाती है।
+        कुंडली में जन्म के समय ग्रहों और नक्षत्रों की स्थिति का विवरण होता है, जिसके आधार पर आगे की भविष्यवाणियाँ की
+        जाती हैं।इन भविष्यवाणियों में प्रेम जीवन, करियर, स्वास्थ्य, व्यवसाय, वित्तीय स्थिति और विवाह जैसे जीवन के
+        विभिन्न पहलुओं की जानकारी शामिल होती है।सीधे शब्दों में कहें तो कुंडली बनवाना हर व्यक्ति के लिए जरूरी होता है,
+        क्योंकि यह समय के साथ उसके निर्णय लेने की क्षमता को बेहतर बनाने में सहायक होती है।</p>
+    <P>जन्म कुंडली उस समय ग्रहों की सटीक स्थिति का अध्ययन करके बनाई जाती है जब आप जन्मे थे।
+        इसी आधार पर आपकी सूर्य राशि, चंद्र राशि और अन्य ज्योतिषीय पहलुओं की जानकारी प्राप्त होती है।
+        कुंडली भविष्यवाणियों और चार्ट्स का समावेश होती है, जो ज्योतिषी को यह समझने में मदद करती है कि आपका भविष्य कैसा
+        रहेगा,कब आपको अधिक परिश्रम करना पड़ेगा, और कब भाग्य पूरी तरह आपके साथ होगा।</P>
 </div>
 
 <app-footer></app-footer>
