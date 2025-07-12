@@ -18,6 +18,12 @@ import { FestivalComponent } from './Panchang/festival/festival/festival.compone
 import { HolidaysComponent } from './Panchang/Holidays/holidays/holidays.component';
 import { PanchakComponent } from './Panchang/panchak/panchak/panchak.component';
 import { BhadraComponent } from './Panchang/bhadra/bhadra/bhadra.component';
+import { VivahMuhuratComponent } from './Panchang/muhurats/vivah-muhurat/vivah-muhurat/vivah-muhurat.component';
+import { VahanMuhuratComponent } from './Panchang/muhurats/vahan_muhurat/vahan-muhurat/vahan-muhurat.component';
+import { GrahPraveshMuhuratComponent } from './Panchang/muhurats/grah_pravesh_muhurat/grah-pravesh-muhurat/grah-pravesh-muhurat.component';
+import { AnnprasanMuhuratComponent } from './Panchang/muhurats/annprasaran_muhurat/annprasan-muhurat/annprasan-muhurat.component';
+import { MundanMuhuratComponent } from './Panchang/muhurats/mundan_muhurat/mundan-muhurat/mundan-muhurat.component';
+import { NaamkaranMuhuratComponent } from './Panchang/muhurats/naamkaran_muhurat/naamkaran-muhurat/naamkaran-muhurat.component';
 
 const routes: Routes = [
   {
@@ -73,8 +79,25 @@ const routes: Routes = [
   },
   {
     path: 'bhadra', component: BhadraComponent
+  },
+  {
+    path: 'VivahMuhurat', component: VivahMuhuratComponent
+  },
+  {
+    path: 'VahanMuhurat', component: VahanMuhuratComponent
+  },
+  {
+    path: 'GrahPraveshMuhurat', component: GrahPraveshMuhuratComponent
+  },
+  {
+    path: 'AnnprasanMuhurat', component: AnnprasanMuhuratComponent
+  },
+  {
+    path: 'MundanMuhurat', component: MundanMuhuratComponent
+  },
+  {
+    path: 'NaamkaranMuhurat', component: NaamkaranMuhuratComponent
   }
-
 ];
 
 @NgModule({

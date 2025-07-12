@@ -6,6 +6,7 @@ import { Place } from '../../models/place.model';
 import { PanchangInput } from '../../models/panchanginput.model';
 import { BhadraResponse } from '../../models/BhadraResponse.model';
 import { PanchakResponse } from '../../models/PanchakResponse.model';
+import { MuhuratResponse } from '../../models/muhurats.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,13 @@ export class PanchangService {
   private apiUrl = 'http://localhost:5000/api/panchang';
   private bhadraApiUrl = 'http://localhost:5000/api/bhadra'
   private panchakApiUrl = 'http://localhost:5000/api/panchak'
+  private muhuratApiUrl = 'http://localhost:5000/api/muhurat/2'
 
   private panchangDataSubject = new BehaviorSubject<PanchangResponse | null>(null);
   private PanchangInputSubject = new BehaviorSubject<PanchangInput | null>(null);
   private bhadraDataSubject = new BehaviorSubject<BhadraResponse | null>(null);
   private panchakDataSubject = new BehaviorSubject<PanchakResponse | null>(null);
+  private muhuratDataSubject = new BehaviorSubject<MuhuratResponse | null>(null);
 
   private placeSubject = new BehaviorSubject<Place | null>(null);
   private selectedDateSubject = new BehaviorSubject<Date | null>(null);
@@ -27,6 +30,7 @@ export class PanchangService {
   panchangInput$ = this.PanchangInputSubject.asObservable();
   bhadraData$ = this.bhadraDataSubject.asObservable();
   panchakData$ = this.panchakDataSubject.asObservable();
+  muhuratData$ = this.muhuratDataSubject.asObservable();
   place$ = this.placeSubject.asObservable();
   selectedDate$ = this.selectedDateSubject.asObservable();
   isPlaceInitilized: boolean = false
@@ -105,6 +109,9 @@ export class PanchangService {
     console.log(body)
     return this.http.post<PanchakResponse>(this.panchakApiUrl, body);
   }
+  getMuhuratData(): Observable<MuhuratResponse> {
+    return this.http.get<MuhuratResponse>(this.muhuratApiUrl);
+  }
   setPanchangData(panchangResponse: PanchangResponse) {
     this.panchangDataSubject.next(panchangResponse);
   }
@@ -123,5 +130,8 @@ export class PanchangService {
   }
   setPanchakData(panchakResponse: PanchakResponse) {
     this.panchakDataSubject.next(panchakResponse);
+  }
+  setMuhuratData(muhuratResponse: MuhuratResponse) {
+    this.muhuratDataSubject.next(muhuratResponse);
   }
 }

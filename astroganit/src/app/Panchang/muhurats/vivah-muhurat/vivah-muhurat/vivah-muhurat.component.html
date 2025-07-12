@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="body-container" style="margin-bottom: 20px; margin-top: 20px;">
+    <div class="card bg-dark text-white">
+        <img src="assets/images/download-app-banner.jpg" class="card-img" alt="" style="height: 250px;">
+    </div>
+    <h3 style="margin-top: 20px;"><strong>विवाह शुभ मुहूर्त 2025</strong></h3>
+    <div *ngFor="let item of muhuratResponse?.muhuratDetail; let i = index">
+        <h5 style="margin-top: 20px;"><strong>{{item.heading}}</strong></h5>
+
+
+        <div class="container-fluid"
+            style=" border: 1px; border-radius: 5px;border-color: gainsboro;border-style: solid;padding-left: 0;padding-right: 0; ">
+            <div style="width: 100%;display: flex; background-color: #d3d3d3; padding: 10px 10px;">
+                <p style="width: 40%; padding-bottom: 0; margin-bottom: 0;">दिनांक</p>
+                <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">वार</p>
+                <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">नक्षत्र</p>
+                <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">तिथि</p>
+                <p style="width: 100%; padding-bottom: 0; margin-bottom: 0;">समय</p>
+            </div>
+            <div *ngFor="let item of item?.muhurat; let i = index">
+                <div style="display: flex; padding: 10px 10px;">
+                    <p style="width: 40%; padding-bottom: 0; margin-bottom: 0;">{{item.day}}</p>
+                    <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">{{item.var}}</p>
+                    <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">{{item.nakshtra}}</p>
+                    <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">{{item.tithi}}</p>
+                    <p style="width: 100%; padding-bottom: 0; margin-bottom: 0;">{{item.time}}</p>
+                </div>
+                <hr style="margin: 0;">
+            </div>
+        </div>
+    </div>
+
+</div>

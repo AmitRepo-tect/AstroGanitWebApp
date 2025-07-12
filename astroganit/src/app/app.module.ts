@@ -62,6 +62,14 @@ import { FestivalComponent } from './Panchang/festival/festival/festival.compone
 import { HolidaysComponent } from './Panchang/Holidays/holidays/holidays.component';
 import { PanchakComponent } from './Panchang/panchak/panchak/panchak.component';
 import { BhadraComponent } from './Panchang/bhadra/bhadra/bhadra.component';
+import { MuhuratsComponent } from './Panchang/sub-component/muhurat/muhurats/muhurats.component';
+import { PanchangSubComponent } from './Panchang/sub-component/panchang-sub/panchang-sub/panchang-sub.component';
+import { VivahMuhuratComponent } from './Panchang/muhurats/vivah-muhurat/vivah-muhurat/vivah-muhurat.component';
+import { VahanMuhuratComponent } from './Panchang/muhurats/vahan_muhurat/vahan-muhurat/vahan-muhurat.component';
+import { NaamkaranMuhuratComponent } from './Panchang/muhurats/naamkaran_muhurat/naamkaran-muhurat/naamkaran-muhurat.component';
+import { GrahPraveshMuhuratComponent } from './Panchang/muhurats/grah_pravesh_muhurat/grah-pravesh-muhurat/grah-pravesh-muhurat.component';
+import { AnnprasanMuhuratComponent } from './Panchang/muhurats/annprasaran_muhurat/annprasan-muhurat/annprasan-muhurat.component';
+import { MundanMuhuratComponent } from './Panchang/muhurats/mundan_muhurat/mundan-muhurat/mundan-muhurat.component';
 
 
 
@@ -117,7 +125,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     FestivalComponent,
     HolidaysComponent,
     PanchakComponent,
-    BhadraComponent
+    BhadraComponent,
+    MuhuratsComponent,
+    PanchangSubComponent,
+    VivahMuhuratComponent,
+    VahanMuhuratComponent,
+    NaamkaranMuhuratComponent,
+    GrahPraveshMuhuratComponent,
+    AnnprasanMuhuratComponent,
+    MundanMuhuratComponent
   ],
   imports: [
     MatAutocompleteModule,
