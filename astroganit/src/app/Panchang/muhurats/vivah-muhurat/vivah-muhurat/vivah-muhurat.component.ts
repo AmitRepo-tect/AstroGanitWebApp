@@ -17,9 +17,9 @@ export class VivahMuhuratComponent {
 
   }
   fetchMuhuratData(): void {
-    this.panchangService.getMuhuratData().subscribe(
+    this.panchangService.getMuhuratData(1).subscribe(
       data => {
-        this.panchangService.setMuhuratData(data);
+        this.panchangService.setVivahMuhuratData(data);
       },
       error => {
         console.error('Error fetching Panchang data:', error);
@@ -27,7 +27,8 @@ export class VivahMuhuratComponent {
     );
   }
   addObservers() {
-    this.panchangService.muhuratData$.subscribe(data => {
+    this.fetchMuhuratData();
+    this.panchangService.vivahMuhuratData$.subscribe(data => {
       if (data != null) {
         this.muhuratResponse = data;
         console.log(data)

@@ -24,6 +24,7 @@ import { GrahPraveshMuhuratComponent } from './Panchang/muhurats/grah_pravesh_mu
 import { AnnprasanMuhuratComponent } from './Panchang/muhurats/annprasaran_muhurat/annprasan-muhurat/annprasan-muhurat.component';
 import { MundanMuhuratComponent } from './Panchang/muhurats/mundan_muhurat/mundan-muhurat/mundan-muhurat.component';
 import { NaamkaranMuhuratComponent } from './Panchang/muhurats/naamkaran_muhurat/naamkaran-muhurat/naamkaran-muhurat.component';
+import { BhumiPujanComponent } from './Panchang/muhurats/bhumi_pujan_muhurat/bhumi-pujan/bhumi-pujan.component';
 
 const routes: Routes = [
   {
@@ -97,6 +98,8 @@ const routes: Routes = [
   },
   {
     path: 'NaamkaranMuhurat', component: NaamkaranMuhuratComponent
+  }, {
+    path: 'BhumiPujan', component: BhumiPujanComponent
   }
 ];
 

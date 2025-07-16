@@ -70,6 +70,8 @@ import { NaamkaranMuhuratComponent } from './Panchang/muhurats/naamkaran_muhurat
 import { GrahPraveshMuhuratComponent } from './Panchang/muhurats/grah_pravesh_muhurat/grah-pravesh-muhurat/grah-pravesh-muhurat.component';
 import { AnnprasanMuhuratComponent } from './Panchang/muhurats/annprasaran_muhurat/annprasan-muhurat/annprasan-muhurat.component';
 import { MundanMuhuratComponent } from './Panchang/muhurats/mundan_muhurat/mundan-muhurat/mundan-muhurat.component';
+import { BhumiPujanComponent } from './Panchang/muhurats/bhumi_pujan_muhurat/bhumi-pujan/bhumi-pujan.component';
+import { VratFestHoldaySubComponent } from './Panchang/sub-component/vrat-fest-holiday-sub/vrat-fest-holday-sub/vrat-fest-holday-sub.component';
 
 
 
@@ -133,7 +135,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     NaamkaranMuhuratComponent,
     GrahPraveshMuhuratComponent,
     AnnprasanMuhuratComponent,
-    MundanMuhuratComponent
+    MundanMuhuratComponent,
+    BhumiPujanComponent,
+    VratFestHoldaySubComponent
   ],
   imports: [
     MatAutocompleteModule,

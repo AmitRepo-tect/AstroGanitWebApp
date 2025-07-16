@@ -5,11 +5,11 @@ import { PanchangService } from '../../../../services/panchang/panchang.service'
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-mundan-muhurat',
-  templateUrl: './mundan-muhurat.component.html',
-  styleUrl: './mundan-muhurat.component.scss'
+  selector: 'app-bhumi-pujan',
+  templateUrl: './bhumi-pujan.component.html',
+  styleUrl: './bhumi-pujan.component.scss'
 })
-export class MundanMuhuratComponent {
+export class BhumiPujanComponent {
   muhuratResponse: MuhuratResponse | null = null;
   constructor(private placeService: PlaceService, private panchangService: PanchangService, private datePipe: DatePipe) { }
   ngOnInit(): void {
@@ -17,9 +17,9 @@ export class MundanMuhuratComponent {
 
   }
   fetchMuhuratData(): void {
-    this.panchangService.getMuhuratData(6).subscribe(
+    this.panchangService.getMuhuratData(7).subscribe(
       data => {
-        this.panchangService.setMundanMuhuratData(data);
+        this.panchangService.setBhumiPujanMuhuratData(data);
       },
       error => {
         console.error('Error fetching Panchang data:', error);
@@ -28,7 +28,7 @@ export class MundanMuhuratComponent {
   }
   addObservers() {
     this.fetchMuhuratData();
-    this.panchangService.mundanMuhuratData$.subscribe(data => {
+    this.panchangService.bhumiPujanMuhuratData$.subscribe(data => {
       if (data != null) {
         this.muhuratResponse = data;
       } else {

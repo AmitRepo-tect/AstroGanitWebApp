@@ -1,1 +1,73 @@
-<p>vahan-muhurat works!</p>
+<app-header></app-header>
+<div class="body-container" style="margin-bottom: 20px; margin-top: 20px;">
+    <div class="card bg-dark text-white">
+        <img src="assets/images/download-app-banner.jpg" class="card-img" alt="" style="height: 250px;">
+    </div>
+    <p style="margin-top: 20px;text-align: justify;"><strong>Shubh Muhurat 2025: क्या आप नई गाड़ी खरीदने की योजना बना रहे
+            हैं? यदि हाँ, तो यहां बताए गए शुभ मुहूर्तों की मदद से आप वाहन खरीदने के लिए उपयुक्त समय चुन सकते
+            हैं।</strong></p>
+    <p style="text-align: justify;">इस विशेष लेख में हम आपको साल 2025 में वाहन खरीदने के शुभ अवसरों के बारे में बताएंगे।
+        वाहन खरीदना केवल एक जरूरत नहीं, बल्कि कई लोगों के लिए एक सपना होता है, जो शुभ समय में पूरा किया जाए तो और भी
+        फलदायी माना जाता है। हिंदू धर्म में जैसे किसी भी मांगलिक कार्य के लिए शुभ मुहूर्त देखा जाता है, वैसे ही वाहन,
+        संपत्ति या भूमि जैसी बड़ी चीजों की खरीदारी से पहले भी शुभ समय का चयन किया जाता है।
+    </p>
+    <p style="text-align: justify;">ऐसा माना जाता है कि यदि शुभ मुहूर्त में वाहन खरीदा जाए, तो वह न केवल सुख-सुविधा देता
+        है बल्कि मालिक के जीवन में सफलता और समृद्धि भी लाता है। अगर आप भी 2025 में कार, बाइक या किसी अन्य वाहन की
+        खरीदारी का विचार कर रहे हैं, तो इस लेख में आपको शुभ तिथियों और नक्षत्रों की पूरी जानकारी मिलेगी, जिससे आप सही
+        समय पर अपने सपने को साकार कर सकें।</p>
+    <h3 style="margin-top: 20px;"><strong>जानें 2025 में वाहन खरीदने के लिए शुभ मुहूर्त</strong></h3>
+    <p style="text-align: justify;">यह जानकर खुशी होगी कि वर्ष 2025 में वाहन खरीद जैसे महत्वपूर्ण कार्यों के लिए कई शुभ
+        मुहूर्त उपलब्ध हैं। हमने आपके लिए हिन्दू पंचांग के अनुसार साल 2025 के वाहन खरीद के शुभ मुहूर्त (Vehicle Purchase
+        Shubh Muhurat 2025) प्रस्तुत किए हैं, ताकि आप अपने कार्यों को सही तिथियों पर शुभता और सफलता के साथ पूरा कर सकें।
+    </p>
+    <div *ngFor="let item of muhuratResponse?.muhuratDetail; let i = index">
+        <h5 style="margin-top: 20px;"><strong>{{item.heading}}</strong></h5>
+
+
+        <div class="container-fluid"
+            style=" border: 1px; border-radius: 5px;border-color: gainsboro;border-style: solid;padding-left: 0;padding-right: 0; ">
+            <div style="width: 100%;display: flex; background-color: #d3d3d3; padding: 10px 10px;">
+                <p style="width: 40%; padding-bottom: 0; margin-bottom: 0;">दिनांक</p>
+                <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">वार</p>
+                <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">नक्षत्र</p>
+                <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">तिथि</p>
+                <p style="width: 100%; padding-bottom: 0; margin-bottom: 0;">समय</p>
+            </div>
+            <div *ngFor="let item of item?.muhurat; let i = index">
+                <div style="display: flex; padding: 10px 10px;">
+                    <p style="width: 40%; padding-bottom: 0; margin-bottom: 0;">{{item.day}}</p>
+                    <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">{{item.var}}</p>
+                    <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">{{item.nakshtra}}</p>
+                    <p style="width: 70%; padding-bottom: 0; margin-bottom: 0;">{{item.tithi}}</p>
+                    <p style="width: 100%; padding-bottom: 0; margin-bottom: 0;">{{item.time}}</p>
+                </div>
+                <hr style="margin: 0;">
+            </div>
+        </div>
+    </div>
+    <h3 style="margin-top: 20px;"><strong>शुभ मुहूर्त में ही क्यों खरीदना चाहिए वाहन?</strong></h3>
+    <p style="text-align: justify;">क्या आप नई कार खरीदने की योजना बना रहे हैं? सोच रहे हैं कि क्या यह इसके लिए सही समय
+        है? क्या आपने कभी "शुभ मुहूर्त" के महत्व के बारे में सुना है? आज हम जानेंगे कि वाहन यदि शुभ समय में खरीदा जाए तो
+        वह और भी अधिक लाभकारी कैसे हो सकता है। मान्यता है कि शुभ मुहूर्त में वाहन खरीदने से न केवल सौभाग्य बढ़ता है,
+        बल्कि संभावित बाधाएं और परेशानियां भी दूर रहती हैं।</p>
+
+    <p style="text-align: justify;">जब आप कोई वाहन खरीदते हैं, तो सही समय का चयन आपके अनुभव को और बेहतर बना सकता है।
+        ज्योतिष शास्त्र के अनुसार,
+        सोमवार, बुधवार, गुरुवार, शुक्रवार और रविवार जैसे दिन वाहन खरीदने के लिए अधिक अनुकूल माने जाते हैं, जबकि शनिवार
+        (शनि ग्रह का दिन) को इससे बचना चाहिए। विशेष रूप से शुक्रवार को वाहन खरीदना अत्यंत शुभ माना गया है। इसके अलावा
+        एकादशी तिथि भी वाहन क्रय के लिए शुभ होती है।</p>
+
+    <p style="text-align: justify;">नक्षत्रों की बात करें तो स्वाति, पुनर्वसु, शतभिषा, धनिष्ठा, अश्विनी और मघा जैसे
+        नक्षत्र वाहन खरीदने के लिए शुभ
+        माने जाते हैं। तिथियों में चंद्र मास के पहले, तीसरे, पांचवें, छठे, दसवें, ग्यारहवें, तेरहवें दिन और पूर्णिमा को
+        शुभ तिथियों में गिना जाता है। राहुकाल के दौरान किसी भी प्रकार की खरीद-फरोख्त से बचना चाहिए, साथ ही अमावस्या को
+        वाहन खरीदने से भी परहेज करना चाहिए।</p>
+
+    <p style="text-align: justify; padding-bottom: 20px;"> इसके अतिरिक्त, यह भी जरूरी है कि वाहन खरीदते समय चंद्रमा आपकी
+        जन्म कुंडली के छठे,
+        आठवें या बारहवें भाव में न हो।
+        सही समय का निर्धारण करने के लिए जन्म कुंडली की गहन जांच आवश्यक है। इसके लिए आप हमारे अनुभवी ज्योतिषाचार्य से
+        सलाह लेकर ग्रहों की स्थिति के अनुसार उपयुक्त मुहूर्त जान सकते हैं।
+    </p>
+
+</div>
