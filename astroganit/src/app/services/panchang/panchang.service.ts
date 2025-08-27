@@ -19,6 +19,8 @@ export class PanchangService {
   private panchakApiUrl = 'http://localhost:5000/api/panchak'
   private muhuratApiUrl = 'http://localhost:5000/api/muhurat/'
   private festApiUrl = 'http://localhost:5000/api/festivals'
+  private festApiUrlNew = 'http://localhost:5000/api/festivalsNew/'
+  private vratUrl = 'http://localhost:5000/api/vrat/'
 
   private panchangDataSubject = new BehaviorSubject<PanchangResponse | null>(null);
   private PanchangInputSubject = new BehaviorSubject<PanchangInput | null>(null);
@@ -32,6 +34,7 @@ export class PanchangService {
   private annaprasanMuhuratDataSubject = new BehaviorSubject<MuhuratResponse | null>(null);
   private bhumiPujanMuhuratDataSubject = new BehaviorSubject<MuhuratResponse | null>(null);
   private festDataSubject = new BehaviorSubject<FestDetailResponse | null>(null);
+  private vratDataSubject = new BehaviorSubject<FestDetailResponse | null>(null);
 
   private placeSubject = new BehaviorSubject<Place | null>(null);
   private selectedDateSubject = new BehaviorSubject<Date | null>(null);
@@ -47,6 +50,7 @@ export class PanchangService {
   annprashanMuhuratData$ = this.annaprasanMuhuratDataSubject.asObservable();
   bhumiPujanMuhuratData$ = this.bhumiPujanMuhuratDataSubject.asObservable();
   festData$ = this.festDataSubject.asObservable();
+  vratData$ = this.vratDataSubject.asObservable();
   place$ = this.placeSubject.asObservable();
   selectedDate$ = this.selectedDateSubject.asObservable();
   isPlaceInitilized: boolean = false
@@ -125,13 +129,63 @@ export class PanchangService {
     console.log(body)
     return this.http.post<PanchakResponse>(this.panchakApiUrl, body);
   }
+  getFestData(city: string, state: string, latitude: string, longitude: string, timezone: string, day: number, month: number, year: number): Observable<FestDetailResponse> {
+    //console.log(city + state)
+    //console.log(latitude + longitude)
+    const body = {
+      "langCode": 2,
+      "panchangInputModel": {
+
+        "place": {
+          "city": city,
+          "state": state,
+          "latitude": latitude,
+          "longitude": longitude,
+          "timezone": timezone
+        },
+        "dateTimeInfo": {
+          "day": day,
+          "month": month,
+          "year": year
+        }
+      }
+    }
+    var url = this.festApiUrlNew + year + "/1"
+    console.log(this.festApiUrlNew)
+    // return this.http.post<FestDetailResponse>(this.festApiUrlNew, body);
+    return this.http.get<FestDetailResponse>(url);
+  }
+  getVratData(city: string, state: string, latitude: string, longitude: string, timezone: string, day: number, month: number, year: number): Observable<FestDetailResponse> {
+    //console.log(city + state)
+    //console.log(latitude + longitude)
+    const body = {
+      "langCode": 2,
+      "panchangInputModel": {
+
+        "place": {
+          "city": city,
+          "state": state,
+          "latitude": latitude,
+          "longitude": longitude,
+          "timezone": timezone
+        },
+        "dateTimeInfo": {
+          "day": day,
+          "month": month,
+          "year": year
+        }
+      }
+    }
+    var url = this.vratUrl + year + "/1"
+    console.log(this.vratUrl)
+    // return this.http.post<FestDetailResponse>(this.vratUrl, body);
+    return this.http.get<FestDetailResponse>(url);
+  }
   getMuhuratData(id: number): Observable<MuhuratResponse> {
     var apiUrl = this.muhuratApiUrl + id
     return this.http.get<MuhuratResponse>(apiUrl);
   }
-  getFestData(): Observable<FestDetailResponse> {
-    return this.http.get<FestDetailResponse>(this.festApiUrl);
-  }
+
   setPanchangData(panchangResponse: PanchangResponse) {
     this.panchangDataSubject.next(panchangResponse);
   }
@@ -174,5 +228,8 @@ export class PanchangService {
   }
   setFestData(festDetailResponse: FestDetailResponse) {
     this.festDataSubject.next(festDetailResponse);
+  }
+  setVratData(festDetailResponse: FestDetailResponse) {
+    this.vratDataSubject.next(festDetailResponse);
   }
 }

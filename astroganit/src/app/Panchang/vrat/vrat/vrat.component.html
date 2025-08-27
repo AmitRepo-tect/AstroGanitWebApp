@@ -1,1 +1,53 @@
-<p>vrat works!</p>
+<app-header></app-header>
+<div class="container-fluid" style="display: flex;flex-direction: column;">
+    <div class="row" style="margin-top: 30px; margin-left: 70px;margin-right: 70px;">
+        <div class="button-container" style="margin-top: 10px;">
+
+            <button (click)="changeVratType(0)" [ngClass]="{'selected': vratType == 0}">पूर्णिमा </button>
+            <button (click)="changeVratType(1)" [ngClass]="{'selected': vratType == 1}">अमावस्या</button>
+            <button (click)="changeVratType(2)" [ngClass]="{'selected': vratType == 2}">एकादशी </button>
+            <button (click)="changeVratType(3)" [ngClass]="{'selected': vratType == 3}">प्रदोष </button>
+            <button (click)="changeVratType(4)" [ngClass]="{'selected': vratType == 4}">मासिक शिवरात्रि </button>
+            <button (click)="changeVratType(5)" [ngClass]="{'selected': vratType == 5}">संकष्टी चतुर्थी </button>
+            <button (click)="changeVratType(6)" [ngClass]="{'selected': vratType == 6}"> संक्रांति कैलेण्डर </button>
+
+
+        </div>
+        <div class="col-9">
+            <app-date-place></app-date-place>
+        </div>
+        <div class="col-9" style="display: flex; justify-content: left; margin-top: 20px; padding-left: 0;">
+            <div
+                style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;width: 94%;">
+                <h5 style="margin: 0;">{{selectedMonth}} <strong>पंचक दिनांक और समय</strong></h5>
+            </div>
+            <div style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                <img src="assets/images/ic_backword_arrow.png" alt="Icon" (click)="decrementDate()"
+                    style="width: 30px; height: 30px;  border-radius: 5px; padding: 0;margin-right: 10px;">
+                <img src="assets/images/ic_forword_arrow.png" alt="Icon" (click)="incrementDate()"
+                    style="width: 30px; height: 30px;  border-radius: 5px; margin-right: 0; padding: 0;">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h5 style="margin-top: 10px;"><b>{{vrat}}</b></h5>
+                <div style="border: 1px solid gray; border-radius: 5px;">
+                    <div style="background-color: gainsboro; display: flex; align-items: center;">
+                        <p style="flex: 1; margin: 0; padding: 10px;">दिनांक</p>
+                        <p style="flex: 1; margin: 0; padding: 10px;">त्यौंहार</p>
+                    </div>
+                    <div *ngFor="let monthFestivals of festivalsByMonth; let last = last">
+                        <div style="display: flex;">
+                            <p style="flex: 1; margin: 12px 0; padding: 0 10px;">
+                                {{ convertJulianToDate(monthFestivals.festDate) }}
+                            </p>
+                            <p style="flex: 1; margin: 12px 0; padding: 0 10px;">{{ monthFestivals.festName }}</p>
+                        </div>
+                        <hr *ngIf="!last" style="margin: 0;" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,1 +1,52 @@
-<p>festival works!</p>
+<app-header></app-header>
+<div class="container-fluid" style="display: flex;flex-direction: column;">
+    <div class="row" style="margin-top: 30px; margin-left: 70px;margin-right: 70px;">
+        <div class="col-9">
+            <app-date-place></app-date-place>
+        </div>
+        <div class="col-9" style="display: flex; justify-content: left; margin-top: 20px; padding-left: 0;">
+            <div
+                style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;width: 94%;">
+                <h5 style="margin: 0;">{{selectedMonth}} <strong>पंचक दिनांक और समय</strong></h5>
+            </div>
+            <div style=" display: flex; justify-content: left; align-items: center; height: 50px; padding: 2px;">
+                <img src="assets/images/ic_backword_arrow.png" alt="Icon"
+                    style="width: 30px; height: 30px;  border-radius: 5px; padding: 0;margin-right: 10px;">
+                <img src="assets/images/ic_forword_arrow.png" alt="Icon"
+                    style="width: 30px; height: 30px;  border-radius: 5px; margin-right: 0; padding: 0;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <div *ngFor="let monthFestivals of festivalsByMonth; let monthIndex = index">
+                    <h3 style="margin-top: 10px;">{{ getHindiMonthName(monthIndex) }}</h3>
+
+                    <div style="border: 1px solid gray; border-radius: 5px;">
+                        <div style="background-color: gainsboro; display: flex; align-items: center;">
+                            <p style="flex: 1; margin: 0; padding: 10px;">दिनांक</p>
+                            <p style="flex: 1; margin: 0; padding: 10px;">त्यौंहार</p>
+
+                        </div>
+
+                        <p *ngIf="monthFestivals.length === 0" style="padding: 10px;">
+                            कोई डेटा उपलब्ध नहीं है।
+                        </p>
+
+                        <div *ngFor="let festival of monthFestivals; let last = last">
+                            <div style="display: flex;">
+
+                                <p style="flex: 1; margin: 12px 0; padding: 0 10px;">
+                                    {{ convertJulianToDate(festival.festDate) }}
+                                </p>
+                                <p style="flex: 1; margin: 12px 0; padding: 0 10px;">{{ festival.festName }}</p>
+                            </div>
+                            <hr *ngIf="!last" style="margin: 0;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
